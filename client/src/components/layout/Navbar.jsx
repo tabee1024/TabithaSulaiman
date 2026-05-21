@@ -1,19 +1,21 @@
-function Navbar() {
-    return (
-        <header className="site-header">
-            <a className="site-logo" href="/">
-                Tabitha Sulaiman
-            </a>
+import { NavLink } from "react-router-dom";
 
-            <nav className="site-nav" aria-label="Main navigation">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#systems">Systems</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-    );
+function Navbar() {
+  return (
+    <header className="site-header">
+      <NavLink className="site-logo" to="/">
+        Tabitha Sulaiman
+      </NavLink>
+
+      <nav className="site-nav" aria-label="Main navigation">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/experience">Experience</NavLink>
+        <NavLink to="/systems-thinking">Systems</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </nav>
+    </header>
+  );
 }
 
 export default Navbar;
