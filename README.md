@@ -6,7 +6,20 @@ I am building this portfolio to present my work across product thinking, UI/UX d
 
 ## Current Status
 
-v0.5 Case study strucure added
+v0.6 Frontend portfolio foundation
+
+The frontend currently includes:
+
+- React setup with Vite
+- Organized page and component structure
+- Design tokens and CSS structure
+- Homepage sections
+- Project data and project cards
+- React Router navigation
+- Project detail pages
+- Case study structure
+- Systems thinking page
+- Contact form frontend
 
 ## Tech Stack Planned
 
@@ -14,6 +27,14 @@ v0.5 Case study strucure added
 - Express
 - React
 - Node.js
+
+## Current Frontend Stack
+
+- React
+- Vite
+- React Router
+- CSS custom properties
+- Google Fonts for beta version
 
 ## Project Goals
 
@@ -23,8 +44,18 @@ v0.5 Case study strucure added
 - Document my process professionally
 - Practice secure project setup with environment variables
 
+## Frontend Commands
+
+From `client` folder:
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+
 ## Security Note
 
 Private credentials, API keys, database passwords, and environment variables are to be protected.
 
-Include safe placeholder creds when needed.
+Will include safe placeholder creds when needed.
