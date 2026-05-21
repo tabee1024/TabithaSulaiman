@@ -38,7 +38,7 @@ The design uses:
 The visual system does more than decorate the page. It guides attention, organizes information, and helps visitors move through the portfolio with less friction.
 
 ## Typography Direction
-
+Temporary Free Substitution for Hitchcut: Based off Hitchcut, font, I am using Bungee as a free web font alternative because it keeps the headings playful, bold, and personal while staying readable on the web.
 The display font for this portfolio is Hitchcut.
 
 Hitchcut creates the retro-inspired visual identity for headings, labels, navigation moments, and selected interface elements.
@@ -47,7 +47,7 @@ Long-form content uses a readable sans-serif font. This keeps project explanatio
 
 The typography system uses:
 
-- Hitchcut for headings and display moments
+- Bungee for headings and display moments
 - A readable sans-serif font for body text
 - Larger font sizes for major page sections
 - Clear spacing between headings and paragraphs

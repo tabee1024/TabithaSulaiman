@@ -1,8 +1,8 @@
 .page {
-  min-height: 100vh;
-  width: min(100% - 2rem, var(--content-width));
-  margin: 0 auto;
-  padding: var(--space-2xl) 0;
-  display: grid;
-  place-items: center;
+    min-height: 100vh;
+    width: min(100% - 2rem, var(--content-width));
+    margin: 0 auto;
+    padding: var(--space-2xl) 0;
+    display: grid;
+    place-items: center;
 }

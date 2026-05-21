@@ -1,27 +1,27 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  background-color: var(--color-cream);
+    background-color: var(--color-cream);
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  color: var(--color-text);
-  background-color: var(--color-cream);
-  font-family: var(--font-body);
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    color: var(--color-text);
+    background-color: var(--color-cream);
+    font-family: var(--font-body);
 }
 
 button,
 input,
 textarea,
 select {
-  font: inherit;
+    font: inherit;
 }
 
 a {
-  color: inherit;
+    color: inherit;
 }
