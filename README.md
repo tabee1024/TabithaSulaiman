@@ -2,30 +2,29 @@
 
 This is my full-stack MERN portfolio project.
 
-A Computer Science New Grad @ Cal State Northridge, I am building this portfolio to present my work across product thinking, UI/UX design, and software engineering. Currently, the project is being developed in working checkpoints, starting with planning documentation and growing into a full-stack application.
-
-Well- that's it for my introduction right now. Looking forward to connect on this month-long journey.
+I am building this portfolio to present my work across product thinking, UI/UX design, and software engineering. The project is being developed in working checkpoints, starting with planning documentation and growing into a full-stack application.
 
 ## Current Status
 
 v0.1 Project Setup
 
-## Planned Tech Stack
+## Tech Stack Planned
 
 - MongoDB
 - Express
 - React
 - Node.js
 
-## Project Structure
+## Project Goals
 
-```text
-TabithaSulaiman/
-  client/
-  server/
-  docs/
-    planning/
-    setup/
-    design/
-    security/
-    deployment/
+- Present my project work clearly
+- Explain my product, design, and engineering decisions
+- Build a full-stack contact form
+- Document my process professionally
+- Practice secure project setup with environment variables
+
+## Security Note
+
+Private credentials, API keys, database passwords, and environment variables should not be committed to this repository.
+
+Safe placeholder examples will be documented using `.env.example` files when needed.
