@@ -4,22 +4,29 @@ This is my full-stack MERN portfolio project.
 
 I am building this portfolio to present my work across product thinking, UI/UX design, and software engineering. The project is being developed in working checkpoints, starting with planning documentation and growing into a full-stack application.
 
+## Live Site
+
+[View my portfolio](https://tabitha-sulaiman.vercel.app/)
+
 ## Current Status
 
-v0.6 Frontend portfolio foundation
+v0.8 Frontend preview deployed
 
-The frontend currently includes:
+Frontend is deployed as an early live preview. Currently, I have the routing, project cards, project detail pages, case study structure, systems thinking content, and a frontend contact form down.
 
-- React setup with Vite
-- Organized page and component structure
-- Design tokens and CSS structure
-- Homepage sections
-- Project data and project cards
-- React Router navigation
-- Project detail pages
-- Case study structure
-- Systems thinking page
-- Contact form frontend
+This is all a basic preview so the backend, database, API proxy, email notifications, chat-style contact widget, and admin features are planned for the later build phases I have in store.
+
+## Current Hosting Plan
+
+The current deployment plan uses a free-first setup:
+
+- Vercel frontend
+- Render backend free plan
+- MongoDB Atlas free plam
+- Resend free plan
+- Custom domain: Few bucks a year
+
+Driving cost for my portfolio will be for the custom domain. Depending on futher implimentation down the line, I may consider upgrading Render due to the contact form's interaction with the Database.
 
 ## Tech Stack Planned
 
