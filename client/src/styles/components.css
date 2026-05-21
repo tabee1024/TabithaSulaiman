@@ -297,3 +297,46 @@
 .system-card h2 {
     margin-top: 0;
 }
+
+.contact-card {
+    width: min(100%, 720px);
+}
+
+.contact-form {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.form-field {
+    display: grid;
+    gap: var(--space-xs);
+}
+
+.form-field label {
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    border: 2px solid var(--color-brown-dark);
+    border-radius: 16px;
+    padding: 0.85rem 1rem;
+    color: var(--color-text);
+    background-color: var(--color-cream);
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: 3px solid rgba(139, 82, 0, 0.25);
+    outline-offset: 2px;
+}
+
+.form-status {
+    margin: 0;
+    font-weight: 700;
+}
