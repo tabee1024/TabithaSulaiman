@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
+import CaseStudyTemplate from "../components/caseStudies/CaseStudyTemplate";
 import projects from "../data/projects";
 
 function ProjectDetails() {
@@ -92,6 +93,8 @@ function ProjectDetails() {
                             <Link to="/projects">Back to Projects</Link>
                         </div>
                     </div>
+
+                    <CaseStudyTemplate project={project} />
                 </section>
             </main>
         </>

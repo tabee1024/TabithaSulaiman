@@ -6,7 +6,7 @@ I am building this portfolio to present my work across product thinking, UI/UX d
 
 ## Current Status
 
-v0.1 Project Setup
+v0.5 Case study strucure added
 
 ## Tech Stack Planned
 
@@ -25,6 +25,6 @@ v0.1 Project Setup
 
 ## Security Note
 
-Private credentials, API keys, database passwords, and environment variables should not be committed to this repository.
+Private credentials, API keys, database passwords, and environment variables are to be protected.
 
-Safe placeholder examples will be documented using `.env.example` files when needed.
+Include safe placeholder creds when needed.

@@ -265,3 +265,35 @@
 .project-detail-card p {
     max-width: 75ch;
 }
+
+.case-study-layout {
+    display: grid;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.case-study-card {
+    width: min(100%, 900px);
+}
+
+.case-study-card ul,
+.system-card ul {
+    margin: var(--space-sm) 0 0;
+    padding-left: 1.25rem;
+}
+
+.case-study-card li,
+.system-card li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.6;
+}
+
+.systems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+}
+
+.system-card h2 {
+    margin-top: 0;
+}

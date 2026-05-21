@@ -1,4 +1,6 @@
 import Navbar from "../components/layout/Navbar";
+import { featuredProjects } from "../data/projects";
+import ProjectGrid from "../components/projects/ProjectGrid";
 
 function CaseStudies() {
     return (
@@ -9,21 +11,14 @@ function CaseStudies() {
                 <section className="home-section" aria-labelledby="case-studies-title">
                     <div className="section-heading">
                         <p className="eyebrow">Case Studies</p>
-                        <h1 id="case-studies-title">Case studies will document how I think through product, design, and engineering decisions.</h1>
+                        <h1 id="case-studies-title">Project stories that explain the decisions behind the work.</h1>
                         <p>
-                            This section will expand each project beyond the final result. The goal is to show the
-                            problem, user need, constraints, tradeoffs, design decisions, technical decisions, and
-                            lessons learned.
+                            Each case study is structured to show the problem, user need, constraints, product
+                            decisions, design decisions, engineering decisions, tradeoffs, and next steps.
                         </p>
                     </div>
 
-                    <div className="content-card">
-                        <h2>Case study format</h2>
-                        <p>
-                            Each case study will follow a consistent structure so my work is easy to review,
-                            compare, and understand.
-                        </p>
-                    </div>
+                    <ProjectGrid projects={featuredProjects} />
                 </section>
             </main>
         </>
