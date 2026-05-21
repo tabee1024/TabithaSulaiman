@@ -2,7 +2,7 @@
 
 This is my full-stack MERN portfolio project.
 
-I am building this portfolio to present my work across product thinking, UI/UX design, and software engineering. Currently, the project is being developed in working checkpoints, starting with planning documentation and growing into a full-stack application.
+A Computer Science New Grad @ Cal State Northridge, I am building this portfolio to present my work across product thinking, UI/UX design, and software engineering. Currently, the project is being developed in working checkpoints, starting with planning documentation and growing into a full-stack application.
 
 Well- that's it for my introduction right now. Looking forward to connect on this month-long journey.
 
@@ -27,6 +27,6 @@ v0.1 Project Setup
 
 ## Security Note
 
-Private credentials, API keys, database passwords, and environment variables should not be committed to this repository.
+Will protect private credentials, API keys, database passwords, and environment variables.
 
 Safe placeholder examples will be documented using `.env.example` files when needed.
