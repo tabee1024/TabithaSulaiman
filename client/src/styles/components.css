@@ -1,0 +1,30 @@
+.hero-card,
+.content-card {
+  width: min(100%, 760px);
+  padding: var(--space-xl);
+  border: var(--border-strong);
+  border-radius: var(--radius-card);
+  background-color: var(--color-warm-neutral);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.hero-copy {
+  max-width: 62ch;
+  line-height: 1.7;
+}
+
+h1 {
+  margin: var(--space-md) 0;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+}

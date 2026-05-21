@@ -1,0 +1,11 @@
+@media (max-width: 640px) {
+  .page {
+    width: min(100% - 1rem, var(--content-width));
+    padding: var(--space-xl) 0;
+  }
+
+  .hero-card,
+  .content-card {
+    padding: var(--space-lg);
+  }
+}
