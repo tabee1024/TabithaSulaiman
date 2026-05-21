@@ -1,6 +1,6 @@
 function ProjectCard({ project }) {
   return (
-    <article className="project-card">
+    <article className="project-card" id={project.id}>
       <div className="project-card-header">
         <p className="project-type">{project.type}</p>
         <span className="project-status">{project.status}</span>
@@ -11,6 +11,16 @@ function ProjectCard({ project }) {
       <p className="project-role">{project.role}</p>
 
       <p className="project-summary">{project.summary}</p>
+
+      <div className="project-section">
+        <h4>Audience</h4>
+        <p>{project.audience}</p>
+      </div>
+
+      <div className="project-section">
+        <h4>Impact</h4>
+        <p>{project.impact}</p>
+      </div>
 
       <div className="project-section">
         <h4>Tools</h4>

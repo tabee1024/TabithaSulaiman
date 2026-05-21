@@ -1,5 +1,5 @@
-import projects from "../../data/projects";
-import ProjectCard from "../projects/ProjectCard";
+import { featuredProjects } from "../../data/projects";
+import ProjectGrid from "../projects/ProjectGrid";
 
 function FeaturedProjects() {
   return (
@@ -9,11 +9,7 @@ function FeaturedProjects() {
         <h2 id="projects-title">Selected work that connects product, design, and engineering.</h2>
       </div>
 
-      <div className="project-grid">
-        {projects.map((project) => (
-          <ProjectCard project={project} key={project.id} />
-        ))}
-      </div>
+      <ProjectGrid projects={featuredProjects} />
     </section>
   );
 }
