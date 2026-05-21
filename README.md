@@ -10,23 +10,22 @@ Well- that's it for my introduction right now. Looking forward to connect on thi
 
 v0.1 Project Setup
 
-## Tech Stack Planned
+## Planned Tech Stack
 
 - MongoDB
 - Express
 - React
 - Node.js
 
-## Project Goals
+## Project Structure
 
-- Present my project work clearly
-- Explain my product, design, and engineering decisions
-- Build a full-stack contact form
-- Document my process professionally
-- Practice secure project setup with environment variables
-
-## Security Note
-
-Will protect private credentials, API keys, database passwords, and environment variables.
-
-Safe placeholder examples will be documented using `.env.example` files when needed.
+```text
+TabithaSulaiman/
+  client/
+  server/
+  docs/
+    planning/
+    setup/
+    design/
+    security/
+    deployment/
