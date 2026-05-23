@@ -61,9 +61,17 @@ npm run dev
 npm run build
 npm run preview
 ```
+## Backend Status
+
+The backend is currently being built with Express and Node.js.
+
+Current API Routes:
+
+- `GET /api/health`
+- `POST /api/contact`
+
+The current stage of the "contact route" just validates incoming form data and returns a response. MongoDB storage, email notifications, and production API proxying are planned for later steps.
 
 ## Security Note
 
 Private credentials, API keys, database passwords, and environment variables are to be protected.
-
-Will include safe placeholder creds when needed.
