@@ -61,19 +61,26 @@ npm run dev
 npm run build
 npm run preview
 ```
-## Backend Status
+## Full-Stack Status
 
-Milestone 2: The Express backend connects to MongoDB Atlas locally using Mongoose.
+The React frontend is deployed on Vercel, and the Express backend runs locally with a MongoDB Atlas connection through Mongoose.
 
 Current backend routes:
 
 - `GET /api/health` confirms the backend server is running.
 - `POST /api/contact` validates contact form submissions and saves messages to MongoDB Atlas.
 
-Environment variables are handled through local `.env` files. The real MongoDB connection string is stored only in `server/.env` and is not committed to GitHub. A safe placeholder is provided in `server/.env.example`.
+Current frontend behavior:
 
-Current version: v1.1 Contact messages save to MongoDB.
+- The contact form collects name, email, and message.
+- The form validates required fields before submitting.
+- The form sends submissions to the local Express backend.
+- Successful submissions are saved in MongoDB Atlas.
+- The public contact endpoint returns a minimal success or error response.
 
+Environment variables are handled through local `.env` files. The real MongoDB connection string is stored only in `server/.env` and is not committed to GitHub. Safe placeholders are documented in `.env.example` files where needed.
+
+Current version: v1.2 Frontend contact form connected to backend locally.
 ## Security Note
 
 Private credentials, API keys, database passwords, and environment variables are to be protected.

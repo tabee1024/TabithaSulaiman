@@ -6,9 +6,12 @@ const initialFormData = {
     message: "",
 };
 
+const API_URL = "http://localhost:5000/api/contact";
+
 function ContactForm() {
     const [formData, setFormData] = useState(initialFormData);
     const [formStatus, setFormStatus] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -19,18 +22,43 @@ function ContactForm() {
         }));
     }
 
-    function handleSubmit(event) {
+    // Waits for backend response after form submission. If successful, shows success message and resets form. If error, shows error message.
+    async function handleSubmit(event) {
         event.preventDefault();
 
+        // Frontend Validation: Checks if required fields are filled out before sending data to backend. If not, shows error message and prevents submission.
         if (!formData.name || !formData.email || !formData.message) {
             setFormStatus("Please complete all fields before submitting.");
             return;
         }
 
-        setFormStatus("Form is ready. Backend connection comes next.");
-        console.log("Contact form data:", formData);
+        try {
+            setIsSubmitting(true);
+            setFormStatus("Sending your message...");
+            
+            // Sends data to API endpoint using POST method.
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-        setFormData(initialFormData);
+            const result = await response.json();
+
+            if (!response.ok) {
+                setFormStatus(result.message || "Something went wrong. Please try again.");
+                return;
+            }
+
+            setFormStatus(result.message || "Your message was sent successfully.");
+            setFormData(initialFormData);
+        } catch (error) {
+            setFormStatus("Unable to send your message right now. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -71,8 +99,8 @@ function ContactForm() {
                 />
             </div>
 
-            <button className="button button-primary" type="submit">
-                Send Message
+            <button className="button button-primary" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
             </button>
 
             {formStatus && <p className="form-status">{formStatus}</p>}

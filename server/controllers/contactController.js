@@ -25,7 +25,7 @@ export const createContactMessage = async (request, response) => {
             });
         }
 
-         // Calls validEmail function to check if email is in appropriate format. If not, returns an error response.
+        // Calls validEmail function to check if email is in appropriate format. If not, returns an error response.
         if (!isValidEmail(email)) {
             return response.status(400).json({
                 status: "error",
@@ -47,16 +47,12 @@ export const createContactMessage = async (request, response) => {
             reason,
             message,
         });
-        // 201 = Created. Successfully created contact message, returning the ID and submission timestamp in the response.
+        // 201 = Created. Successfully created contact message.
         return response.status(201).json({
             status: "success",
             message: "Your message was sent successfully.",
-            data: {
-                id: contactMessage._id,
-                submittedAt: contactMessage.createdAt,
-            },
         });
-    } 
+    }
     // 400 = Bad Request. User input did not meet validation requirements.
     catch (error) {
         if (error.name === "ValidationError") {
