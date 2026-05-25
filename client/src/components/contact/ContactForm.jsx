@@ -6,7 +6,7 @@ const initialFormData = {
     message: "",
 };
 
-const API_URL = "http://localhost:5000/api/contact";
+const API_URL = "/api/contact";
 
 function ContactForm() {
     const [formData, setFormData] = useState(initialFormData);
