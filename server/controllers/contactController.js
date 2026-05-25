@@ -1,4 +1,5 @@
 import ContactMessage from "../models/ContactMessage.js";
+import { sendContactNotification } from "../services/emailService.js";
 
 // Valid Email Format Checker
 const isValidEmail = (email) => {
@@ -32,13 +33,8 @@ export const createContactMessage = async (request, response) => {
                 message: "Please provide a valid email address.",
             });
         }
-
-        /*
-        Awaits the creation of a new contact message document in the database using the ContactMessage model. 
-        If successful, it returns a success response with the ID and submission timestamp of the new message. 
-        If there is a validation error (possibly due to schema constraints), it returns a 400 error response. 
-        For any other errors, it logs the error and returns a 500 error response.
-        */
+        
+        // Awaits the creation of a new contact message document in the database using the ContactMessage model. If successful, it returns a success response with the ID and submission timestamp of the new message. If there is a validation error (possibly due to schema constraints), it returns a 400 error response. For any other errors, it logs the error and returns a 500 error response.
         const contactMessage = await ContactMessage.create({
             name,
             email,
@@ -47,15 +43,22 @@ export const createContactMessage = async (request, response) => {
             reason,
             message,
         });
+
+        // Tries to send a contact notification email using the sendContactNotification function. If there is an error during email sending, it logs the error but does not affect the response to the user.
+        try {
+            await sendContactNotification(contactMessage);
+        } catch (emailError) {
+            console.error("Contact notification email error:", emailError.message);
+        }
+
         // 201 = Created. Successfully created contact message.
         return response.status(201).json({
             status: "success",
             message: "Your message was sent successfully.",
         });
-    }
-    // 400 = Bad Request. User input did not meet validation requirements.
-    catch (error) {
+    } catch (error) {
         if (error.name === "ValidationError") {
+            // 400 = Bad Request. User input did not meet validation requirements.
             return response.status(400).json({
                 status: "error",
                 message: "Please check your contact form details and try again.",
@@ -63,6 +66,7 @@ export const createContactMessage = async (request, response) => {
         }
 
         console.error("Contact message error:", error.message);
+
         // 500 = Internal Server Error. Backend issue occured during request processing.
         return response.status(500).json({
             status: "error",
