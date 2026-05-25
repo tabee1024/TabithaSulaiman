@@ -70,7 +70,7 @@ Current API Routes:
 - `GET /api/health`
 - `POST /api/contact`
 
-The current stage of the "contact route" just validates incoming form data and returns a response. MongoDB storage, email notifications, and production API proxying are planned for later steps.
+Milestone 1: Backend successfully connects to MongoDB Atlas (locally) through Mongoose. Contact message storage, email notifications, production API proxying, and admin features are planned for later steps.
 
 ## Security Note
 
