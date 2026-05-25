@@ -72,15 +72,16 @@ Current backend routes:
 
 Current frontend behavior:
 
-- Contact form collects name, email, and message.
+- The contact form collects name, email, and message.
 - The form validates required fields before submitting.
-- The form currently sends submissions to the backend API.
+- The form sends submissions to `/api/contact`.
+- Vercel rewrites `/api/*` requests to the Render backend.
 - Successful submissions are saved in MongoDB Atlas.
 - The public contact endpoint returns a minimal success or error response.
 
 Environment variables are managed through local `.env` files and deployment platform settings. The real MongoDB connection string is stored only in `server/.env` locally and in Render environment variables for production. It is not committed to GitHub.
 
-Current version: v1.3 Backend deployed on Render.
+Current version: v1.5 Vercel API proxy connected to Render backend.
 ## Security Note
 
 ## Production Environment Variables
