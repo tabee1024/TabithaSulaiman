@@ -63,14 +63,16 @@ npm run preview
 ```
 ## Backend Status
 
-The backend is currently being built with Express and Node.js.
+Milestone 2: The Express backend connects to MongoDB Atlas locally using Mongoose.
 
-Current API Routes:
+Current backend routes:
 
-- `GET /api/health`
-- `POST /api/contact`
+- `GET /api/health` confirms the backend server is running.
+- `POST /api/contact` validates contact form submissions and saves messages to MongoDB Atlas.
 
-Milestone 1: Backend successfully connects to MongoDB Atlas (locally) through Mongoose. Contact message storage, email notifications, production API proxying, and admin features are planned for later steps.
+Environment variables are handled through local `.env` files. The real MongoDB connection string is stored only in `server/.env` and is not committed to GitHub. A safe placeholder is provided in `server/.env.example`.
+
+Current version: v1.1 Contact messages save to MongoDB.
 
 ## Security Note
 

@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
-// Loads environment variables from .env file into process.env
 dotenv.config();
 
 connectDB();
@@ -28,29 +28,7 @@ app.get("/api/health", (request, response) => {
     });
 });
 
-app.post("/api/contact", (request, response) => {
-    const { name, email, title, company, reason, message } = request.body;
-
-    if (!name || !email || !message) {
-        return response.status(400).json({
-            status: "error",
-            message: "Name, email, and message are required.",
-        });
-    }
-
-    return response.status(200).json({
-        status: "success",
-        message: "Contact message received. Database connection comes next.",
-        data: {
-            name,
-            email,
-            title,
-            company,
-            reason,
-            message,
-        },
-    });
-});
+app.use("/api/contact", contactRoutes);
 
 app.listen(PORT, () => {
     console.log(`Portfolio API running on port ${PORT}`);
