@@ -83,4 +83,19 @@ Environment variables are managed through local `.env` files and deployment plat
 Current version: v1.3 Backend deployed on Render.
 ## Security Note
 
-Private credentials, API keys, database passwords, and environment variables are to be protected.
+## Production Environment Variables
+
+The backend uses environment variables so credentials and deployment-specific settings stay out of the codebase.
+
+Local backend variables are stored in appropriate files, which is not committed to GitHub. Production backend variables are stored in Render.
+
+Required backend variables:
+
+- `MONGODB_URI` connects the Express backend to MongoDB Atlas.
+- `CLIENT_ORIGIN` controls which frontend origin is allowed to call the backend from the browser.
+
+The deployed Render backend uses MongoDB Atlas Network Access rules that allow Render outbound IPs/CIDR ranges instead of allowing access from anywhere.
+
+The frontend does not store or receive the MongoDB connection string. Public contact submissions return a minimal success or error response only.
+
+Current ver: v1.4 Production environment variables verified.
