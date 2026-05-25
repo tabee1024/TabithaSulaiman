@@ -68,7 +68,7 @@ The React frontend is deployed on Vercel, and the Express backend is deployed on
 Current backend routes:
 
 - `GET /api/health` confirms the backend server is running.
-- `POST /api/contact` validates contact form submissions and saves messages to MongoDB Atlas.
+- `POST /api/contact` validates contact form submissions, saves messages to MongoDB Atlas, and sends a contact notification email through Resend.
 
 Current frontend behavior:
 
@@ -79,9 +79,10 @@ Current frontend behavior:
 - Successful submissions are saved in MongoDB Atlas.
 - The public contact endpoint returns a minimal success or error response.
 
-Environment variables are managed through local `.env` files and deployment platform settings. The real MongoDB connection string is stored only in `server/.env` locally and in Render environment variables for production. It is not committed to GitHub.
+Environment variables are managed through local `.env` files and deployment platform settings. Real secrets such as `MONGODB_URI` and `RESEND_API_KEY` are stored only in local `.env` files or Render environment variables. They are not committed to GitHub.
 
-Current version: v1.5 Vercel API proxy connected to Render backend.
+Current Ver: v1.6: Contact email notifications added for Backend & Frontend.
+
 ## Security Note
 
 ## Production Environment Variables
