@@ -63,25 +63,29 @@ npm run preview
 ```
 ## Full-Stack Status
 
-The React frontend is deployed on Vercel, and the Express backend is deployed on Render with MongoDB Atlas connected through Mongoose.
+My portfolio is deployed as a full-stack MERN application.
+
+Frontend:
+- React + Vite frontend hosted on Vercel.
+- Production domain: `https://www.tabithasulaiman.com`
+- Vercel rewrites `/api/*` requests to the Render backend.
+
+Backend:
+- Express + Node backend hosted on Render.
+- MongoDB Atlas connected through Mongoose.
+- Resend sends contact notification emails.
 
 Current backend routes:
-
 - `GET /api/health` confirms the backend server is running.
 - `POST /api/contact` validates contact form submissions, saves messages to MongoDB Atlas, and sends a contact notification email through Resend.
 
-Current frontend behavior:
-
-- The contact form collects name, email, and message.
-- The form validates required fields before submitting.
-- The form sends submissions to `/api/contact`.
-- Vercel rewrites `/api/*` requests to the Render backend.
-- Successful submissions are saved in MongoDB Atlas.
+Security and privacy:
+- Real secrets such as `MONGODB_URI` and `RESEND_API_KEY` are stored only in local `.env` files or deployment platform environment variables.
 - The public contact endpoint returns a minimal success or error response.
+- Contact submissions are used only to respond to messages.
+- No public admin routes are exposed.
 
-Environment variables are managed through local `.env` files and deployment platform settings. Real secrets such as `MONGODB_URI` and `RESEND_API_KEY` are stored only in local `.env` files or Render environment variables. They are not committed to GitHub.
-
-Current Ver: v1.6: Contact email notifications added for Backend & Frontend.
+Current Ver: v1.7 Custom domain connected.
 
 ## Security Note
 

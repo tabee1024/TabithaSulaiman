@@ -13,6 +13,7 @@ export async function sendContactNotification(contactMessage) {
     const resend = new Resend(resendApiKey);
 
     const submittedAt = new Date(contactMessage.createdAt).toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles",
         dateStyle: "medium",
         timeStyle: "short",
     });
