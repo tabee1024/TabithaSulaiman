@@ -320,7 +320,7 @@
     line-height: 1.6;
 }
 
-.chat-message p + p {
+.chat-message p+p {
     margin-top: var(--space-xs);
 }
 
@@ -517,4 +517,42 @@ button:disabled {
 .admin-message-card h3,
 .admin-message-card p {
     margin-top: 0;
+}
+
+.admin-message-status {
+    display: inline-flex;
+    margin: 0 0 var(--space-xs);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-brown-dark);
+    border-radius: var(--radius-button);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.admin-message-read {
+    opacity: 0.82;
+}
+
+.admin-message-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xs) var(--space-md);
+}
+
+.admin-message-meta p {
+    margin: 0;
+}
+
+.admin-message-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.admin-filter-control {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-weight: 700;
 }

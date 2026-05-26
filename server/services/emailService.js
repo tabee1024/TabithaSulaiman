@@ -21,9 +21,11 @@ export async function sendContactNotification(contactMessage) {
     const subject = `Portfolio: New message from ${contactMessage.name}${contactMessage.title ? `, ${contactMessage.title}` : ""
         }${contactMessage.company ? ` @ ${contactMessage.company}` : ""}`;
 
+    // Awaits Resend API respons after sending an email with contact info.
     await resend.emails.send({
         from: notificationFrom,
         to: notificationTo,
+        replyTo: contactMessage.email,
         subject,
         text: `
 New portfolio contact message

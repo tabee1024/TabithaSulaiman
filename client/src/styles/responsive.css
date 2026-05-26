@@ -41,6 +41,10 @@
         flex-direction: column;
     }
 
+    .admin-message-meta {
+        grid-template-columns: 1fr;
+    }
+
     .form-grid-two {
         grid-template-columns: 1fr;
     }
