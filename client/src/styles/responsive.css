@@ -35,4 +35,12 @@
     .project-grid {
         grid-template-columns: 1fr;
     }
+
+    .form-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-bubble {
+        max-width: 100%;
+    }
 }
