@@ -1,4 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+@font-face {
+    font-family: "Hitchcut";
+    src: url("../assets/fonts/Hitchcut-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     /* Colors */
@@ -9,8 +17,9 @@
     --color-text: #2b1b12;
 
     /* Typography */
-    --font-display: "Bungee", Georgia, serif;
+    --font-display: "Hitchcut", Georgia, serif;
     --font-body: "Montserrat", Arial, Helvetica, sans-serif;
+
     /* Spacing */
     --space-xs: 0.5rem;
     --space-sm: 0.75rem;

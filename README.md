@@ -35,7 +35,7 @@ Current production features:
 - React Router
 - CSS custom properties
 - Organized CSS files
-- Bungee display font
+- HitchCut display font
 - Montserrat body font
 
 ### Backend
