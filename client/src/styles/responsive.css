@@ -36,6 +36,11 @@
         grid-template-columns: 1fr;
     }
 
+    .admin-dashboard-header,
+    .admin-message-card-header {
+        flex-direction: column;
+    }
+
     .form-grid-two {
         grid-template-columns: 1fr;
     }

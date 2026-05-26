@@ -87,8 +87,6 @@ Security and privacy:
 
 Current Ver: v1.7 Custom domain connected.
 
-## Security Note
-
 ## Production Environment Variables
 
 The backend uses environment variables so credentials and deployment-specific settings stay out of the codebase.
@@ -105,3 +103,31 @@ The deployed Render backend uses MongoDB Atlas Network Access rules that allow R
 The frontend does not store or receive the MongoDB connection string. Public contact submissions return a minimal success or error response only.
 
 Current ver: v1.4 Production environment variables verified.
+
+## Admin Authentication
+
+My portfolio includes a protected admin dashboard for reviewing contact submissions.
+
+Admin routes:
+
+- `POST /api/admin/login` verifies admin creds and creates an httpOnly admin session cookie.
+- `GET /api/admin/messages` returns recent contact messages only when the admin session is valid.
+- `POST /api/admin/logout` clears the admin session cookie.
+
+Admin secrets are stored only in local `.env` files and Render environment variables.
+
+## Backend Dependencies
+
+Additional backend packages:
+
+- `bcryptjs` hashes and verifies the admin password without storing the plain password.
+- `jsonwebtoken` signs and verifies admin authentication tokens.
+- `cookie-parser` allows the Express backend to read authentication cookies.
+
+These packages support protected admin routes. Admin credentials, password hashes, and JWT secrets are not committed to GitHub.
+
+Current version: v1.9 Admin authentication and dashboard added.
+
+## Security Note
+
+Credentials protected in appropriate file storage and placeholders.

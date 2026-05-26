@@ -474,3 +474,47 @@ button:disabled {
     cursor: not-allowed;
     opacity: 0.7;
 }
+
+.admin-card {
+    width: min(100%, 900px);
+}
+
+.admin-dashboard {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.admin-dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.admin-dashboard-header h2 {
+    margin: 0;
+}
+
+.admin-message-list {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.admin-message-card {
+    padding: var(--space-md);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: 18px;
+    background-color: var(--color-cream);
+}
+
+.admin-message-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.admin-message-card h3,
+.admin-message-card p {
+    margin-top: 0;
+}
