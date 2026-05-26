@@ -116,17 +116,55 @@ Admin routes:
 
 Admin secrets are stored only in local `.env` files and Render environment variables.
 
-## Backend Dependencies
+### Frontend Dependencies
 
-Additional backend packages:
+The frontend lives in `client/`.
+
+Core packages:
+
+- `@vitejs/plugin-react` supports React inside the Vite build system.
+- `vite` runs the frontend development server and creates the production build.
+- `react` powers the component-based UI.
+- `react-dom` renders React into the browser.
+- `react-router-dom` handles client-side routing for pages like Home, Projects, Contact, and Admin.
+
+Development and code-quality packages:
+
+- `eslint` checks frontend code for common JavaScript and React issues.
+- `@eslint/js` provides ESLint’s core JavaScript rules.
+- `eslint-plugin-react-hooks` helps enforce correct React Hooks usage.
+- `eslint-plugin-react-refresh` supports safer React Fast Refresh behavior during development.
+- `globals` provides predefined global variables for linting.
+
+### Backend Dependencies
+
+The backend lives in `server/`.
+
+Core packages:
+
+- `express` runs the Node backend API.
+- `mongoose` connects the backend to MongoDB Atlas and defines database models.
+- `cors` controls which frontend origins can call the backend from the browser.
+- `dotenv` loads local environment variables from `server/.env`.
+- `resend` sends contact notification emails after a message is saved.
+
+Admin authentication packages:
 
 - `bcryptjs` hashes and verifies the admin password without storing the plain password.
 - `jsonwebtoken` signs and verifies admin authentication tokens.
 - `cookie-parser` allows the Express backend to read authentication cookies.
 
-These packages support protected admin routes. Admin credentials, password hashes, and JWT secrets are not committed to GitHub.
+Development packages:
 
-Current version: v1.9 Admin authentication and dashboard added.
+- `nodemon` restarts the backend automatically during local development.
+
+### Dependency Security Notes
+
+Real secrets are never stored in dependency files or committed to GitHub.
+
+Sensitive values such as `MONGODB_URI`, `RESEND_API_KEY`, `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `JWT_SECRET` are stored only in local `.env` files or deployment platform environment variables.
+
+The frontend does not receive database credentials, email service keys, admin credentials, or JWT secrets as expected.
 
 ## Security Note
 
