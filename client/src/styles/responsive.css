@@ -36,6 +36,15 @@
     .project-detail-tool-grid {
         grid-template-columns: 1fr;
     }
+
+    .projects-board-header {
+        grid-template-columns: 1fr;
+    }
+
+    .project-sort-label {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 @media (max-width: 900px) {
@@ -116,5 +125,22 @@
 
     .hero-system-panel div {
         min-height: auto;
+    }
+
+    .projects-page {
+        width: min(100% - 1rem, 1240px);
+    }
+
+    .projects-board {
+        padding: var(--space-md);
+    }
+
+    .project-filter-bar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .project-filter {
+        width: 100%;
     }
 }

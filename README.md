@@ -83,17 +83,18 @@ Visitor
 
 ## UI Structure Polish
 
-### Homepage UI Direction
+### Projects Page System
 
-The homepage is designed as an entry point into my portfolio operating system.
+The Projects page is designed as a framed project browsing system.
 
-It introduces:
+Current Projects page features:
 
-- Product thinking
-- UI/UX design
-- Systems thinking
-- Full-stack engineering
+- A board-style layout inspired by the portfolio operating system direction.
+- A short summary panel that explains how to browse the work.
+- Visual filter controls for All, Systems, Design, and Technical categories.
+- Project intelligence cards that show thinking lenses, outcomes, snapshot stats, and signal tags.
+- A lens guide that explains how systems, design, and technical thinking appear across projects.
 
-The hero uses strong display typography, warm neutral surfaces, brown interface framing, and structured system panels to establish the visual language before visitors move into projects.
+The current filter controls are visual structure only. Interactive filtering will be added after the layout and card system are stable.
 
-Current version: v2.5 Homepage visual polish added.
+Current version: v2.6 Projects page mockup alignment added.
