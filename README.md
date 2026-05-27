@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.0 Admin message management added**
+**v2.2 UI Improvements made across project view, systems, design. and engineering thinking.**
 
 Current production features:
 
@@ -81,14 +81,16 @@ Visitor
 - Render backend
 ```
 
-## Project Experience Redesign
+## UI Structure Polish
 
-The project section is structured around three thinking lenses:
+The homepage and project section use a structured portfolio system direction.
 
-- Systems thinking: flows, constraints, dependencies, and how the pieces connect.
-- Design thinking: usability, readability, accessibility, visual hierarchy, and interaction decisions.
-- Technical thinking: architecture, APIs, data models, deployment, authentication, and implementation tradeoffs.
+Current UI direction:
 
-Project cards are designed as project intelligence previews. Each card shows the project type, status, role, thinking lenses, outcome, project snapshot, tags, and a clear path into the detail page.
+- My logo and Hitchcut are unique to me and my personal/cultural identity.
+- Homepage hero introduces the portfolio as a connected product, design, systems, and engineering practice.
+- Project cards preview thinking lenses, outcomes, project snapshots, and tags.
+- Project pages continue the same systems/design/technical structure for deeper review.
+- The design uses warm neutrals, brown interface elements, thick borders, and cream content surfaces instead of pure white as a main design color.
 
-Current version: v2.1 Project experience redesigned.
+Current Ver: v2.2 UI structure polish added.

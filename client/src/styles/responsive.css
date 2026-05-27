@@ -15,6 +15,21 @@
     .project-detail-snapshot {
         grid-template-columns: 1fr;
     }
+
+    .hero-system-section,
+    .project-page-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-system-panel,
+    .about-principle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading-with-action {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 900px) {
@@ -66,4 +81,12 @@
         max-width: 100%;
     }
 
+    .hero-meta-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero-system-panel div {
+        padding: var(--space-md);
+    }
 }

@@ -9,13 +9,22 @@ function Projects() {
 
             <main className="home-page">
                 <section className="home-section" aria-labelledby="projects-page-title">
-                    <div className="section-heading">
-                        <p className="eyebrow">Projects</p>
-                        <h1 id="projects-page-title">Projects built as connected systems.</h1>
-                        <p>
-                            Each project is structured to show how I connect systems thinking,
-                            design decisions, and technical implementation into a clear product experience.
-                        </p>
+                    <div className="project-page-hero">
+                        <div className="section-heading">
+                            <p className="eyebrow">Projects</p>
+                            <h1 id="projects-page-title">Projects built as connected systems.</h1>
+                            <p>
+                                Each project is structured to show how I connect systems thinking,
+                                design decisions, and technical implementation into a clear product experience.
+                            </p>
+                        </div>
+
+                        <div className="project-page-summary" aria-label="Project page summary">
+                            <p>
+                                Browse the cards for a quick read, then open a project to see the decisions,
+                                tradeoffs, and implementation details behind the work.
+                            </p>
+                        </div>
                     </div>
 
                     <div className="project-lens-guide" aria-label="Project thinking lens guide">
