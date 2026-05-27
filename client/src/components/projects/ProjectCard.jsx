@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
 
-function ProjectCard({ project }) {
+function formatProjectNumber(projectNumber) {
+    return String(projectNumber).padStart(2, "0");
+}
+
+function ProjectCard({ project, projectNumber }) {
     return (
         <article className="project-card project-intelligence-card" id={project.id}>
-            <div className="project-card-topline">
-                <p className="project-type">{project.type}</p>
-                <span className="project-status">{project.status}</span>
+            <div className="project-card-system-bar">
+                <span className="project-card-number">
+                    {formatProjectNumber(projectNumber)}
+                </span>
+
+                <div className="project-card-topline">
+                    <p className="project-type">{project.type}</p>
+                    <span className="project-status">{project.status}</span>
+                </div>
             </div>
 
             <div className="project-card-title-block">
@@ -15,12 +25,15 @@ function ProjectCard({ project }) {
 
             <p className="project-summary">{project.summary}</p>
 
-            <div className="thinking-lens-row" aria-label="Thinking lenses">
-                {project.thinkingLenses.map((lens) => (
-                    <span className="thinking-lens" key={lens}>
-                        {lens}
-                    </span>
-                ))}
+            <div className="project-card-module">
+                <p className="project-section-label">Thinking Lens</p>
+                <div className="thinking-lens-row" aria-label="Thinking lenses">
+                    {project.thinkingLenses.map((lens) => (
+                        <span className="thinking-lens" key={lens}>
+                            {lens}
+                        </span>
+                    ))}
+                </div>
             </div>
 
             <div className="project-outcome-panel">
@@ -37,15 +50,18 @@ function ProjectCard({ project }) {
                 ))}
             </div>
 
-            <div className="project-tag-row" aria-label="Project tags">
-                {project.cardTags.map((tag) => (
-                    <span className="project-tag" key={tag}>
-                        {tag}
-                    </span>
-                ))}
+            <div className="project-card-module">
+                <p className="project-section-label">Signal Tags</p>
+                <div className="project-tag-row" aria-label="Project tags">
+                    {project.cardTags.map((tag) => (
+                        <span className="project-tag" key={tag}>
+                            {tag}
+                        </span>
+                    ))}
+                </div>
             </div>
 
-            <div className="project-actions">
+            <div className="project-actions project-card-actions">
                 <Link to={`/projects/${project.id}`}>
                     {project.detailCta || "View Details"}
                 </Link>

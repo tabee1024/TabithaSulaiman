@@ -83,14 +83,21 @@ Visitor
 
 ## UI Structure Polish
 
-The homepage and project section use a structured portfolio system direction.
+### Project Card System
 
-Current UI direction:
+Project cards are designed as structured project intelligence panels.
 
-- My logo and Hitchcut are unique to me and my personal/cultural identity.
-- Homepage hero introduces the portfolio as a connected product, design, systems, and engineering practice.
-- Project cards preview thinking lenses, outcomes, project snapshots, and tags.
-- Project pages continue the same systems/design/technical structure for deeper review.
-- The design uses warm neutrals, brown interface elements, thick borders, and cream content surfaces instead of pure white as a main design color.
+Each card includes:
 
-Current Ver: v2.2 UI structure polish added.
+- A project number for scan order.
+- Project type and status.
+- Role and summary.
+- Thinking lenses for systems, design, and technical framing.
+- Outcome panel for the project result.
+- Snapshot stats for quick context.
+- Signal tags for tools, themes, and implementation focus.
+- Clear actions for project details, GitHub, and live links.
+
+The card design uses warm neutrals, brown interface framing, thick borders, and structured modules to stay aligned with the portfolio operating system direction.
+
+Current ver: v2.3 Project card visual polish added.

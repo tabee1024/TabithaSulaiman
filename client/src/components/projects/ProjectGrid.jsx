@@ -3,8 +3,8 @@ import ProjectCard from "./ProjectCard";
 function ProjectGrid({ projects }) {
     return (
         <div className="project-grid project-intelligence-grid">
-            {projects.map((project) => (
-                <ProjectCard project={project} key={project.id} />
+            {projects.map((project, index) => (
+                <ProjectCard project={project} projectNumber={index + 1} key={project.id} />
             ))}
         </div>
     );

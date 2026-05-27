@@ -89,4 +89,14 @@
     .hero-system-panel div {
         padding: var(--space-md);
     }
+
+    .project-card-system-bar {
+        align-items: flex-start;
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-number {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
 }
