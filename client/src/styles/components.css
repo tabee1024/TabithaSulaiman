@@ -9,9 +9,24 @@
 }
 
 .site-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
     font-family: var(--font-display);
     font-weight: 700;
     text-decoration: none;
+    color: var(--color-brown-dark);
+}
+
+.site-logo-mark {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.site-logo-text {
+    line-height: 1;
 }
 
 .site-nav {
