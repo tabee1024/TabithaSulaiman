@@ -175,6 +175,58 @@
     font-weight: 800;
 }
 
+.hero-system-card {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-system-card::after {
+    content: "";
+    position: absolute;
+    right: var(--space-xl);
+    bottom: var(--space-xl);
+    width: 110px;
+    height: 110px;
+    border: 3px solid rgba(91, 53, 31, 0.22);
+    border-radius: 28px;
+    z-index: -1;
+}
+
+.hero-system-card h1 {
+    max-width: 900px;
+}
+
+.hero-system-panel h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+}
+
+.hero-system-panel div {
+    min-height: 150px;
+}
+
+.hero-system-panel div:nth-child(2) {
+    background-color: var(--color-warm-neutral);
+    color: var(--color-text);
+}
+
+.hero-system-panel div:nth-child(2) .project-section-label {
+    color: var(--color-text);
+}
+
+.hero-system-panel div:nth-child(2) span {
+    color: var(--color-brown-dark);
+}
+
+.hero-system-panel div:nth-child(2) p {
+    color: var(--color-text);
+}
+
+.hero-system-panel p {
+    line-height: 1.5;
+}
+
 .about-system-card {
     display: grid;
     gap: var(--space-md);
@@ -334,6 +386,10 @@
 
 .home-section {
     padding: var(--space-2xl) 0;
+}
+
+.home-section + .home-section {
+    border-top: 2px solid rgba(91, 53, 31, 0.18);
 }
 
 .section-heading {
@@ -732,6 +788,14 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
+}
+
+#projects .project-intelligence-grid {
+    margin-top: var(--space-md);
+}
+
+#projects .project-intelligence-card:first-child {
+    border-width: 3px;
 }
 
 .case-study-intro {

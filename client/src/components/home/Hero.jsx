@@ -6,24 +6,42 @@ const heroSignals = [
     "Full-Stack Engineering",
 ];
 
+const heroSystemItems = [
+    {
+        number: "01",
+        label: "Product",
+        description: "I frame the problem before designing the interface.",
+    },
+    {
+        number: "02",
+        label: "Design",
+        description: "I shape flows, hierarchy, and usability around real context.",
+    },
+    {
+        number: "03",
+        label: "Engineering",
+        description: "I build the system with data, APIs, deployment, and security in mind.",
+    },
+];
+
 function Hero() {
     return (
         <section className="hero-section hero-system-section" aria-labelledby="hero-title">
             <div className="hero-copy-block hero-system-card">
                 <div className="hero-meta-row">
                     <p className="eyebrow">Portfolio OS</p>
-                    <p className="hero-version">v2.1 / Live Build</p>
+                    <p className="hero-version">v2.4 / Live Build</p>
                 </div>
 
-                <h1 id="hero-title">Tabitha Sulaiman</h1>
+                <h1 id="hero-title">Designing systems. Building impact.</h1>
 
                 <p className="hero-tagline">
-                    Product-minded full-stack builder designing useful, human-centered systems.
+                    I’m Tabitha Sulaiman, a product-minded full-stack builder connecting UX, systems, and engineering.
                 </p>
 
                 <p className="hero-description">
-                    I connect systems thinking, UI/UX design, and full-stack engineering to build digital
-                    experiences that are clear, usable, and thoughtfully structured.
+                    My portfolio documents how I define problems, design usable interfaces, build full-stack features,
+                    and make responsible technical decisions across real project workflows.
                 </p>
 
                 <div className="hero-signal-row" aria-label="Portfolio focus areas">
@@ -45,18 +63,13 @@ function Hero() {
             </div>
 
             <aside className="hero-system-panel" aria-label="Portfolio system summary">
-                <div>
-                    <span>01</span>
-                    <p>Product logic</p>
-                </div>
-                <div>
-                    <span>02</span>
-                    <p>Interface design</p>
-                </div>
-                <div>
-                    <span>03</span>
-                    <p>Full-stack build</p>
-                </div>
+                {heroSystemItems.map((item) => (
+                    <div key={item.number}>
+                        <span>{item.number}</span>
+                        <h2>{item.label}</h2>
+                        <p>{item.description}</p>
+                    </div>
+                ))}
             </aside>
         </section>
     );

@@ -109,4 +109,12 @@
     .project-detail-side-panel {
         padding: var(--space-md);
     }
+
+    .hero-system-card::after {
+        display: none;
+    }
+
+    .hero-system-panel div {
+        min-height: auto;
+    }
 }

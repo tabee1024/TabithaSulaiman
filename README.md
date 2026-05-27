@@ -83,15 +83,17 @@ Visitor
 
 ## UI Structure Polish
 
-### Project Detail Pages
+### Homepage UI Direction
 
-Project detail pages are structured in layers:
+The homepage is designed as an entry point into my portfolio operating system.
 
-- Project hero for title, summary, and quick orientation.
-- Snapshot panel for role, status, and audience.
-- Overview card for thinking lenses, project stats, problem, solution, impact, tools, and skills.
-- Decision log for deeper case study sections, including context, user need, constraints, product decisions, design decisions, engineering decisions, tradeoffs, and next steps.
+It introduces:
 
-This structure helps visitors scan quickly first, then go deeper when they want to understand the reasoning behind the work.
+- Product thinking
+- UI/UX design
+- Systems thinking
+- Full-stack engineering
 
-Current version: v2.4 Project detail pages redesigned.
+The hero uses strong display typography, warm neutral surfaces, brown interface framing, and structured system panels to establish the visual language before visitors move into projects.
+
+Current version: v2.5 Homepage visual polish added.
