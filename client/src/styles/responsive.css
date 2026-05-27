@@ -6,6 +6,15 @@
     .systems-grid {
         grid-template-columns: 1fr;
     }
+
+    .project-lens-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .project-stat-grid,
+    .project-detail-snapshot {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 900px) {
@@ -20,6 +29,10 @@
 }
 
 @media (max-width: 640px) {
+    .project-card-topline {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 
     .home-page,
     .site-header {
@@ -52,4 +65,5 @@
     .chat-bubble {
         max-width: 100%;
     }
+
 }

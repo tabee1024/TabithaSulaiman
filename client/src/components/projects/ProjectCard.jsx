@@ -2,51 +2,54 @@ import { Link } from "react-router-dom";
 
 function ProjectCard({ project }) {
     return (
-        <article className="project-card" id={project.id}>
-            <div className="project-card-header">
+        <article className="project-card project-intelligence-card" id={project.id}>
+            <div className="project-card-topline">
                 <p className="project-type">{project.type}</p>
                 <span className="project-status">{project.status}</span>
             </div>
 
-            <h3>{project.title}</h3>
-
-            <p className="project-role">{project.role}</p>
+            <div className="project-card-title-block">
+                <h3>{project.title}</h3>
+                <p className="project-role">{project.role}</p>
+            </div>
 
             <p className="project-summary">{project.summary}</p>
 
-            <div className="project-section">
-                <h4>Audience</h4>
-                <p>{project.audience}</p>
+            <div className="thinking-lens-row" aria-label="Thinking lenses">
+                {project.thinkingLenses.map((lens) => (
+                    <span className="thinking-lens" key={lens}>
+                        {lens}
+                    </span>
+                ))}
             </div>
 
-            <div className="project-section">
-                <h4>Impact</h4>
-                <p>{project.impact}</p>
+            <div className="project-outcome-panel">
+                <p className="project-section-label">Outcome</p>
+                <p>{project.cardOutcome}</p>
             </div>
 
-            <div className="project-section">
-                <h4>Tools</h4>
-                <div className="skill-tags">
-                    {project.tools.map((tool) => (
-                        <span className="skill-tag" key={tool}>
-                            {tool}
-                        </span>
-                    ))}
-                </div>
+            <div className="project-stat-grid" aria-label="Project snapshot">
+                {project.impactStats.map((stat) => (
+                    <div className="project-stat" key={`${stat.label}-${stat.value}`}>
+                        <span>{stat.label}</span>
+                        <strong>{stat.value}</strong>
+                    </div>
+                ))}
             </div>
 
-            <div className="project-section">
-                <h4>Skills</h4>
-                <div className="skill-tags">
-                    {project.skills.map((skill) => (
-                        <span className="skill-tag" key={skill}>
-                            {skill}
-                        </span>
-                    ))}
-                </div>
+            <div className="project-tag-row" aria-label="Project tags">
+                {project.cardTags.map((tag) => (
+                    <span className="project-tag" key={tag}>
+                        {tag}
+                    </span>
+                ))}
             </div>
 
             <div className="project-actions">
+                <Link to={`/projects/${project.id}`}>
+                    {project.detailCta || "View Details"}
+                </Link>
+
                 {project.links.github && (
                     <a href={project.links.github} target="_blank" rel="noreferrer">
                         GitHub
@@ -55,11 +58,9 @@ function ProjectCard({ project }) {
 
                 {project.links.live && (
                     <a href={project.links.live} target="_blank" rel="noreferrer">
-                        Live Demo
+                        Live
                     </a>
                 )}
-
-                <Link to={`/projects/${project.id}`}>View Details</Link>
             </div>
         </article>
     );

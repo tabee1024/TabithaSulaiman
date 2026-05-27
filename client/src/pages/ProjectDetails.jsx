@@ -40,15 +40,34 @@ function ProjectDetails() {
                     </div>
 
                     <div className="content-card project-detail-card">
-                        <p>
-                            <strong>Role:</strong> {project.role}
-                        </p>
-                        <p>
-                            <strong>Status:</strong> {project.status}
-                        </p>
-                        <p>
-                            <strong>Audience:</strong> {project.audience}
-                        </p>
+                        <div className="project-detail-meta">
+                            <p>
+                                <strong>Role:</strong> {project.role}
+                            </p>
+                            <p>
+                                <strong>Status:</strong> {project.status}
+                            </p>
+                            <p>
+                                <strong>Audience:</strong> {project.audience}
+                            </p>
+                        </div>
+
+                        <div className="thinking-lens-row">
+                            {project.thinkingLenses.map((lens) => (
+                                <span className="thinking-lens" key={lens}>
+                                    {lens}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="project-detail-snapshot">
+                            {project.impactStats.map((stat) => (
+                                <div className="project-stat" key={`${stat.label}-${stat.value}`}>
+                                    <span>{stat.label}</span>
+                                    <strong>{stat.value}</strong>
+                                </div>
+                            ))}
+                        </div>
 
                         <h2>Problem</h2>
                         <p>{project.problem}</p>

@@ -79,3 +79,16 @@ Visitor
 - /api/contact
 - Vercel rewrite
 - Render backend
+```
+
+## Project Experience Redesign
+
+The project section is structured around three thinking lenses:
+
+- Systems thinking: flows, constraints, dependencies, and how the pieces connect.
+- Design thinking: usability, readability, accessibility, visual hierarchy, and interaction decisions.
+- Technical thinking: architecture, APIs, data models, deployment, authentication, and implementation tradeoffs.
+
+Project cards are designed as project intelligence previews. Each card shows the project type, status, role, thinking lenses, outcome, project snapshot, tags, and a clear path into the detail page.
+
+Current version: v2.1 Project experience redesigned.
