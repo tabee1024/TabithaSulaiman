@@ -83,21 +83,15 @@ Visitor
 
 ## UI Structure Polish
 
-### Project Card System
+### Project Detail Pages
 
-Project cards are designed as structured project intelligence panels.
+Project detail pages are structured in layers:
 
-Each card includes:
+- Project hero for title, summary, and quick orientation.
+- Snapshot panel for role, status, and audience.
+- Overview card for thinking lenses, project stats, problem, solution, impact, tools, and skills.
+- Decision log for deeper case study sections, including context, user need, constraints, product decisions, design decisions, engineering decisions, tradeoffs, and next steps.
 
-- A project number for scan order.
-- Project type and status.
-- Role and summary.
-- Thinking lenses for systems, design, and technical framing.
-- Outcome panel for the project result.
-- Snapshot stats for quick context.
-- Signal tags for tools, themes, and implementation focus.
-- Clear actions for project details, GitHub, and live links.
+This structure helps visitors scan quickly first, then go deeper when they want to understand the reasoning behind the work.
 
-The card design uses warm neutrals, brown interface framing, thick borders, and structured modules to stay aligned with the portfolio operating system direction.
-
-Current ver: v2.3 Project card visual polish added.
+Current version: v2.4 Project detail pages redesigned.

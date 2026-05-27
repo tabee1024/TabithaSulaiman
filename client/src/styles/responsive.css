@@ -30,6 +30,12 @@
         align-items: flex-start;
         flex-direction: column;
     }
+
+    .project-detail-hero,
+    .project-detail-story-grid,
+    .project-detail-tool-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 900px) {
@@ -98,5 +104,9 @@
     .project-card-number {
         width: 2.75rem;
         height: 2.75rem;
+    }
+
+    .project-detail-side-panel {
+        padding: var(--space-md);
     }
 }
