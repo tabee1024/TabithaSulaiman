@@ -1132,6 +1132,107 @@
     margin-top: 0;
 }
 
+.systems-page {
+    max-width: var(--wide-content-width);
+}
+
+.systems-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: var(--space-lg);
+    align-items: end;
+}
+
+.systems-definition-card {
+    padding: var(--space-lg);
+    border: var(--border-strong);
+    border-radius: var(--radius-card);
+    background-color: var(--color-brown);
+    color: var(--color-cream);
+    box-shadow: var(--shadow-card);
+}
+
+.systems-definition-card p {
+    margin-top: 0;
+    line-height: 1.7;
+}
+
+.systems-definition-card p:last-child {
+    margin-bottom: 0;
+}
+
+.systems-definition-card .project-section-label {
+    color: var(--color-cream);
+}
+
+.systems-pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.systems-pillar-card,
+.systems-example-card,
+.systems-tradeoff-card {
+    padding: var(--space-lg);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-warm);
+    box-shadow: var(--shadow-soft);
+}
+
+.systems-pillar-number {
+    display: inline-flex;
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--color-brown);
+}
+
+.systems-pillar-card h3,
+.systems-example-card h3,
+.systems-tradeoff-card h3 {
+    margin-top: 0;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+.systems-pillar-card p,
+.systems-example-card p,
+.systems-tradeoff-card p {
+    line-height: 1.65;
+}
+
+.systems-pillar-card ul {
+    margin: var(--space-md) 0 0;
+    padding-left: 1.1rem;
+}
+
+.systems-pillar-card li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.5;
+}
+
+.systems-example-grid,
+.systems-tradeoff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.systems-example-card {
+    background-color: var(--color-bg);
+}
+
+.systems-tradeoff-card {
+    background-color: var(--color-surface-muted);
+}
+
+.systems-cta-card {
+    width: min(100%, 900px);
+}
+
 
 /* ================================
    Contact / Chat Form

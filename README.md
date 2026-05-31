@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.3.9: Project detail pages redesigned with thinking tabs**
+**v2.4.0: Systems Thinking page updated**
 
 Current production features:
 
@@ -41,17 +41,17 @@ Current production features:
 
 
 ### Front-End Updates^^
-#### Project Detail Page Redesign
+#### Systems Thinking Page
 
-Project detail pages now organize each work item through thinking tabs:
+The Systems Thinking page explains how I connect user needs, interface decisions, data flow, technical constraints, security, documentation, and iteration loops.
 
-- Overview
-- Product
-- UX / UI
-- Engineering
-- Systems
+The page now includes:
 
-This structure helps visitors review the same project from different perspectives depending on what they are evaluating. The page keeps project storytelling focused on problem framing, design decisions, technical implementation, systems thinking, tradeoffs, and next steps.
+- A working definition of systems thinking.
+- A thinking stack for workflow mapping, data flow, tradeoffs, and iteration.
+- Applied examples from my portfolio.
+- Tradeoff cards that explain how I make product and engineering decisions.
+- A related Work CTA that connects systems thinking back to project evidence.
 
 ### Backend
 
