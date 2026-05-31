@@ -49,8 +49,17 @@
 
 @media (max-width: 900px) {
     .site-header {
-        align-items: flex-start;
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+        gap: var(--space-md);
+    }
+
+    .nav-cta {
+        width: 100%;
     }
 
     .skills-grid {
@@ -142,5 +151,49 @@
 
     .project-filter {
         width: 100%;
+    }
+
+    .site-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        min-width: 0;
+        text-decoration: none;
+
+    }
+
+    .site-logo-mark {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+    }
+
+    .site-logo-name {
+        max-width: 6.75rem;
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+    }
+
+    .site-logo .site-logo-mark {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+    }
+
+    .site-nav {
+        width: 100%;
+        gap: var(--space-sm);
+    }
+
+    .site-nav a {
+        font-size: 0.82rem;
     }
 }

@@ -6,16 +6,20 @@ function Navbar() {
         <header className="site-header">
             <NavLink className="site-logo" to="/" aria-label="Tabitha Sulaiman home">
                 <img className="site-logo-mark" src={tsLogo} alt="" />
-                <span className="site-logo-text">Tabitha Sulaiman</span>
+                <span className="site-logo-name">Tabitha Sulaiman</span>
             </NavLink>
 
             <nav className="site-nav" aria-label="Main navigation">
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/projects">Projects</NavLink>
-                <NavLink to="/experience">Experience</NavLink>
+                <NavLink to="/projects">Work</NavLink>
                 <NavLink to="/systems-thinking">Systems</NavLink>
+                <NavLink to="/about">About</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
             </nav>
+
+            <NavLink className="nav-cta" to="/contact">
+                Let&apos;s Connect <span aria-hidden="true">→</span>
+            </NavLink>
         </header>
     );
 }

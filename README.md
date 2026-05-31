@@ -83,18 +83,10 @@ Visitor
 
 ## UI Structure Polish
 
-### Projects Page System
+### Navigation Bar Update
 
-The Projects page is designed as a framed project browsing system.
+The public navigation now uses `Work` as the main label for the portfolio body of work, while the route remains `/projects`. This keeps the URL stable while making the experience broader than a project-only gallery.
 
-Current Projects page features:
+The site uses a custom TS logo, Hitchcut as the self-hosted display font, Montserrat as the body font, and a warm neutral interface system designed around readability, scannability, and recruiter-centered navigation.
 
-- A board-style layout inspired by the portfolio operating system direction.
-- A short summary panel that explains how to browse the work.
-- Visual filter controls for All, Systems, Design, and Technical categories.
-- Project intelligence cards that show thinking lenses, outcomes, snapshot stats, and signal tags.
-- A lens guide that explains how systems, design, and technical thinking appear across projects.
-
-The current filter controls are visual structure only. Interactive filtering will be added after the layout and card system are stable.
-
-Current version: v2.6 Projects page mockup alignment added.
+The browser metadata and favicon use the portfolio brand identity instead of the default Vite setup.

@@ -7,6 +7,7 @@ import Experience from "./pages/Experience";
 import SystemsThinking from "./pages/SystemsThinking";
 import Contact from "./pages/Contact";
 import AdminDashboard from "./pages/AdminDashboard";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/case-studies" element={<CaseStudies />} />
       <Route path="/experience" element={<Experience />} />
       <Route path="/systems-thinking" element={<SystemsThinking />} />
+      <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/admin" element={<AdminDashboard />} />
     </Routes>
