@@ -912,6 +912,113 @@
     gap: var(--space-lg);
 }
 
+/* ================================
+   Work -> Projects 
+=================================== */
+.work-filter-panel {
+    display: grid;
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-warm);
+}
+
+.work-filter-group {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.work-filter-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.work-results-summary {
+    margin-bottom: var(--space-md);
+    font-weight: 800;
+    color: var(--color-text-muted);
+}
+
+.project-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.project-filter {
+    min-height: 40px;
+    padding: 0.6rem 0.85rem;
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-button);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.project-filter:hover,
+.project-filter:focus-visible,
+.project-filter-active {
+    background-color: var(--color-brown);
+    color: var(--color-cream);
+}
+
+.project-sort-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 800;
+}
+
+.project-sort-label select {
+    min-height: 40px;
+    padding: 0.5rem 0.85rem;
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-button);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.project-subtitle {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-weight: 800;
+}
+
+.project-proof-list {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.project-proof-list li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.55;
+}
+
+.project-empty-state {
+    padding: var(--space-xl);
+    border: 2px dashed var(--color-brown-dark);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-warm);
+    text-align: center;
+}
+
+.project-empty-state h2,
+.project-empty-state p {
+    margin-top: 0;
+}
+
+.project-lens-guide-footer {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
 
 /* ================================
    Case Studies / Systems Pages

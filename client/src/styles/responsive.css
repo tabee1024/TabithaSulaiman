@@ -45,6 +45,10 @@
         margin-left: 0;
         width: 100%;
     }
+
+    .project-lens-guide-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 900px) {
@@ -195,5 +199,23 @@
 
     .site-nav a {
         font-size: 0.82rem;
+    }
+
+    .work-filter-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .project-sort-label {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .project-sort-label select {
+        width: 100%;
+    }
+
+    .project-lens-guide-footer {
+        grid-template-columns: 1fr;
     }
 }

@@ -2,7 +2,7 @@
 
 This is my full-stack MERN portfolio project.
 
-I am building this portfolio to present my work across product thinking, UI/UX design, and software engineering. The project is being developed in working checkpoints, starting with planning documentation and growing into a full-stack application.
+I built this portfolio to present my work across product thinking, UI/UX design, software engineering, and systems thinking. The project started as a frontend portfolio and has grown into a deployed full-stack application with a custom domain, contact system, email notifications, protected admin tools, and a polished project-viewing experience.
 
 ## Live Site
 
@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.2 UI Improvements made across project view, systems, design. and engineering thinking.**
+**v2.3.8: Projects now -> Work Page updated and redesigined with addiitonal filters**
 
 Current production features:
 
@@ -25,6 +25,7 @@ Current production features:
 - Resend sends contact notification emails.
 - Vercel rewrites `/api/*` requests to the Render backend.
 - Protected admin dashboard supports message review and follow-up management.
+- Project and work views are being redesigned around product, systems, design, and engineering thinking.
 
 ## Tech Stack
 
@@ -35,8 +36,22 @@ Current production features:
 - React Router
 - CSS custom properties
 - Organized CSS files
-- HitchCut display font
+- Hitchcut display font
 - Montserrat body font
+
+
+### Front-End Updates^^
+#### Work Page Redesign
+
+The `/projects` route is now treated as the public `Work` page. It supports recruiter-centered browsing by work type and thinking lens.
+
+Current Work page features:
+
+- Primary filters for All, Case Studies, Experience, Projects, and Leadership.
+- Thinking lens filters for Product, UX/UI, Engineering, and Systems.
+- Sort options for Newest, Oldest, Featured, and A-Z.
+- Project cards that show type, status, role, value, proof points, thinking lenses, and signal tags.
+- Empty state behavior when no work matches the selected filters.
 
 ### Backend
 
@@ -60,33 +75,24 @@ Current production features:
 ## Project Goals
 
 - Present my project work clearly and professionally.
-- Show product thinking, UI/UX judgment, and engineering ability.
+- Show product thinking, UI/UX judgment, systems thinking, and engineering ability.
 - Explain design and technical decisions through usability, readability, accessibility, and security.
 - Build a real full-stack contact system instead of a static form.
 - Use responsible environment variable handling and deployment practices.
 - Create an admin workflow for reviewing and managing contact submissions.
+- Make the project-viewing experience useful for people reviewing my work across product, design, and engineering lenses.
 
 ## Full-Stack Architecture
 
 My portfolio is deployed as a full-stack MERN application.
 
-Frontend flow:
+Frontend request flow:
 
 ```txt
 Visitor
-- www.tabithasulaiman.com
-- Vercel frontend
-- /api/contact
-- Vercel rewrite
-- Render backend
-```
+→ www.tabithasulaiman.com
+→ Vercel frontend
+→ /api/contact
+→ Vercel rewrite
+→ Render backend
 
-## UI Structure Polish
-
-### Navigation Bar Update
-
-The public navigation now uses `Work` as the main label for the portfolio body of work, while the route remains `/projects`. This keeps the URL stable while making the experience broader than a project-only gallery.
-
-The site uses a custom TS logo, Hitchcut as the self-hosted display font, Montserrat as the body font, and a warm neutral interface system designed around readability, scannability, and recruiter-centered navigation.
-
-The browser metadata and favicon use the portfolio brand identity instead of the default Vite setup.
