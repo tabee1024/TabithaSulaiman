@@ -912,6 +912,77 @@
     gap: var(--space-lg);
 }
 
+.project-back-link {
+    display: inline-flex;
+    margin-bottom: var(--space-lg);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.project-back-link:hover,
+.project-back-link:focus-visible {
+    text-decoration: underline;
+}
+
+.project-detail-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-warm);
+}
+
+.project-detail-tab {
+    min-height: 42px;
+    padding: 0.65rem 0.9rem;
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-button);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.project-detail-tab:hover,
+.project-detail-tab:focus-visible,
+.project-detail-tab-active {
+    background-color: var(--color-brown);
+    color: var(--color-cream);
+}
+
+.project-detail-tab-panel {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.project-detail-text-block {
+    padding: var(--space-lg);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-warm);
+}
+
+.project-detail-text-block h3,
+.project-detail-text-block p {
+    margin-top: 0;
+}
+
+.project-detail-text-block p:last-child {
+    margin-bottom: 0;
+}
+
+.project-detail-list {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.project-detail-list li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.65;
+}
+
 /* ================================
    Work -> Projects 
 =================================== */

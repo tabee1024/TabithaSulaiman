@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.3.8: Projects now -> Work Page updated and redesigined with addiitonal filters**
+**v2.3.9: Project detail pages redesigned with thinking tabs**
 
 Current production features:
 
@@ -41,17 +41,17 @@ Current production features:
 
 
 ### Front-End Updates^^
-#### Work Page Redesign
+#### Project Detail Page Redesign
 
-The `/projects` route is now treated as the public `Work` page. It supports recruiter-centered browsing by work type and thinking lens.
+Project detail pages now organize each work item through thinking tabs:
 
-Current Work page features:
+- Overview
+- Product
+- UX / UI
+- Engineering
+- Systems
 
-- Primary filters for All, Case Studies, Experience, Projects, and Leadership.
-- Thinking lens filters for Product, UX/UI, Engineering, and Systems.
-- Sort options for Newest, Oldest, Featured, and A-Z.
-- Project cards that show type, status, role, value, proof points, thinking lenses, and signal tags.
-- Empty state behavior when no work matches the selected filters.
+This structure helps visitors review the same project from different perspectives depending on what they are evaluating. The page keeps project storytelling focused on problem framing, design decisions, technical implementation, systems thinking, tradeoffs, and next steps.
 
 ### Backend
 
