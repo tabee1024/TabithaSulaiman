@@ -86,6 +86,13 @@
     .mockup-work-grid {
         grid-template-columns: 1fr;
     }
+
+    .deep-dive-hero,
+    .deep-dive-lens-grid,
+    .deep-dive-flow-grid,
+    .deep-dive-tradeoff-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 900px) {
@@ -319,5 +326,19 @@
 
     .mockup-work-card-media {
         min-height: 160px;
+    }
+
+    .systems-deep-dive-page {
+        width: min(100% - 1rem, var(--wide-content-width));
+    }
+
+    .deep-dive-hero-copy h1 {
+        font-size: clamp(2.6rem, 16vw, 4.5rem);
+    }
+
+    .deep-dive-cta-card {
+        align-items: stretch;
+        flex-direction: column;
+        padding: var(--space-lg);
     }
 }

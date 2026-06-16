@@ -1,95 +1,99 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 
-const systemsPillars = [
+const deepDiveSections = [
     {
-        id: "workflow-mapping",
-        title: "Workflow Mapping",
-        eyebrow: "01",
+        id: "product",
+        label: "Product",
+        title: "I start by defining the problem before choosing a solution.",
         description:
-            "I map how people move through a process before deciding what screens, data, or features are needed.",
-        examples: [
-            "Clarify the user goal",
-            "Identify friction points",
-            "Define required actions",
+            "I look at the user need, the goal, the constraints, and the value of the work before jumping into interface design or code.",
+        points: [
+            "Clarify the user or reviewer goal.",
+            "Identify what problem the project is actually solving.",
+            "Separate must-have functionality from nice-to-have ideas.",
         ],
     },
     {
-        id: "data-flow",
-        title: "Data Flow",
-        eyebrow: "02",
+        id: "ux-ui",
+        label: "UX / UI",
+        title: "I shape the experience around clarity and usability.",
         description:
-            "I think through where data starts, how it moves, where it is stored, and who should be allowed to access it.",
-        examples: [
-            "Frontend input",
-            "Backend validation",
-            "Database storage",
-            "Protected admin review",
+            "I think about how someone moves through the page, what they need to understand first, and how visual hierarchy can reduce confusion.",
+        points: [
+            "Design for scanability before deep reading.",
+            "Use layout, spacing, and labels to guide attention.",
+            "Keep forms and navigation predictable and accessible.",
         ],
     },
     {
-        id: "tradeoffs",
-        title: "Tradeoffs",
-        eyebrow: "03",
+        id: "engineering",
+        label: "Engineering",
+        title: "I build the system with data, APIs, and deployment in mind.",
         description:
-            "I compare options based on user value, build complexity, maintainability, security, and timing.",
-        examples: [
-            "Build now vs. later",
-            "Simple MVP vs. scalable system",
-            "Frontend convenience vs. backend security",
+            "I separate frontend behavior, backend validation, database storage, environment variables, and deployment concerns so the project can grow safely.",
+        points: [
+            "Use backend validation as the real source of truth.",
+            "Keep secrets out of frontend code and GitHub.",
+            "Build with reusable components and clear route structure.",
         ],
     },
     {
-        id: "iteration-loops",
-        title: "Iteration Loops",
-        eyebrow: "04",
+        id: "systems",
+        label: "Systems",
+        title: "I connect the parts so the feature works as a complete loop.",
         description:
-            "I plan how a feature can improve after launch through testing, feedback, documentation, and future refinements.",
-        examples: [
-            "QA checkpoints",
-            "Admin feedback",
-            "Error states",
-            "Future refactors",
+            "Systems thinking helps me understand how user input, interface states, backend behavior, storage, notifications, admin review, and future iteration affect each other.",
+        points: [
+            "Map how data moves through the feature.",
+            "Identify dependencies and risk points.",
+            "Plan what can be improved in later versions.",
         ],
     },
 ];
 
-const systemsExamples = [
+const exampleFlows = [
     {
-        title: "Portfolio contact system",
-        description:
-            "The contact flow connects a visitor-facing form, frontend validation, backend validation, MongoDB storage, Resend notifications, and protected admin review.",
+        title: "Contact system flow",
+        steps: [
+            "Visitor submits a form.",
+            "Frontend checks required fields.",
+            "Backend validates and saves the message.",
+            "MongoDB stores the submission.",
+            "Resend sends an email notification.",
+            "Admin dashboard supports review and follow-up.",
+        ],
     },
     {
-        title: "Work page filtering",
-        description:
-            "The Work page organizes projects by type and thinking lens so visitors can find the proof that matches what they are reviewing.",
-    },
-    {
-        title: "Admin message management",
-        description:
-            "The admin dashboard separates public submission behavior from protected message review, read status, archive status, and private notes.",
+        title: "Work page review flow",
+        steps: [
+            "Visitor chooses a role lens.",
+            "Work cards filter by reviewer intent.",
+            "Card preview gives a fast summary.",
+            "Project detail page explains decisions.",
+            "Tabs separate product, design, engineering, and systems thinking.",
+        ],
     },
 ];
 
 const tradeoffCards = [
     {
-        decision: "Relative API routes",
-        chosen: "Use /api routes with Vercel rewrites",
-        why:
-            "This keeps frontend code clean and lets the deployed site feel like one website even though the frontend and backend are hosted separately.",
+        title: "Build vs. embed",
+        decision: "I built my own contact system instead of using only a third-party form.",
+        reason:
+            "This gave me stronger full-stack proof and more control over validation, storage, email notifications, and admin review.",
     },
     {
-        decision: "Protected admin access",
-        chosen: "Use backend auth and httpOnly cookie behavior",
-        why:
-            "Admin message data should not be exposed through public routes or stored in frontend-only state.",
+        title: "Public vs. protected data",
+        decision: "I kept contact submissions behind protected admin routes.",
+        reason:
+            "Visitors can submit messages publicly, but message data should only be available through authenticated admin access.",
     },
     {
-        decision: "Small safe versions first",
-        chosen: "Build contact submission before admin replies",
-        why:
-            "The smallest safe version makes the system useful before adding more powerful email and messaging actions.",
+        title: "Simple now vs. scalable later",
+        decision: "I built the smallest safe version first.",
+        reason:
+            "The contact system works now, while reply history, stronger spam protection, and editable content can be added later.",
     },
 ];
 
@@ -98,49 +102,52 @@ function SystemsThinking() {
         <>
             <Navbar />
 
-            <main className="home-page systems-page">
-                <section className="home-section systems-hero" aria-labelledby="systems-title">
-                    <div className="section-heading">
-                        <p className="eyebrow">Systems Thinking</p>
-                        <h1 id="systems-title">
-                            I connect user needs, interface decisions, data flow, and technical constraints.
-                        </h1>
+            <main className="home-page systems-deep-dive-page">
+                <section className="home-section deep-dive-hero" aria-labelledby="deep-dive-title">
+                    <div className="deep-dive-hero-copy">
+                        <Link className="project-back-link" to="/projects">
+                            ← Back to Work
+                        </Link>
+
+                        <p className="eyebrow">Deep Dive</p>
+                        <h1 id="deep-dive-title">How I connect product, design, engineering, and systems thinking.</h1>
                         <p>
-                            Systems thinking is how I understand the full path around a feature before deciding
-                            what to design, build, test, or improve next.
+                            This page explains how I reason through work before, during, and after building.
+                            I use systems thinking to connect user needs, interface decisions, data flow,
+                            technical constraints, security, documentation, and iteration.
                         </p>
                     </div>
 
-                    <div className="systems-definition-card">
-                        <p className="project-section-label">Working definition</p>
+                    <aside className="deep-dive-summary-card" aria-label="Deep dive summary">
+                        <p className="project-section-label">Core idea</p>
                         <p>
-                            Systems thinking means looking at how the parts of a product affect each other:
-                            users, workflows, interface states, data, APIs, security, deployment, documentation,
-                            and future iteration.
+                            I do not treat product, design, and engineering as separate tracks.
+                            I use them together to understand what should be built, how it should feel,
+                            and how it should work.
                         </p>
-                    </div>
+                    </aside>
                 </section>
 
-                <section className="home-section" aria-labelledby="systems-stack-title">
+                <section className="home-section" aria-labelledby="deep-dive-lenses-title">
                     <div className="section-heading">
-                        <p className="eyebrow">Thinking Stack</p>
-                        <h2 id="systems-stack-title">How I break down a system.</h2>
+                        <p className="eyebrow">Thinking Lenses</p>
+                        <h2 id="deep-dive-lenses-title">The lenses I use to break down a project.</h2>
                         <p>
-                            I use these four lenses to move from problem framing to implementation without
-                            losing sight of usability, maintainability, or risk.
+                            Each lens helps me catch a different part of the system: the problem,
+                            the experience, the implementation, and the full loop around the work.
                         </p>
                     </div>
 
-                    <div className="systems-pillar-grid">
-                        {systemsPillars.map((pillar) => (
-                            <article className="systems-pillar-card" key={pillar.id}>
-                                <span className="systems-pillar-number">{pillar.eyebrow}</span>
-                                <h3>{pillar.title}</h3>
-                                <p>{pillar.description}</p>
+                    <div className="deep-dive-lens-grid">
+                        {deepDiveSections.map((section) => (
+                            <article className="deep-dive-lens-card" key={section.id}>
+                                <span>{section.label}</span>
+                                <h3>{section.title}</h3>
+                                <p>{section.description}</p>
 
                                 <ul>
-                                    {pillar.examples.map((example) => (
-                                        <li key={example}>{example}</li>
+                                    {section.points.map((point) => (
+                                        <li key={point}>{point}</li>
                                     ))}
                                 </ul>
                             </article>
@@ -148,58 +155,65 @@ function SystemsThinking() {
                     </div>
                 </section>
 
-                <section className="home-section" aria-labelledby="systems-examples-title">
+                <section className="home-section" aria-labelledby="deep-dive-flow-title">
                     <div className="section-heading">
-                        <p className="eyebrow">Applied Examples</p>
-                        <h2 id="systems-examples-title">Where systems thinking shows up in my portfolio.</h2>
+                        <p className="eyebrow">System Flows</p>
+                        <h2 id="deep-dive-flow-title">How the thinking shows up in real portfolio features.</h2>
                     </div>
 
-                    <div className="systems-example-grid">
-                        {systemsExamples.map((example) => (
-                            <article className="systems-example-card" key={example.title}>
-                                <h3>{example.title}</h3>
-                                <p>{example.description}</p>
+                    <div className="deep-dive-flow-grid">
+                        {exampleFlows.map((flow) => (
+                            <article className="deep-dive-flow-card" key={flow.title}>
+                                <h3>{flow.title}</h3>
+
+                                <ol>
+                                    {flow.steps.map((step) => (
+                                        <li key={step}>{step}</li>
+                                    ))}
+                                </ol>
                             </article>
                         ))}
                     </div>
                 </section>
 
-                <section className="home-section" aria-labelledby="tradeoffs-title">
+                <section className="home-section" aria-labelledby="deep-dive-tradeoffs-title">
                     <div className="section-heading">
                         <p className="eyebrow">Tradeoffs</p>
-                        <h2 id="tradeoffs-title">The decisions behind the system matter.</h2>
+                        <h2 id="deep-dive-tradeoffs-title">The decisions behind the system matter.</h2>
                         <p>
-                            A portfolio can show more than final screens. It can show how decisions were made,
-                            what was delayed, and why the chosen version was the right next step.
+                            A strong project is not only about what was built. It also shows what was
+                            delayed, what was protected, and why a specific version was the right next step.
                         </p>
                     </div>
 
-                    <div className="systems-tradeoff-grid">
+                    <div className="deep-dive-tradeoff-grid">
                         {tradeoffCards.map((tradeoff) => (
-                            <article className="systems-tradeoff-card" key={tradeoff.decision}>
-                                <p className="project-section-label">{tradeoff.decision}</p>
-                                <h3>{tradeoff.chosen}</h3>
-                                <p>{tradeoff.why}</p>
+                            <article className="deep-dive-tradeoff-card" key={tradeoff.title}>
+                                <p className="project-section-label">{tradeoff.title}</p>
+                                <h3>{tradeoff.decision}</h3>
+                                <p>{tradeoff.reason}</p>
                             </article>
                         ))}
                     </div>
                 </section>
 
-                <section className="home-section systems-cta-section" aria-labelledby="systems-cta-title">
-                    <div className="content-card systems-cta-card">
-                        <p className="eyebrow">Related Work</p>
-                        <h2 id="systems-cta-title">See how this thinking appears in the work itself.</h2>
-                        <p>
-                            The Work page lets you filter projects by Product, UX/UI, Engineering, and Systems
-                            so you can review the proof from the lens that matters most.
-                        </p>
+                <section className="home-section" aria-labelledby="deep-dive-cta-title">
+                    <div className="deep-dive-cta-card">
+                        <div>
+                            <p className="eyebrow">Related Work</p>
+                            <h2 id="deep-dive-cta-title">See this thinking applied to the work itself.</h2>
+                            <p>
+                                The Work page lets you filter by Product, UX/UI, Engineering, and Systems
+                                so you can review my projects through the lens that matters most.
+                            </p>
+                        </div>
 
                         <div className="hero-actions">
                             <Link className="button button-primary" to="/projects?lens=systems">
-                                View Systems Work
+                                View Systems Work →
                             </Link>
                             <Link className="button button-secondary" to="/contact">
-                                Let&apos;s Connect
+                                Let’s Connect
                             </Link>
                         </div>
                     </div>
