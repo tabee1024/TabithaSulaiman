@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 
-function formatProjectNumber(projectNumber) {
-    return String(projectNumber).padStart(2, "0");
-}
-
 function getDisplayTypeLabel(displayType) {
     const labels = {
         "case-study": "Case Study",
@@ -15,89 +11,77 @@ function getDisplayTypeLabel(displayType) {
     return labels[displayType] || "Work";
 }
 
-function ProjectCard({ project, projectNumber }) {
+function ProjectCard({ project }) {
+    const visibleTools = project.tools.slice(0, 4);
+    const visibleLenses = project.thinkingLenses.slice(0, 3);
+
     return (
-        <article className="project-card project-intelligence-card" id={project.id}>
-            <div className="project-card-system-bar">
-                <span className="project-card-number">
-                    {formatProjectNumber(projectNumber)}
-                </span>
-
-                <div className="project-card-topline">
-                    <p className="project-type">{getDisplayTypeLabel(project.displayType)}</p>
-                    <span className="project-status">{project.status}</span>
+        <article className="mockup-work-card" id={project.id}>
+            <div className="mockup-work-card-media" aria-hidden="true">
+                <div className="mockup-card-browser-bar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-            </div>
 
-            <div className="project-card-title-block">
-                <h3>{project.title}</h3>
-                <p className="project-subtitle">{project.subtitle || project.type}</p>
-                <p className="project-role">{project.role}</p>
-            </div>
-
-            <p className="project-summary">{project.shortValue || project.summary}</p>
-
-            <div className="project-card-module">
-                <p className="project-section-label">Best Proof For</p>
-                <div className="thinking-lens-row" aria-label="Thinking lenses">
-                    {project.thinkingLenses.map((lens) => (
-                        <span className="thinking-lens" key={lens}>
-                            {lens}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            <div className="project-outcome-panel">
-                <p className="project-section-label">Why it matters</p>
-                <p>{project.cardOutcome}</p>
-            </div>
-
-            <div className="project-card-module">
-                <p className="project-section-label">Proof Points</p>
-                <ul className="project-proof-list">
-                    {project.proofPoints.slice(0, 3).map((point) => (
-                        <li key={point}>{point}</li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="project-stat-grid" aria-label="Project snapshot">
-                {project.impactStats.map((stat) => (
-                    <div className="project-stat" key={`${stat.label}-${stat.value}`}>
-                        <span>{stat.label}</span>
-                        <strong>{stat.value}</strong>
+                <div className="mockup-card-screen">
+                    <div className="mockup-card-screen-block mockup-card-screen-block-large"></div>
+                    <div className="mockup-card-screen-row">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                ))}
+                    <div className="mockup-card-screen-line"></div>
+                    <div className="mockup-card-screen-line short"></div>
+                </div>
             </div>
 
-            <div className="project-card-module">
-                <p className="project-section-label">Signals</p>
-                <div className="project-tag-row" aria-label="Project tags">
-                    {project.cardTags.map((tag) => (
-                        <span className="project-tag" key={tag}>
-                            {tag}
-                        </span>
+            <div className="mockup-work-card-body">
+                <div className="mockup-work-card-header">
+                    <span className="mockup-card-badge">{getDisplayTypeLabel(project.displayType)}</span>
+                    <span className="mockup-card-badge mockup-card-badge-status">{project.status}</span>
+                </div>
+
+                <div>
+                    <h3>{project.title}</h3>
+                    <p className="mockup-work-card-subtitle">{project.subtitle || project.type}</p>
+                </div>
+
+                <p className="mockup-work-card-summary">
+                    {project.shortValue || project.summary}
+                </p>
+
+                <div className="mockup-lens-row" aria-label="Thinking lenses">
+                    {visibleLenses.map((lens) => (
+                        <span key={lens}>{lens}</span>
+                    ))}
+                </div>
+
+                <div className="mockup-tool-row" aria-label="Tools and technologies">
+                    {visibleTools.map((tool) => (
+                        <span key={tool}>{tool}</span>
                     ))}
                 </div>
             </div>
 
-            <div className="project-actions project-card-actions">
+            <div className="mockup-work-card-footer">
                 <Link to={`/projects/${project.id}`}>
-                    {project.detailCta || "View Work"}
+                    {project.detailCta || "View Case Study"} →
                 </Link>
 
-                {project.links.github && (
-                    <a href={project.links.github} target="_blank" rel="noreferrer">
-                        GitHub
-                    </a>
-                )}
+                <div>
+                    {project.links.github && (
+                        <a href={project.links.github} target="_blank" rel="noreferrer">
+                            GitHub
+                        </a>
+                    )}
 
-                {project.links.live && (
-                    <a href={project.links.live} target="_blank" rel="noreferrer">
-                        Live
-                    </a>
-                )}
+                    {project.links.live && (
+                        <a href={project.links.live} target="_blank" rel="noreferrer">
+                            Live
+                        </a>
+                    )}
+                </div>
             </div>
         </article>
     );

@@ -11,9 +11,9 @@ function ProjectGrid({ projects, emptyMessage = "No work found for those filters
     }
 
     return (
-        <div className="project-grid project-intelligence-grid">
-            {projects.map((project, index) => (
-                <ProjectCard project={project} projectNumber={index + 1} key={project.id} />
+        <div className="mockup-work-grid">
+            {projects.map((project) => (
+                <ProjectCard project={project} key={project.id} />
             ))}
         </div>
     );

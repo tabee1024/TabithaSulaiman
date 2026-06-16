@@ -62,7 +62,7 @@
         grid-template-columns: 1fr;
     }
 
-        .mockup-hero,
+    .mockup-hero,
     .expertise-strip,
     .role-pathways-grid {
         grid-template-columns: 1fr;
@@ -79,6 +79,12 @@
 
     .mockup-hero-visual {
         min-height: 360px;
+    }
+
+    .work-page-header,
+    .work-control-row,
+    .mockup-work-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -263,7 +269,8 @@
     .contact-method-card {
         padding: var(--space-md);
     }
-        .home-mockup-page {
+
+    .home-mockup-page {
         width: min(100% - 1rem, var(--wide-content-width));
     }
 
@@ -293,5 +300,24 @@
 
     .role-pathway-card {
         min-height: auto;
+    }
+
+    .work-mockup-page {
+        width: min(100% - 1rem, var(--wide-content-width));
+    }
+
+    .work-control-footer,
+    .work-bottom-cta,
+    .mockup-work-card-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mockup-filter-button {
+        width: 100%;
+    }
+
+    .mockup-work-card-media {
+        min-height: 160px;
     }
 }

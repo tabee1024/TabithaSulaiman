@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.4.0: Started resembling figma mockup design more**
+**v2.4.3: Work page rebuilt**
 
 Current production features:
 

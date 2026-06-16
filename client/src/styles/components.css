@@ -1803,3 +1803,314 @@ body {
 .selected-work-section .project-grid {
     margin-top: var(--space-lg);
 }
+
+/* ================================
+   v2.4.3 Work Page Mockup Alignment
+================================ */
+
+.work-mockup-page {
+    width: min(100% - 2rem, var(--wide-content-width));
+}
+
+.work-hero-section {
+    padding-top: var(--space-xl);
+}
+
+.work-page-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: var(--space-lg);
+    align-items: end;
+    margin-bottom: var(--space-xl);
+}
+
+.work-page-header h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.9;
+    color: var(--color-accent-dark);
+    text-transform: uppercase;
+}
+
+.work-page-header p {
+    max-width: 60ch;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.work-page-note {
+    padding: var(--space-lg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-nav);
+}
+
+.work-page-note p {
+    margin: 0;
+}
+
+.work-control-board {
+    display: grid;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-nav);
+}
+
+.work-control-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: var(--space-lg);
+    align-items: end;
+}
+
+.mockup-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.mockup-filter-button {
+    min-height: 38px;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mockup-filter-button:hover,
+.mockup-filter-button:focus-visible,
+.mockup-filter-button-active {
+    border-color: var(--color-accent-dark);
+    background-color: var(--color-button);
+    color: var(--color-cream);
+}
+
+.mockup-sort-label {
+    display: grid;
+    gap: var(--space-xs);
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.mockup-sort-label select {
+    min-height: 42px;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.work-control-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.work-control-footer p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-weight: 700;
+}
+
+.mockup-work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.mockup-work-card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.mockup-work-card-media {
+    min-height: 190px;
+    padding: var(--space-md);
+    background:
+        linear-gradient(135deg, rgba(112, 60, 2, 0.14), rgba(244, 241, 235, 0.95));
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mockup-card-browser-bar {
+    display: flex;
+    gap: 0.35rem;
+    margin-bottom: var(--space-sm);
+}
+
+.mockup-card-browser-bar span {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background-color: var(--color-button);
+    opacity: 0.7;
+}
+
+.mockup-card-screen {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border: 2px solid var(--color-accent-dark);
+    border-radius: var(--radius-md);
+    background-color: #1e1712;
+}
+
+.mockup-card-screen-block {
+    border-radius: var(--radius-sm);
+    background-color: rgba(248, 247, 244, 0.86);
+}
+
+.mockup-card-screen-block-large {
+    min-height: 64px;
+}
+
+.mockup-card-screen-row {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1.2fr;
+    gap: var(--space-xs);
+}
+
+.mockup-card-screen-row span,
+.mockup-card-screen-line {
+    height: 0.75rem;
+    border-radius: var(--radius-sm);
+    background-color: rgba(248, 247, 244, 0.75);
+}
+
+.mockup-card-screen-line.short {
+    width: 65%;
+}
+
+.mockup-work-card-body {
+    display: grid;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+}
+
+.mockup-work-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+}
+
+.mockup-card-badge {
+    display: inline-flex;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.mockup-card-badge-status {
+    border-color: var(--color-button);
+    color: var(--color-button);
+}
+
+.mockup-work-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    color: var(--color-accent-dark);
+    line-height: 1;
+}
+
+.mockup-work-card-subtitle {
+    margin: var(--space-xs) 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.mockup-work-card-summary {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.mockup-lens-row,
+.mockup-tool-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.mockup-lens-row span,
+.mockup-tool-row span {
+    display: inline-flex;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.mockup-lens-row span {
+    border-color: var(--color-accent-dark);
+    color: var(--color-accent-dark);
+}
+
+.mockup-work-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-nav);
+}
+
+.mockup-work-card-footer a {
+    color: var(--color-accent-dark);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.mockup-work-card-footer a:hover,
+.mockup-work-card-footer a:focus-visible {
+    text-decoration: underline;
+}
+
+.mockup-work-card-footer div {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.work-bottom-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
+    padding: var(--space-xl);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-nav);
+}
+
+.work-bottom-cta h2,
+.work-bottom-cta p {
+    margin: 0;
+}
