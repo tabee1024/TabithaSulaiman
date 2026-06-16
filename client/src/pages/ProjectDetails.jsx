@@ -14,30 +14,80 @@ const detailTabs = [
     },
     {
         id: "ux-ui",
-        label: "UX / UI",
+        label: "UI/UX",
     },
     {
         id: "engineering",
         label: "Engineering",
     },
-    {
-        id: "systems",
-        label: "Systems",
-    },
 ];
 
-function renderList(items) {
+function renderList(items, fallback = "Details will be added as this project develops.") {
     if (!items || items.length === 0) {
-        return <p>Details will be added as this project develops.</p>;
+        return <p>{fallback}</p>;
     }
 
     return (
-        <ul className="project-detail-list">
+        <ul className="case-study-list">
             {items.map((item) => (
                 <li key={item}>{item}</li>
             ))}
         </ul>
     );
+}
+
+function getTabContent(project, activeTab) {
+    const caseStudy = project.caseStudy;
+
+    if (activeTab === "product") {
+        return {
+            eyebrow: "Product Perspective",
+            title: "How I framed the problem and made product decisions.",
+            problemTitle: "User need",
+            problemText: caseStudy.userNeed,
+            solutionTitle: "Product decisions",
+            solutionContent: renderList(caseStudy.productDecisions),
+            impactTitle: "Tradeoffs",
+            impactContent: renderList(caseStudy.tradeoffs),
+        };
+    }
+
+    if (activeTab === "ux-ui") {
+        return {
+            eyebrow: "UI/UX Perspective",
+            title: "How I shaped the experience around clarity and usability.",
+            problemTitle: "Design challenge",
+            problemText: project.problem,
+            solutionTitle: "Design decisions",
+            solutionContent: renderList(caseStudy.designDecisions),
+            impactTitle: "Experience impact",
+            impactContent: <p>{project.impact}</p>,
+        };
+    }
+
+    if (activeTab === "engineering") {
+        return {
+            eyebrow: "Engineering Perspective",
+            title: "How I approached the technical architecture.",
+            problemTitle: "Technical challenge",
+            problemText: project.problem,
+            solutionTitle: "Engineering decisions",
+            solutionContent: renderList(caseStudy.engineeringDecisions),
+            impactTitle: "Technical outcome",
+            impactContent: <p>{project.cardOutcome || project.impact}</p>,
+        };
+    }
+
+    return {
+        eyebrow: "Overview",
+        title: "How the project comes together.",
+        problemTitle: "The problem",
+        problemText: project.problem,
+        solutionTitle: "The solution",
+        solutionContent: <p>{project.solution}</p>,
+        impactTitle: "Impact",
+        impactContent: <p>{project.impact}</p>,
+    };
 }
 
 function ProjectDetails() {
@@ -65,234 +115,164 @@ function ProjectDetails() {
         );
     }
 
+    const tabContent = getTabContent(project, activeTab);
     const caseStudy = project.caseStudy;
+    const highlights = project.proofPoints || [];
+    const takeaways = caseStudy.tradeoffs || [];
+    const futureWork = caseStudy.nextSteps || [];
 
     return (
         <>
             <Navbar />
 
-            <main className="home-page project-detail-page">
-                <section className="home-section">
-                    <Link className="project-back-link" to="/projects">
-                        ← Back to Work
-                    </Link>
-
-                    <div className="project-detail-hero">
-                        <div className="section-heading">
-                            <p className="eyebrow">{project.displayType || project.type}</p>
-                            <h1>{project.title}</h1>
-                            <p>{project.shortValue || project.summary}</p>
-
-                            <div className="thinking-lens-row">
-                                {project.thinkingLenses.map((lens) => (
-                                    <span className="thinking-lens" key={lens}>
-                                        {lens}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-                        <aside className="project-detail-side-panel" aria-label="Project summary">
-                            <p className="project-section-label">Project Snapshot</p>
-
-                            <div className="project-detail-side-row">
-                                <span>Role</span>
-                                <strong>{project.role}</strong>
-                            </div>
-
-                            <div className="project-detail-side-row">
-                                <span>Status</span>
-                                <strong>{project.status}</strong>
-                            </div>
-
-                            <div className="project-detail-side-row">
-                                <span>Audience</span>
-                                <strong>{project.audience}</strong>
-                            </div>
-                        </aside>
+            <main className="home-page case-study-page">
+                <section className="home-section case-study-hero-section" aria-labelledby="case-study-title">
+                    <div className="case-study-back-row">
+                        <Link className="project-back-link" to="/projects">
+                            ← Back to Work
+                        </Link>
                     </div>
 
-                    <div className="content-card project-detail-card project-overview-card">
-                        <div className="project-detail-section-header">
-                            <p className="eyebrow">Case Study</p>
-                            <h2>Read the project through different thinking lenses.</h2>
-                            <p>
-                                Use the tabs to explore the project from product, design,
-                                engineering, and systems perspectives.
+                    <div className="case-study-hero">
+                        <div className="case-study-hero-copy">
+                            <div className="case-study-label-row">
+                                <p className="eyebrow">Deep Dive</p>
+                                <span className="mockup-card-badge mockup-card-badge-status">
+                                    {project.status}
+                                </span>
+                            </div>
+
+                            <h1 id="case-study-title">{project.title}</h1>
+                            <p className="case-study-subtitle">{project.subtitle || project.type}</p>
+                            <p className="case-study-summary">
+                                {project.shortValue || project.summary}
                             </p>
                         </div>
 
-                        <div className="project-detail-tabs" role="tablist" aria-label="Project detail sections">
-                            {detailTabs.map((tab) => (
-                                <button
-                                    className={
-                                        activeTab === tab.id
-                                            ? "project-detail-tab project-detail-tab-active"
-                                            : "project-detail-tab"
-                                    }
-                                    type="button"
-                                    role="tab"
-                                    aria-selected={activeTab === tab.id}
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id)}
-                                >
-                                    {tab.label}
-                                </button>
+                        <div className="case-study-visual-placeholder" aria-label="Project visual placeholder">
+                            <div className="mockup-card-browser-bar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div className="case-study-visual-screen">
+                                <div></div>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="case-study-meta-row" aria-label="Project metadata">
+                        <div>
+                            <span>Role</span>
+                            <strong>{project.role}</strong>
+                        </div>
+
+                        <div>
+                            <span>Team</span>
+                            <strong>1 Engineer, Solo Build</strong>
+                        </div>
+
+                        <div>
+                            <span>Status</span>
+                            <strong>{project.status}</strong>
+                        </div>
+                    </div>
+
+                    <div className="case-study-tabs" role="tablist" aria-label="Case study sections">
+                        {detailTabs.map((tab) => (
+                            <button
+                                className={
+                                    activeTab === tab.id
+                                        ? "case-study-tab case-study-tab-active"
+                                        : "case-study-tab"
+                                }
+                                type="button"
+                                role="tab"
+                                aria-selected={activeTab === tab.id}
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="home-section case-study-main-section" aria-labelledby="case-study-content-title">
+                    <div className="case-study-content-grid">
+                        <article className="case-study-main-card">
+                            <p className="eyebrow">{tabContent.eyebrow}</p>
+                            <h2 id="case-study-content-title">{tabContent.title}</h2>
+
+                            <div className="case-study-section-block">
+                                <p className="project-section-label">{tabContent.problemTitle}</p>
+                                <p>{tabContent.problemText}</p>
+                            </div>
+
+                            <div className="case-study-section-block">
+                                <p className="project-section-label">{tabContent.solutionTitle}</p>
+                                {tabContent.solutionContent}
+                            </div>
+
+                            <div className="case-study-section-block">
+                                <p className="project-section-label">{tabContent.impactTitle}</p>
+                                {tabContent.impactContent}
+                            </div>
+                        </article>
+
+                        <aside className="case-study-sidebar" aria-label="Key highlights">
+                            <p className="project-section-label">Key Highlights</p>
+
+                            {highlights.slice(0, 3).map((highlight) => (
+                                <div className="case-study-highlight-card" key={highlight}>
+                                    <p>{highlight}</p>
+                                </div>
                             ))}
-                        </div>
 
-                        {activeTab === "overview" && (
-                            <div className="project-detail-tab-panel">
-                                <div className="project-detail-snapshot">
-                                    {project.impactStats.map((stat) => (
-                                        <div className="project-stat" key={`${stat.label}-${stat.value}`}>
-                                            <span>{stat.label}</span>
-                                            <strong>{stat.value}</strong>
-                                        </div>
-                                    ))}
-                                </div>
+                            <div className="case-study-link-stack">
+                                {project.links.live && (
+                                    <a href={project.links.live} target="_blank" rel="noreferrer">
+                                        Live Demo
+                                    </a>
+                                )}
 
-                                <div className="project-detail-story-grid">
-                                    <article>
-                                        <p className="project-section-label">Problem</p>
-                                        <h3>What needed to be solved?</h3>
-                                        <p>{project.problem}</p>
-                                    </article>
-
-                                    <article>
-                                        <p className="project-section-label">Solution</p>
-                                        <h3>What did I build or design?</h3>
-                                        <p>{project.solution}</p>
-                                    </article>
-
-                                    <article>
-                                        <p className="project-section-label">Impact</p>
-                                        <h3>Why does it matter?</h3>
-                                        <p>{project.impact}</p>
-                                    </article>
-                                </div>
-
-                                <div className="project-detail-text-block">
-                                    <h3>Context</h3>
-                                    <p>{caseStudy.context}</p>
-                                </div>
-
-                                <div className="project-detail-text-block">
-                                    <h3>User need</h3>
-                                    <p>{caseStudy.userNeed}</p>
-                                </div>
+                                {project.links.github && (
+                                    <a href={project.links.github} target="_blank" rel="noreferrer">
+                                        GitHub Repo
+                                    </a>
+                                )}
                             </div>
-                        )}
+                        </aside>
+                    </div>
+                </section>
 
-                        {activeTab === "product" && (
-                            <div className="project-detail-tab-panel">
-                                <div className="project-detail-text-block">
-                                    <h3>Product decisions</h3>
-                                    {renderList(caseStudy.productDecisions)}
-                                </div>
+                <section className="home-section case-study-support-section" aria-labelledby="tech-stack-title">
+                    <div className="case-study-support-grid">
+                        <article className="case-study-support-card">
+                            <p className="eyebrow">Tech Stack</p>
+                            <h2 id="tech-stack-title">Tools and technical signals.</h2>
 
-                                <div className="project-detail-text-block">
-                                    <h3>Constraints</h3>
-                                    {renderList(caseStudy.constraints)}
-                                </div>
-
-                                <div className="project-detail-text-block">
-                                    <h3>Tradeoffs</h3>
-                                    {renderList(caseStudy.tradeoffs)}
-                                </div>
+                            <div className="mockup-tool-row">
+                                {project.tools.map((tool) => (
+                                    <span key={tool}>{tool}</span>
+                                ))}
                             </div>
-                        )}
+                        </article>
 
-                        {activeTab === "ux-ui" && (
-                            <div className="project-detail-tab-panel">
-                                <div className="project-detail-text-block">
-                                    <h3>UX / UI decisions</h3>
-                                    {renderList(caseStudy.designDecisions)}
-                                </div>
+                        <article className="case-study-support-card">
+                            <p className="eyebrow">Takeaways</p>
+                            <h2>What this project taught me.</h2>
+                            {renderList(takeaways, "Takeaways will be added as this project develops.")}
+                        </article>
 
-                                <div className="project-detail-text-block">
-                                    <h3>Design and product skills</h3>
-                                    <div className="skill-tags">
-                                        {project.skills.map((skill) => (
-                                            <span className="skill-tag" key={skill}>
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === "engineering" && (
-                            <div className="project-detail-tab-panel">
-                                <div className="project-detail-text-block">
-                                    <h3>Engineering decisions</h3>
-                                    {renderList(caseStudy.engineeringDecisions)}
-                                </div>
-
-                                <div className="project-detail-tool-grid">
-                                    <div>
-                                        <h3>Tools</h3>
-                                        <div className="skill-tags">
-                                            {project.tools.map((tool) => (
-                                                <span className="skill-tag" key={tool}>
-                                                    {tool}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h3>Technical signals</h3>
-                                        <div className="skill-tags">
-                                            {project.cardTags.map((tag) => (
-                                                <span className="skill-tag" key={tag}>
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === "systems" && (
-                            <div className="project-detail-tab-panel">
-                                <div className="project-detail-text-block">
-                                    <h3>Systems thinking</h3>
-                                    <p>
-                                        This project connects users, interface decisions, data,
-                                        backend behavior, deployment, and future iteration into one working system.
-                                    </p>
-                                </div>
-
-                                <div className="project-detail-text-block">
-                                    <h3>Proof points</h3>
-                                    {renderList(project.proofPoints)}
-                                </div>
-
-                                <div className="project-detail-text-block">
-                                    <h3>Next steps</h3>
-                                    {renderList(caseStudy.nextSteps)}
-                                </div>
-                            </div>
-                        )}
-
-                        <div className="project-actions">
-                            {project.links.github && (
-                                <a href={project.links.github} target="_blank" rel="noreferrer">
-                                    GitHub
-                                </a>
-                            )}
-
-                            {project.links.live && (
-                                <a href={project.links.live} target="_blank" rel="noreferrer">
-                                    Live Demo
-                                </a>
-                            )}
-
-                            <Link to="/projects">Back to Work</Link>
-                        </div>
+                        <article className="case-study-support-card">
+                            <p className="eyebrow">Future Work</p>
+                            <h2>What I would improve next.</h2>
+                            {renderList(futureWork, "Future work will be added as this project develops.")}
+                        </article>
                     </div>
                 </section>
             </main>

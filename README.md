@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.4.4: Systems page changed to deep dive**
+**v2.4.5: Project detail pages aligned with case study mockup***
 
 Current production features:
 

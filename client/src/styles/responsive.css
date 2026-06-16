@@ -93,7 +93,14 @@
     .deep-dive-tradeoff-grid {
         grid-template-columns: 1fr;
     }
+
+    .case-study-hero,
+    .case-study-content-grid,
+    .case-study-support-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
 
 @media (max-width: 900px) {
     .site-header {
@@ -340,5 +347,49 @@
         align-items: stretch;
         flex-direction: column;
         padding: var(--space-lg);
+    }
+
+    .case-study-page {
+        width: min(100% - 1rem, var(--wide-content-width));
+    }
+
+    .case-study-hero-copy h1 {
+        font-size: clamp(2.8rem, 16vw, 4.8rem);
+    }
+
+    .case-study-meta-row {
+        grid-template-columns: 1fr;
+    }
+
+    .case-study-meta-row div {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .case-study-meta-row div:last-child {
+        border-bottom: 0;
+    }
+
+    .case-study-tabs {
+        flex-direction: column;
+    }
+
+    .case-study-tab {
+        width: 100%;
+    }
+
+    .case-study-main-card,
+    .case-study-sidebar,
+    .case-study-support-card {
+        padding: var(--space-lg);
+    }
+
+    .case-study-visual-placeholder {
+        min-height: 260px;
+        padding: var(--space-md);
+    }
+
+    .case-study-visual-screen {
+        height: 210px;
     }
 }
