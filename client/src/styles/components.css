@@ -1383,6 +1383,104 @@ button:disabled {
     opacity: 0.7;
 }
 
+.contact-page {
+    max-width: var(--wide-content-width);
+}
+
+.contact-hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: var(--space-lg);
+    align-items: end;
+}
+
+.contact-privacy-card {
+    padding: var(--space-lg);
+    border: var(--border-strong);
+    border-radius: var(--radius-card);
+    background-color: var(--color-brown);
+    color: var(--color-cream);
+    box-shadow: var(--shadow-card);
+}
+
+.contact-privacy-card .project-section-label {
+    color: var(--color-cream);
+}
+
+.contact-privacy-card p {
+    margin-top: 0;
+    line-height: 1.7;
+}
+
+.contact-privacy-card p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.contact-info-panel {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.contact-panel-heading {
+    margin-bottom: 0;
+}
+
+.contact-method-grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.contact-method-card {
+    padding: var(--space-lg);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-warm);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-method-card h3 {
+    margin-top: 0;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+.contact-method-card p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.contact-card {
+    width: min(100%, 820px);
+}
+
+.form-status {
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid var(--color-brown-dark);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-warm);
+}
+
+.form-status-success {
+    border-color: var(--color-success);
+    color: var(--color-success);
+}
+
+.form-status-error {
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.form-status-loading {
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+}
 
 /* ================================
    Admin Dashboard
@@ -1468,4 +1566,240 @@ button:disabled {
     align-items: center;
     gap: var(--space-xs);
     font-weight: 700;
+}
+
+/* ================================
+   v2.4.2 Home Mockup Alignment
+================================ */
+
+body {
+    background-color: var(--color-bg);
+}
+
+.site-header {
+    background-color: var(--color-nav);
+    border-color: var(--color-accent-dark);
+}
+
+.button-primary,
+.nav-cta {
+    background-color: var(--color-button);
+    border-color: var(--color-accent-dark);
+    color: var(--color-cream);
+}
+
+.button-primary:hover,
+.button-primary:focus-visible,
+.nav-cta:hover,
+.nav-cta:focus-visible {
+    background-color: var(--color-accent-dark);
+}
+
+.button-secondary {
+    background-color: transparent;
+    border-color: var(--color-accent-dark);
+    color: var(--color-accent-dark);
+}
+
+.home-mockup-page {
+    width: min(100% - 2rem, var(--wide-content-width));
+}
+
+.mockup-hero {
+    min-height: calc(100vh - 140px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: var(--space-2xl);
+    align-items: center;
+    padding: var(--space-2xl) 0;
+}
+
+.mockup-hero-copy {
+    display: grid;
+    gap: var(--space-lg);
+    align-content: center;
+}
+
+.mockup-pill {
+    width: fit-content;
+    margin: 0;
+    padding: 0.45rem 0.75rem;
+    border: 2px solid var(--color-accent-dark);
+    border-radius: var(--radius-button);
+    color: var(--color-accent-dark);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.mockup-hero h1 {
+    margin: 0;
+    max-width: 760px;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    color: var(--color-accent-dark);
+}
+
+.mockup-hero-description {
+    max-width: 680px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.mockup-hero-visual {
+    position: relative;
+    min-height: 420px;
+    display: grid;
+    place-items: center;
+}
+
+.mockup-portrait-placeholder {
+    width: min(100%, 390px);
+    aspect-ratio: 0.82;
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--color-accent-dark);
+    border-radius: 48px;
+    background:
+        linear-gradient(135deg, rgba(244, 241, 235, 0.95), rgba(225, 221, 216, 0.8));
+    color: var(--color-accent-dark);
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    z-index: 2;
+}
+
+.mockup-hero-accent {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 1rem;
+    width: 170px;
+    height: 160px;
+    border-radius: 28px;
+    background-color: var(--color-button);
+    z-index: 1;
+}
+
+.mockup-dot-column {
+    position: absolute;
+    right: 0;
+    top: 28%;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.mockup-dot-column span {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background-color: var(--color-button);
+}
+
+.expertise-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-nav);
+    overflow: hidden;
+}
+
+.expertise-strip-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-md);
+    align-items: center;
+    padding: var(--space-lg);
+    border-right: 1px solid var(--color-border);
+}
+
+.expertise-strip-item:last-child {
+    border-right: 0;
+}
+
+.expertise-strip-item span {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--color-button);
+}
+
+.expertise-strip-item h2 {
+    margin: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.expertise-strip-item p {
+    margin: 0.2rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.role-pathways-section {
+    border-top: 0;
+}
+
+.role-pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.role-pathway-card {
+    min-height: 260px;
+    display: grid;
+    align-content: start;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+}
+
+.role-pathway-symbol {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-button);
+    line-height: 1;
+}
+
+.role-pathway-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    color: var(--color-accent-dark);
+    line-height: 1;
+}
+
+.role-pathway-card p {
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.role-pathway-card a {
+    margin-top: auto;
+    color: var(--color-accent-dark);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.role-pathway-card a:hover,
+.role-pathway-card a:focus-visible {
+    text-decoration: underline;
+}
+
+.selected-work-section .section-heading p {
+    max-width: 62ch;
+    line-height: 1.7;
+}
+
+.selected-work-section .project-grid {
+    margin-top: var(--space-lg);
 }

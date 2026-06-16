@@ -11,7 +11,7 @@ function Home() {
 
       <main className="home-page">
         <Hero />
-        <AboutPreview />
+        {/* <AboutPreview /> */}
         <SkillsPanel />
         <FeaturedProjects />
       </main>

@@ -14,7 +14,7 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.4.0: Systems Thinking page updated**
+**v2.4.0: Started resembling figma mockup design more**
 
 Current production features:
 

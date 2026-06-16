@@ -23,6 +23,7 @@ const API_URL = "/api/contact";
 function ContactForm() {
     const [formData, setFormData] = useState(initialFormData);
     const [formStatus, setFormStatus] = useState("");
+    const [submitState, setSubmitState] = useState("idle");
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     function handleChange(event) {
@@ -32,18 +33,24 @@ function ContactForm() {
             ...currentData,
             [name]: value,
         }));
+
+        if (submitState !== "idle") {
+            setSubmitState("idle");
+        }
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
 
         if (!formData.name || !formData.email || !formData.message) {
+            setSubmitState("error");
             setFormStatus("Please complete your name, email, and message before sending.");
             return;
         }
 
         try {
             setIsSubmitting(true);
+            setSubmitState("loading");
             setFormStatus("Sending your message...");
 
             const response = await fetch(API_URL, {
@@ -57,13 +64,16 @@ function ContactForm() {
             const result = await response.json();
 
             if (!response.ok) {
+                setSubmitState("error");
                 setFormStatus(result.message || "Something went wrong. Please try again.");
                 return;
             }
 
-            setFormStatus(result.message || "Your message was sent successfully.");
+            setSubmitState("success");
+            setFormStatus(result.message || "Thank you. Your message was sent successfully.");
             setFormData(initialFormData);
         } catch (error) {
+            setSubmitState("error");
             setFormStatus("Unable to send your message right now. Please try again later.");
         } finally {
             setIsSubmitting(false);
@@ -78,7 +88,7 @@ function ContactForm() {
                 </div>
 
                 <div className="chat-bubble chat-bubble-outgoing">
-                    <p>I’ll share a few details so the message is easy to understand and respond to.</p>
+                    <p>I’ll share enough context so the message is clear, useful, and easy to respond to.</p>
                 </div>
             </div>
 
@@ -87,14 +97,14 @@ function ContactForm() {
                     <p className="eyebrow">Chat with me</p>
                     <h2 id="chat-contact-title">Send a focused message.</h2>
                     <p>
-                        Share the context I need to understand the opportunity, collaboration,
-                        feedback, or question clearly.
+                        Required fields are name, email, and message. Optional fields help me
+                        understand the context faster.
                     </p>
                 </div>
 
                 <div className="form-grid form-grid-two">
                     <div className="form-field">
-                        <label htmlFor="name">Name</label>
+                        <label htmlFor="name">Name <span aria-hidden="true">*</span></label>
                         <input
                             id="name"
                             name="name"
@@ -103,11 +113,12 @@ function ContactForm() {
                             onChange={handleChange}
                             placeholder="Your name"
                             autoComplete="name"
+                            disabled={isSubmitting}
                         />
                     </div>
 
                     <div className="form-field">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email <span aria-hidden="true">*</span></label>
                         <input
                             id="email"
                             name="email"
@@ -116,6 +127,7 @@ function ContactForm() {
                             onChange={handleChange}
                             placeholder="your.email@example.com"
                             autoComplete="email"
+                            disabled={isSubmitting}
                         />
                     </div>
                 </div>
@@ -131,6 +143,7 @@ function ContactForm() {
                             onChange={handleChange}
                             placeholder="Your role or title"
                             autoComplete="organization-title"
+                            disabled={isSubmitting}
                         />
                     </div>
 
@@ -144,6 +157,7 @@ function ContactForm() {
                             onChange={handleChange}
                             placeholder="Company or organization"
                             autoComplete="organization"
+                            disabled={isSubmitting}
                         />
                     </div>
                 </div>
@@ -155,6 +169,7 @@ function ContactForm() {
                         name="reason"
                         value={formData.reason}
                         onChange={handleChange}
+                        disabled={isSubmitting}
                     >
                         {contactReasons.map((reason) => (
                             <option key={reason} value={reason}>
@@ -165,7 +180,7 @@ function ContactForm() {
                 </div>
 
                 <div className="form-field">
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message">Message <span aria-hidden="true">*</span></label>
                     <textarea
                         id="message"
                         name="message"
@@ -173,14 +188,19 @@ function ContactForm() {
                         onChange={handleChange}
                         placeholder="Share what you want me to know, what you are building, or how I can help."
                         rows="6"
+                        disabled={isSubmitting}
                     />
                 </div>
 
                 <button className="button button-primary" type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Sending..." : "Send Message →"}
                 </button>
 
-                {formStatus && <p className="form-status">{formStatus}</p>}
+                {formStatus && (
+                    <p className={`form-status form-status-${submitState}`} role="status">
+                        {formStatus}
+                    </p>
+                )}
             </form>
         </section>
     );

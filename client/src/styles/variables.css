@@ -9,19 +9,25 @@
 }
 
 :root {
-    /* Colors */
-    --color-bg: #f6f4f1;
+    /* Mockup Colors */
+    --color-bg: #f8f7f4;
+    --color-nav: #f4f1eb;
+    --color-border: #e1ddd8;
+    --color-button: #703c02;
+    --color-accent-dark: #4a2903;
+
+    /* Compatibility Colors */
     --color-surface: #ffffff;
-    --color-surface-warm: #f2eadf;
+    --color-surface-warm: #f4f1eb;
     --color-surface-muted: #ebe0d1;
 
-    --color-cream: #f6f4f1;
-    --color-warm-neutral: #f2eadf;
-    --color-brown: #8b5200;
-    --color-brown-dark: #5b351f;
+    --color-cream: #f8f7f4;
+    --color-warm-neutral: #f4f1eb;
+    --color-brown: #703c02;
+    --color-brown-dark: #4a2903;
     --color-text: #2b1b12;
     --color-text-muted: #6a584a;
-    --color-border-soft: #d8c8b7;
+    --color-border-soft: #e1ddd8;
 
     --color-success: #2f7d32;
     --color-warning: #a86b00;
@@ -48,12 +54,12 @@
     --radius-button: 999px;
 
     /* Borders */
-    --border-strong: 3px solid var(--color-brown-dark);
-    --border-soft: 1px solid var(--color-border-soft);
+    --border-strong: 2px solid var(--color-accent-dark);
+    --border-soft: 1px solid var(--color-border);
 
     /* Shadows */
-    --shadow-soft: 0 10px 30px rgba(43, 27, 18, 0.08);
-    --shadow-card: 0 12px 36px rgba(43, 27, 18, 0.12);
+    --shadow-soft: 0 10px 30px rgba(43, 27, 18, 0.06);
+    --shadow-card: 0 12px 36px rgba(43, 27, 18, 0.1);
 
     /* Layout */
     --content-width: 1100px;

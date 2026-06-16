@@ -4,15 +4,19 @@ import ProjectGrid from "../projects/ProjectGrid";
 
 function FeaturedProjects() {
     return (
-        <section className="home-section" id="projects" aria-labelledby="projects-title">
+        <section className="home-section selected-work-section" id="projects" aria-labelledby="selected-work-title">
             <div className="section-heading section-heading-with-action">
                 <div>
-                    <p className="eyebrow">Featured Projects</p>
-                    <h2 id="projects-title">Selected work that connects product, design, and engineering.</h2>
+                    <p className="eyebrow">Selected Work</p>
+                    <h2 id="selected-work-title">A handpicked selection of projects, systems, and experiences.</h2>
+                    <p>
+                        Each card is structured to show what I built, why it matters,
+                        and which thinking lenses shaped the work.
+                    </p>
                 </div>
 
                 <Link className="button button-secondary" to="/projects">
-                    View All Projects
+                    View All Work →
                 </Link>
             </div>
 
