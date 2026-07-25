@@ -1,4 +1,5 @@
 import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 
 function About() {
     return (
@@ -11,7 +12,7 @@ function About() {
                         <p className="eyebrow">About</p>
                         <h1 id="about-title">Building where product, design, and engineering meet.</h1>
                         <p>
-                            I’m a Computer Science graduate focused on creating useful, usable,
+                            I'm a Computer Science graduate focused on creating useful, usable,
                             and thoughtfully engineered digital experiences.
                         </p>
                     </div>
@@ -26,6 +27,7 @@ function About() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }

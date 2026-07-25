@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import projects from "../data/projects";
+import Footer from "../components/layout/Footer";
 
 const detailTabs = [
     {
@@ -111,6 +112,7 @@ function ProjectDetails() {
                         </Link>
                     </section>
                 </main>
+                <Footer />
             </>
         );
     }
@@ -276,6 +278,7 @@ function ProjectDetails() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }

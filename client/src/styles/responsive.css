@@ -99,6 +99,14 @@
     .case-study-support-grid {
         grid-template-columns: 1fr;
     }
+
+    .site-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer-nav {
+        justify-content: flex-start;
+    }
 }
 
 
@@ -284,7 +292,7 @@
         padding: var(--space-md);
     }
 
-    .home-mockup-page {
+    .home-page {
         width: min(100% - 1rem, var(--wide-content-width));
     }
 
@@ -391,5 +399,24 @@
 
     .case-study-visual-screen {
         height: 210px;
+    }
+
+    .site-footer {
+        width: min(100% - 1rem, var(--wide-content-width));
+        padding: var(--space-lg);
+    }
+
+    .site-footer-meta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .placeholder-box-large {
+        min-height: 260px;
+    }
+
+    .placeholder-screen {
+        min-height: 180px;
+        padding: var(--space-md);
     }
 }

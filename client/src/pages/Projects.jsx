@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import projects from "../data/projects";
 import ProjectGrid from "../components/projects/ProjectGrid";
+import Footer from "../components/layout/Footer";
 
 const primaryFilters = [
     { label: "All", value: "all" },
@@ -198,6 +199,7 @@ function Projects() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }

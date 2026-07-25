@@ -1,5 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import ContactForm from "../components/contact/ContactForm";
+import Footer from "../components/layout/Footer";
 
 const contactMethods = [
     {
@@ -67,6 +68,7 @@ function Contact() {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }

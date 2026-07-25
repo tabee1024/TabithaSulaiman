@@ -1,0 +1,11 @@
+function SectionHeader({ eyebrow, title, description, id }) {
+    return (
+        <div className="section-heading">
+            {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+            <h2 id={id}>{title}</h2>
+            {description && <p>{description}</p>}
+        </div>
+    );
+}
+
+export default SectionHeader;
