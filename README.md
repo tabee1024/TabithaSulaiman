@@ -14,18 +14,19 @@ Backup Vercel URL:
 
 ## Current Version
 
-**v2.4.5: Project detail pages aligned with case study mockup***
+**v2.4.7: Work page desktop layout refined**
 
-Current production features:
+### Work Page Desktop Refinement
 
-- React + Vite frontend deployed on Vercel.
-- Custom domain connected through Cloudflare.
-- Express + Node backend deployed on Render.
-- MongoDB Atlas stores contact submissions.
-- Resend sends contact notification emails.
-- Vercel rewrites `/api/*` requests to the Render backend.
-- Protected admin dashboard supports message review and follow-up management.
-- Project and work views are being redesigned around product, systems, design, and engineering thinking.
+The Work page now provides a more focused browsing experience with:
+
+- Compact Work Type and Role Lens controls.
+- URL-based role filtering.
+- Newest, oldest, featured, and alphabetical sorting.
+- A Skills & Technology overview.
+- More scan-friendly project cards.
+- Shortened preview summaries that preserve full details on project pages.
+- A clearer contact CTA below the project grid.
 
 ## Tech Stack
 

@@ -1,38 +1,63 @@
+import { Link } from "react-router-dom";
+
+const principles = [
+    {
+        number: "01",
+        title: "Readable",
+        description: "I create clear hierarchy so people can scan before going deeper.",
+    },
+    {
+        number: "02",
+        title: "Useful",
+        description: "I explain what I built, why it matters, and how the system works.",
+    },
+    {
+        number: "03",
+        title: "Secure",
+        description: "I protect secrets, visitor data, and private admin workflows.",
+    },
+];
+
 function AboutPreview() {
     return (
-        <section className="home-section" id="about" aria-labelledby="about-title">
-            <div className="section-heading">
-                <p className="eyebrow">About Me</p>
-                <h2 id="about-title">I build with product, design, and engineering in the same conversation.</h2>
-            </div>
+        <section
+            className="home-section home-about-preview"
+            aria-labelledby="about-preview-title"
+        >
+            <div className="home-about-preview-grid">
+                <div className="home-about-preview-copy">
+                    <p className="eyebrow">About Me</p>
 
-            <div className="content-card about-system-card">
-                <p>
-                    I am a 2026 Computer Science graduate from California State University, Northridge.
-                    My work sits at the intersection of product thinking, UI/UX design, software
-                    engineering, and systems thinking.
-                </p>
+                    <h2 id="about-preview-title">
+                        I build with product, design, and engineering in the same conversation.
+                    </h2>
 
-                <p>
-                    I use this portfolio to document not only what I build, but how I make decisions,
-                    define tradeoffs, structure systems, and design experiences that are easier to use.
-                </p>
+                    <p>
+                        I am a Computer Science graduate whose work connects product thinking,
+                        UX/UI design, software engineering, and systems thinking.
+                    </p>
 
-                <div className="about-principle-grid" aria-label="Portfolio principles">
-                    <div>
-                        <h3>Readable</h3>
-                        <p>Content should be easy to scan before it asks someone to go deep.</p>
-                    </div>
+                    <p>
+                        I use this portfolio to show both the final work and the decisions,
+                        tradeoffs, and technical structure behind it.
+                    </p>
 
-                    <div>
-                        <h3>Useful</h3>
-                        <p>Each section should explain what I made, why it matters, and how it works.</p>
-                    </div>
+                    <Link className="button button-secondary" to="/about">
+                        More About Me →
+                    </Link>
+                </div>
 
-                    <div>
-                        <h3>Secure</h3>
-                        <p>Full-stack features should protect secrets, visitor data, and admin workflows.</p>
-                    </div>
+                <div className="about-preview-principles" aria-label="Working principles">
+                    {principles.map((principle) => (
+                        <article className="about-preview-principle" key={principle.title}>
+                            <span>{principle.number}</span>
+
+                            <div>
+                                <h3>{principle.title}</h3>
+                                <p>{principle.description}</p>
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>

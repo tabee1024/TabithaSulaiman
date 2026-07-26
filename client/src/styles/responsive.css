@@ -50,65 +50,15 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .systems-hero,
-    .systems-pillar-grid,
-    .systems-example-grid,
-    .systems-tradeoff-grid {
+    .work-skills-heading {
         grid-template-columns: 1fr;
+        align-items: start;
     }
 
-    .contact-hero-section,
-    .contact-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .mockup-hero,
-    .expertise-strip,
-    .role-pathways-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .expertise-strip-item {
-        border-right: 0;
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .expertise-strip-item:last-child {
-        border-bottom: 0;
-    }
-
-    .mockup-hero-visual {
-        min-height: 360px;
-    }
-
-    .work-page-header,
-    .work-control-row,
-    .mockup-work-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .deep-dive-hero,
-    .deep-dive-lens-grid,
-    .deep-dive-flow-grid,
-    .deep-dive-tradeoff-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .case-study-hero,
-    .case-study-content-grid,
-    .case-study-support-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .site-footer {
-        grid-template-columns: 1fr;
-    }
-
-    .site-footer-nav {
-        justify-content: flex-start;
+    .work-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-
 
 @media (max-width: 900px) {
     .site-header {
@@ -126,6 +76,57 @@
     }
 
     .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .site-header {
+        grid-template-columns: 1fr auto;
+        gap: var(--space-sm);
+        padding: var(--space-sm);
+    }
+
+    .site-logo {
+        grid-column: 1;
+    }
+
+    .nav-cta {
+        grid-column: 2;
+        width: auto;
+        min-height: 42px;
+        padding: 0.65rem 0.85rem;
+    }
+
+    .site-nav {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--color-border);
+        scrollbar-width: thin;
+    }
+
+    .mockup-hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        padding: var(--space-xl) 0;
+    }
+
+    .mockup-hero-visual {
+        min-height: 340px;
+    }
+
+    .mockup-portrait-placeholder {
+        width: min(100%, 340px);
+    }
+
+    .role-pathways-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mockup-work-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -419,4 +420,318 @@
         min-height: 180px;
         padding: var(--space-md);
     }
+
+    .site-header {
+        width: min(100% - 1rem, var(--wide-content-width));
+        margin-top: var(--space-xs);
+        grid-template-columns: 1fr;
+        padding: 0.75rem;
+        border-radius: var(--radius-md);
+    }
+
+    .site-logo,
+    .nav-cta,
+    .site-nav {
+        grid-column: 1;
+    }
+
+    .site-logo-mark,
+    .site-logo .site-logo-mark {
+        width: 42px;
+        height: 42px;
+    }
+
+    .site-logo-name {
+        max-width: 6rem;
+        font-size: 0.72rem;
+    }
+
+    .site-nav {
+        gap: 0.8rem;
+        padding-top: 0.75rem;
+    }
+
+    .site-nav a {
+        flex: 0 0 auto;
+        font-size: 0.76rem;
+    }
+
+    .nav-cta {
+        width: 100%;
+        min-height: 42px;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .mockup-hero {
+        gap: var(--space-lg);
+        padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .mockup-hero-copy {
+        gap: var(--space-md);
+    }
+
+    .mockup-pill {
+        max-width: 100%;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+
+    .mockup-hero h1 {
+        font-size: clamp(2.9rem, 13.5vw, 4rem);
+        line-height: 0.9;
+    }
+
+    .mockup-hero-description {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .mockup-hero .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+        margin-top: var(--space-sm);
+    }
+
+    .mockup-hero .hero-actions .button {
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+        padding: 0.65rem 0.5rem;
+        font-size: 0.82rem;
+        text-align: center;
+    }
+
+    .mockup-hero-visual {
+        min-height: 285px;
+    }
+
+    .mockup-portrait-placeholder {
+        width: min(100%, 270px);
+        border-width: 2px;
+        border-radius: 30px;
+    }
+
+    .mockup-hero-accent {
+        right: 0.5rem;
+        bottom: 0.5rem;
+        width: 95px;
+        height: 90px;
+        border-radius: 22px;
+    }
+
+    .mockup-dot-column {
+        right: 0.25rem;
+        gap: 0.4rem;
+    }
+
+    .mockup-dot-column span {
+        width: 0.35rem;
+        height: 0.35rem;
+    }
+
+    .expertise-strip-item {
+        grid-template-columns: 2.5rem 1fr;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+    }
+
+    .expertise-strip-item span {
+        font-size: 1rem;
+    }
+
+    .expertise-strip-item h2 {
+        font-size: 0.82rem;
+    }
+
+    .expertise-strip-item p {
+        font-size: 0.8rem;
+    }
+
+    .role-pathways-section .section-heading h2,
+    .selected-work-section .section-heading h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+        line-height: 1;
+    }
+
+    .role-pathways-grid,
+    .mockup-work-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .role-pathway-card {
+        min-height: auto;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+    }
+
+    .role-pathway-symbol {
+        font-size: 1.5rem;
+    }
+
+    .role-pathway-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .role-pathway-card p {
+        font-size: 0.92rem;
+        line-height: 1.5;
+    }
+
+    .selected-work-section .section-heading {
+        margin-bottom: var(--space-md);
+    }
+
+    .selected-work-section .section-heading-with-action {
+        gap: var(--space-md);
+    }
+
+    .selected-work-section .section-heading-with-action .button {
+        width: fit-content;
+    }
+
+    .mockup-work-card-media {
+        min-height: 135px;
+        padding: var(--space-sm);
+    }
+
+    .mockup-card-screen {
+        padding: var(--space-sm);
+    }
+
+    .mockup-card-screen-block-large {
+        min-height: 50px;
+    }
+
+    .mockup-work-card-body {
+        gap: var(--space-sm);
+        padding: var(--space-md);
+    }
+
+    .mockup-work-card-footer {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .mockup-hero-visual {
+        width: 100%;
+        padding-inline: 0.5rem;
+    }
+
+    .mockup-hero-accent {
+        right: 0.75rem;
+    }
+
+    .mockup-dot-column {
+        right: 0.5rem;
+    }
+
+    .home-section {
+        max-width: 100%;
+    }
+
+    .mockup-work-card,
+    .role-pathway-card,
+    .home-about-preview-grid,
+    .expertise-strip {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .work-hero-section {
+        padding-top: var(--space-sm);
+    }
+
+    .work-skills-section {
+        margin-bottom: var(--space-lg);
+        padding: var(--space-md);
+    }
+
+    .work-skills-heading {
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+
+    .work-skills-heading h2 {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+    }
+
+    .work-skills-heading>p {
+        font-size: 0.9rem;
+    }
+
+    .work-skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .work-skill-group {
+        padding: var(--space-sm);
+    }
+
+    .mockup-work-card-media {
+        min-height: 135px;
+    }
+
+    .systems-hero,
+    .systems-pillar-grid,
+    .systems-example-grid,
+    .systems-tradeoff-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero-section,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .mockup-hero,
+    .expertise-strip,
+    .role-pathways-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-strip-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .expertise-strip-item:last-child {
+        border-bottom: 0;
+    }
+
+    .mockup-hero-visual {
+        min-height: 360px;
+    }
+
+    .work-page-header,
+    .work-control-row,
+    .mockup-work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .deep-dive-hero,
+    .deep-dive-lens-grid,
+    .deep-dive-flow-grid,
+    .deep-dive-tradeoff-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-study-hero,
+    .case-study-content-grid,
+    .case-study-support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer-nav {
+        justify-content: flex-start;
+    }
+
 }

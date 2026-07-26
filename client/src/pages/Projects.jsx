@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import projects from "../data/projects";
 import ProjectGrid from "../components/projects/ProjectGrid";
@@ -26,6 +26,25 @@ const sortOptions = [
     { label: "Oldest", value: "oldest" },
     { label: "Featured", value: "featured" },
     { label: "A-Z", value: "az" },
+];
+
+const workSkillGroups = [
+    {
+        title: "Languages",
+        skills: ["JavaScript", "Python", "Java"],
+    },
+    {
+        title: "Frontend",
+        skills: ["React", "Vite", "HTML", "CSS"],
+    },
+    {
+        title: "Backend & Data",
+        skills: ["Node.js", "Express", "MongoDB", "Mongoose"],
+    },
+    {
+        title: "Product & Systems",
+        skills: ["UX Flows", "REST APIs", "Data Flow", "Security"],
+    },
 ];
 
 function getValidLens(searchValue) {
@@ -185,6 +204,34 @@ function Projects() {
                         </div>
                     </div>
 
+                    <section className="work-skills-section" aria-labelledby="work-skills-title">
+                        <div className="work-skills-heading">
+                            <div>
+                                <p className="eyebrow">Skills & Technology</p>
+                                <h2 id="work-skills-title">Technical signals across my work.</h2>
+                            </div>
+
+                            <p>
+                                A compact overview of the languages, frameworks, data tools,
+                                and product methods represented across my portfolio.
+                            </p>
+                        </div>
+
+                        <div className="work-skills-grid">
+                            {workSkillGroups.map((group) => (
+                                <article className="work-skill-group" key={group.title}>
+                                    <h3>{group.title}</h3>
+
+                                    <div className="work-skill-tags">
+                                        {group.skills.map((skill) => (
+                                            <span key={skill}>{skill}</span>
+                                        ))}
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+
                     <ProjectGrid projects={filteredProjects} />
 
                     <div className="work-bottom-cta">
@@ -193,9 +240,9 @@ function Projects() {
                             <h2>Let's connect around useful, thoughtful work.</h2>
                         </div>
 
-                        <a className="button button-primary" href="/contact">
-                            Let's Connect →
-                        </a>
+                        <Link className="button button-primary" to="/contact">
+                            Let&apos;s Connect →
+                        </Link>
                     </div>
                 </section>
             </main>

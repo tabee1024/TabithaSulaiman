@@ -13,10 +13,10 @@ function Home() {
 
       <main className="home-page">
         <Hero />
-        <AboutPreview />
         <SkillsPanel />
         <RolePathways />
         <FeaturedProjects />
+        <AboutPreview />
       </main>
 
       <Footer />

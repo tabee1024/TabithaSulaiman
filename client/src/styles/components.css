@@ -2672,3 +2672,204 @@ body {
 .placeholder-screen span:last-child {
     width: 65%;
 }
+
+/* ================================
+   Home About Preview
+================================ */
+
+.home-about-preview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-nav);
+}
+
+.home-about-preview-copy {
+    display: grid;
+    align-content: start;
+    gap: var(--space-md);
+}
+
+.home-about-preview-copy h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 0.98;
+    color: var(--color-accent-dark);
+}
+
+.home-about-preview-copy p {
+    max-width: 62ch;
+    margin: 0;
+    line-height: 1.7;
+    font-weight: 600;
+}
+
+.home-about-preview-copy .button {
+    width: fit-content;
+    margin-top: var(--space-sm);
+}
+
+.about-preview-principles {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.about-preview-principle {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: var(--space-md);
+    align-items: start;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg);
+}
+
+.about-preview-principle>span {
+    font-family: var(--font-display);
+    color: var(--color-button);
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.about-preview-principle h3 {
+    margin: 0 0 var(--space-xs);
+    font-family: var(--font-display);
+    color: var(--color-accent-dark);
+    line-height: 1;
+}
+
+.about-preview-principle p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* ================================
+   Work Page Density and Skills Pass
+================================ */
+
+.work-mockup-page {
+    padding-bottom: var(--space-lg);
+}
+
+.work-hero-section {
+    padding-top: var(--space-md);
+}
+
+.work-page-header {
+    margin-bottom: var(--space-lg);
+}
+
+.work-control-board {
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+}
+
+.work-control-row {
+    grid-template-columns: minmax(0, 1fr) 190px;
+    gap: var(--space-md);
+}
+
+.work-control-footer {
+    padding-top: var(--space-sm);
+}
+
+.work-skills-section {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-nav);
+}
+
+.work-skills-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+    gap: var(--space-lg);
+    align-items: end;
+    margin-bottom: var(--space-lg);
+}
+
+.work-skills-heading h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    color: var(--color-accent-dark);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1;
+}
+
+.work-skills-heading>p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.work-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.work-skill-group {
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg);
+}
+
+.work-skill-group h3 {
+    margin: 0 0 var(--space-sm);
+    font-family: var(--font-display);
+    color: var(--color-accent-dark);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.work-skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.work-skill-tags span {
+    display: inline-flex;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.mockup-work-card-media {
+    min-height: 165px;
+}
+
+.mockup-work-card-body {
+    gap: var(--space-sm);
+    padding: 1.25rem;
+}
+
+.mockup-work-card-summary {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.mockup-work-card-footer {
+    padding: var(--space-sm) 1.25rem;
+}
+
+.work-bottom-cta {
+    margin-top: var(--space-xl);
+}
