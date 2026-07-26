@@ -16,6 +16,17 @@ body {
     font-family: var(--font-body);
 }
 
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+p,
+li {
+    text-wrap: pretty;
+}
+
 button,
 input,
 textarea,

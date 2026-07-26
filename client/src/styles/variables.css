@@ -37,6 +37,25 @@
     --font-display: "Hitchcut", Georgia, serif;
     --font-body: "Montserrat", Arial, Helvetica, sans-serif;
 
+    /* Type Scale */
+    --text-display: clamp(3.5rem, 8vw, 7.5rem);
+    --text-page-title: clamp(3rem, 7vw, 6.5rem);
+    --text-section-title: clamp(2rem, 4.5vw, 4rem);
+    --text-subsection-title: clamp(1.75rem, 3vw, 2.8rem);
+    --text-card-title: 1.25rem;
+    --text-body-lg: 1.125rem;
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+    --text-xs: 0.75rem;
+
+    /* Line Height and Reading Width */
+    --leading-display: 0.9;
+    --leading-heading: 1.05;
+    --leading-body: 1.65;
+    --measure-body: 68ch;
+    --tracking-eyebrow: 0.06em;
+
+    /* Spacing */
     /* Spacing */
     --space-xs: 0.5rem;
     --space-sm: 0.75rem;
@@ -44,6 +63,11 @@
     --space-lg: 1.5rem;
     --space-xl: 2rem;
     --space-2xl: 3rem;
+
+    /* Page Rhythm */
+    --space-page-top: clamp(2rem, 4vw, 4rem);
+    --space-page-bottom: clamp(4rem, 7vw, 7rem);
+    --space-section: clamp(4rem, 7vw, 6rem);
 
     /* Shape */
     --radius-sm: 6px;

@@ -110,11 +110,11 @@
 .home-page {
     width: min(100% - 2rem, var(--content-width));
     margin: 0 auto;
-    padding: var(--space-xl) 0 var(--space-2xl);
+    padding: var(--space-page-top) 0 var(--space-page-bottom);
 }
 
 .home-section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-section) 0;
 }
 
 .home-section+.home-section {
@@ -128,8 +128,10 @@
 
 .section-heading h2 {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: 1;
+    font-family: var(--font-display);
+    font-size: var(--text-section-title);
+    line-height: var(--leading-heading);
+    color: var(--color-accent-dark);
 }
 
 .section-heading-with-action {
@@ -155,9 +157,22 @@
 .eyebrow {
     margin: 0 0 var(--space-sm);
     font-family: var(--font-display);
-    letter-spacing: 0.04em;
+    color: var(--color-button);
+    font-size: var(--text-small);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
 }
 
+.section-heading p,
+.work-page-header p,
+.deep-dive-hero-copy p,
+.case-study-summary,
+.home-about-preview-copy p,
+.work-skills-heading>p {
+    line-height: var(--leading-body);
+}
 
 /* ================================
    Buttons / Links
@@ -1637,8 +1652,8 @@ body {
     margin: 0;
     max-width: 760px;
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
-    line-height: 0.9;
+    font-size: var(--text-display);
+    line-height: var(--leading-display);
     letter-spacing: 0.01em;
     color: var(--color-accent-dark);
 }
@@ -1647,8 +1662,8 @@ body {
     max-width: 680px;
     margin: 0;
     color: var(--color-text);
-    font-size: clamp(1rem, 1.4vw, 1.2rem);
-    line-height: 1.7;
+    font-size: var(--text-body-lg);
+    line-height: var(--leading-body);
     font-weight: 600;
 }
 
@@ -1827,8 +1842,8 @@ body {
 .work-page-header h1 {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 6.5rem);
-    line-height: 0.9;
+    font-size: var(--text-page-title);
+    line-height: var(--leading-display);
     color: var(--color-accent-dark);
     text-transform: uppercase;
 }
@@ -2134,8 +2149,8 @@ body {
     max-width: 900px;
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 7vw, 6rem);
-    line-height: 0.92;
+    font-size: var(--text-page-title);
+    line-height: var(--leading-display);
     color: var(--color-accent-dark);
 }
 
@@ -2313,8 +2328,8 @@ body {
     max-width: 900px;
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 7vw, 6.5rem);
-    line-height: 0.9;
+    font-size: var(--text-page-title);
+    line-height: var(--leading-display);
     color: var(--color-accent-dark);
 }
 
@@ -2687,10 +2702,12 @@ body {
     background-color: var(--color-nav);
 }
 
-.home-about-preview-copy {
-    display: grid;
-    align-content: start;
-    gap: var(--space-md);
+.home-about-preview-copy h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-section-title);
+    line-height: var(--leading-heading);
+    color: var(--color-accent-dark);
 }
 
 .home-about-preview-copy h2 {
@@ -2802,8 +2819,8 @@ body {
     margin: 0;
     font-family: var(--font-display);
     color: var(--color-accent-dark);
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    line-height: 1;
+    font-size: var(--text-subsection-title);
+    line-height: var(--leading-heading);
 }
 
 .work-skills-heading>p {
