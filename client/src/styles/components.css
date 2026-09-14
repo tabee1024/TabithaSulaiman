@@ -2822,22 +2822,6 @@ body {
 
 .case-study-content-grid {
      display: grid;
-     grid-template-columns: minmax(0, 1fr) 340px;
-     gap: var(--space-lg);
-     align-items: start;
-}
-
-.case-study-main-card,
-.case-study-sidebar,
-.case-study-support-card {
-     padding: var(--space-xl);
-     border: 1px solid var(--color-border);
-     border-radius: var(--radius-lg);
-     background-color: var(--color-surface);
-}
-
-.case-study-content-grid {
-     display: grid;
      grid-template-columns: minmax(0, 1fr) 320px;
      gap: var(--space-lg);
      align-items: start;
@@ -4709,13 +4693,13 @@ body {
 -------------------------------- */
 
 .contact-page {
-    padding-top: 0;
-    padding-bottom: 2rem;
+     padding-top: 0;
+     padding-bottom: 2rem;
 }
 
 .contact-page .home-section {
-    padding-top: 2.25rem;
-    padding-bottom: 2.25rem;
+     padding-top: 2.25rem;
+     padding-bottom: 2.25rem;
 }
 
 
@@ -4724,31 +4708,30 @@ body {
 -------------------------------- */
 
 .contact-hero-section {
-    grid-template-columns:
-        minmax(0, 1fr)
-        300px;
-    gap: 2rem;
-    align-items: end;
-    padding-top: 2rem;
+     grid-template-columns:
+          minmax(0, 1fr) 300px;
+     gap: 2rem;
+     align-items: end;
+     padding-top: 2rem;
 }
 
 .contact-hero-section .section-heading {
-    max-width: none;
-    margin-bottom: 0;
+     max-width: none;
+     margin-bottom: 0;
 }
 
 .contact-hero-section h1 {
-    max-width: 720px;
-    font-size: clamp(3rem, 4.5vw, 4.8rem);
-    line-height: 0.88;
-    letter-spacing: 0;
+     max-width: 720px;
+     font-size: clamp(3rem, 4.5vw, 4.8rem);
+     line-height: 0.88;
+     letter-spacing: 0;
 }
 
-.contact-hero-section .section-heading > p:not(.eyebrow) {
-    max-width: 54ch;
-    margin-top: 0.8rem;
-    font-size: 0.84rem;
-    line-height: 1.55;
+.contact-hero-section .section-heading>p:not(.eyebrow) {
+     max-width: 54ch;
+     margin-top: 0.8rem;
+     font-size: 0.84rem;
+     line-height: 1.55;
 }
 
 
@@ -4757,21 +4740,21 @@ body {
 -------------------------------- */
 
 .contact-privacy-card {
-    padding: 1rem;
-    border: 1px solid var(--color-accent-dark);
-    border-radius: 10px;
-    box-shadow: none;
+     padding: 1rem;
+     border: 1px solid var(--color-accent-dark);
+     border-radius: 10px;
+     box-shadow: none;
 }
 
 .contact-privacy-card .project-section-label {
-    margin-bottom: 0.55rem !important;
-    font-size: 0.66rem;
-    line-height: 1;
+     margin-bottom: 0.55rem !important;
+     font-size: 0.66rem;
+     line-height: 1;
 }
 
 .contact-privacy-card p {
-    font-size: 0.72rem;
-    line-height: 1.5;
+     font-size: 0.72rem;
+     line-height: 1.5;
 }
 
 
@@ -4780,30 +4763,29 @@ body {
 -------------------------------- */
 
 .contact-layout {
-    grid-template-columns:
-        285px
-        minmax(0, 1fr);
-    gap: 1.25rem;
-    align-items: start;
+     grid-template-columns:
+          285px minmax(0, 1fr);
+     gap: 1.25rem;
+     align-items: start;
 }
 
 .contact-info-panel {
-    gap: 1rem;
+     gap: 1rem;
 }
 
 .contact-panel-heading {
-    margin-bottom: 0;
+     margin-bottom: 0;
 }
 
 .contact-panel-heading h2 {
-    font-size: 1.55rem;
-    line-height: 0.95;
+     font-size: 1.55rem;
+     line-height: 0.95;
 }
 
-.contact-panel-heading > p:not(.eyebrow) {
-    margin-top: 0.5rem;
-    font-size: 0.74rem;
-    line-height: 1.5;
+.contact-panel-heading>p:not(.eyebrow) {
+     margin-top: 0.5rem;
+     font-size: 0.74rem;
+     line-height: 1.5;
 }
 
 
@@ -4812,25 +4794,25 @@ body {
 -------------------------------- */
 
 .contact-method-grid {
-    gap: 0.6rem;
+     gap: 0.6rem;
 }
 
 .contact-method-card {
-    padding: 0.8rem;
-    border: 1px solid var(--color-border);
-    border-radius: 7px;
-    box-shadow: none;
+     padding: 0.8rem;
+     border: 1px solid var(--color-border);
+     border-radius: 7px;
+     box-shadow: none;
 }
 
 .contact-method-card h3 {
-    margin-bottom: 0.35rem;
-    font-size: 0.88rem;
-    line-height: 1.05;
+     margin-bottom: 0.35rem;
+     font-size: 0.88rem;
+     line-height: 1.05;
 }
 
 .contact-method-card p {
-    font-size: 0.7rem;
-    line-height: 1.45;
+     font-size: 0.7rem;
+     line-height: 1.45;
 }
 
 
@@ -4839,15 +4821,15 @@ body {
 -------------------------------- */
 
 .contact-card {
-    width: 100%;
-    max-width: none;
-    padding: 1.25rem;
-    border-radius: 10px;
-    box-shadow: none;
+     width: 100%;
+     max-width: none;
+     padding: 1.25rem;
+     border-radius: 10px;
+     box-shadow: none;
 }
 
 .chat-contact-widget {
-    gap: 1.25rem;
+     gap: 1.25rem;
 }
 
 
@@ -4856,23 +4838,23 @@ body {
 -------------------------------- */
 
 .chat-thread {
-    gap: 0.6rem;
+     gap: 0.6rem;
 }
 
 .chat-bubble {
-    max-width: 72%;
-    padding: 0.75rem 0.85rem;
-    border-radius: 9px;
-    font-size: 0.74rem;
-    line-height: 1.5;
+     max-width: 72%;
+     padding: 0.75rem 0.85rem;
+     border-radius: 9px;
+     font-size: 0.74rem;
+     line-height: 1.5;
 }
 
 .chat-bubble-incoming {
-    border: 1px solid var(--color-border);
+     border: 1px solid var(--color-border);
 }
 
 .chat-bubble-outgoing {
-    border: 1px solid var(--color-button);
+     border: 1px solid var(--color-button);
 }
 
 
@@ -4881,23 +4863,23 @@ body {
 -------------------------------- */
 
 .chat-contact-form {
-    gap: 1rem;
-    padding-top: 1rem;
+     gap: 1rem;
+     padding-top: 1rem;
 }
 
 .chat-form-header {
-    gap: 0.4rem;
+     gap: 0.4rem;
 }
 
 .chat-form-header h2 {
-    font-size: 1.55rem;
-    line-height: 0.95;
+     font-size: 1.55rem;
+     line-height: 0.95;
 }
 
-.chat-form-header > p:not(.eyebrow) {
-    max-width: 58ch;
-    font-size: 0.72rem;
-    line-height: 1.5;
+.chat-form-header>p:not(.eyebrow) {
+     max-width: 58ch;
+     font-size: 0.72rem;
+     line-height: 1.5;
 }
 
 
@@ -4906,22 +4888,22 @@ body {
 -------------------------------- */
 
 .form-grid {
-    gap: 0.75rem;
+     gap: 0.75rem;
 }
 
 .form-grid-two,
 .chat-form-grid {
-    gap: 0.75rem;
+     gap: 0.75rem;
 }
 
 .form-field {
-    gap: 0.35rem;
+     gap: 0.35rem;
 }
 
 .form-field label {
-    font-size: 0.72rem;
-    line-height: 1.3;
-    font-weight: 800;
+     font-size: 0.72rem;
+     line-height: 1.3;
+     font-weight: 800;
 }
 
 
@@ -4932,20 +4914,20 @@ body {
 .form-field input,
 .form-field select,
 .form-field textarea {
-    padding: 0.65rem 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 5px;
-    font-size: 0.78rem;
-    line-height: 1.4;
+     padding: 0.65rem 0.75rem;
+     border: 1px solid var(--color-border);
+     border-radius: 5px;
+     font-size: 0.78rem;
+     line-height: 1.4;
 }
 
 .form-field input,
 .form-field select {
-    min-height: 40px;
+     min-height: 40px;
 }
 
 .form-field textarea {
-    min-height: 140px;
+     min-height: 140px;
 }
 
 
@@ -4954,11 +4936,11 @@ body {
 -------------------------------- */
 
 .contact-form .button {
-    min-height: 38px;
-    padding: 0.6rem 0.9rem;
-    border-radius: 6px;
-    font-size: 0.72rem;
-    text-transform: uppercase;
+     min-height: 38px;
+     padding: 0.6rem 0.9rem;
+     border-radius: 6px;
+     font-size: 0.72rem;
+     text-transform: uppercase;
 }
 
 
@@ -4967,9 +4949,1335 @@ body {
 -------------------------------- */
 
 .form-status {
-    padding: 0.65rem 0.8rem;
-    border-width: 1px;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    line-height: 1.45;
+     padding: 0.65rem 0.8rem;
+     border-width: 1px;
+     border-radius: 6px;
+     font-size: 0.7rem;
+     line-height: 1.45;
+}
+
+
+
+/* --------------------------------
+   Home First-Screen Density
+-------------------------------- */
+
+.home-page:has(> .mockup-hero) {
+     padding-top: 0.75rem;
+     padding-bottom: 1rem;
+}
+
+.mockup-hero {
+     min-height: 445px;
+     grid-template-columns:
+          minmax(0, 1.18fr) minmax(320px, 0.82fr);
+     gap: 2rem;
+     padding: 1rem 0 1.5rem;
+}
+
+
+/* --------------------------------
+   Home Headline
+-------------------------------- */
+
+.mockup-hero h1 {
+     max-width: 760px;
+     font-size: clamp(3.5rem, 4.6vw, 4.65rem);
+     line-height: 0.88;
+}
+
+
+/* --------------------------------
+   Home Portrait Balance
+-------------------------------- */
+
+.mockup-hero-visual {
+     min-height: 360px;
+}
+
+.mockup-portrait-placeholder {
+     width: min(100%, 340px);
+}
+
+
+/* --------------------------------
+   Selected Work — Current 2 Cards
+-------------------------------- */
+
+.selected-work-section .project-grid,
+.selected-work-section .mockup-work-grid {
+     grid-template-columns:
+          repeat(auto-fit, minmax(360px, 1fr));
+     gap: 1rem;
+     width: 100%;
+}
+
+.selected-work-section .mockup-work-card-media {
+     min-height: 155px;
+}
+
+
+/* --------------------------------
+   Home Closing Rhythm
+-------------------------------- */
+
+.home-page .home-section:has(.home-about-preview-grid) {
+     padding-bottom: 1.25rem;
+}
+
+.home-page:has(.home-about-preview-grid) {
+     padding-bottom: 1rem;
+}
+
+
+/* ==========================================================
+   STEP 48A–48C
+   FINAL DESKTOP VISUAL LOCK
+   Source of truth: My Portfolio mockup
+   ========================================================== */
+
+
+/* ==========================================================
+   1. SHARED DESKTOP CANVAS
+   ========================================================== */
+
+.site-header,
+.site-footer,
+.home-page,
+.work-mockup-page,
+.systems-deep-dive-page,
+.case-study-page {
+     width: min(calc(100% - 3rem), 1240px);
+     margin-left: auto;
+     margin-right: auto;
+}
+
+
+/* ==========================================================
+   2. SHARED SECTION RHYTHM
+   ========================================================== */
+
+.home-section {
+     padding-top: 2.15rem;
+     padding-bottom: 2.15rem;
+}
+
+.home-section+.home-section {
+     border-top: 1px solid var(--color-border);
+}
+
+.section-heading {
+     margin-bottom: 1.15rem;
+}
+
+.section-heading h2 {
+     font-size: 1.8rem;
+     line-height: 0.95;
+}
+
+.section-heading p {
+     max-width: 60ch;
+     margin-top: 0.45rem;
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+
+/* ==========================================================
+   3. SHARED SURFACE SYSTEM
+   ========================================================== */
+
+.content-card,
+.home-about-preview-grid,
+.work-control-board,
+.work-skills-section,
+.work-bottom-cta,
+.deep-dive-summary-card,
+.deep-dive-cta-card,
+.case-study-visual-placeholder,
+.case-study-meta-row,
+.case-study-main-card,
+.case-study-sidebar,
+.case-study-support-card,
+.about-page-card,
+.contact-privacy-card,
+.contact-card {
+     border: 1px solid var(--color-border);
+     border-radius: 10px;
+     box-shadow: none;
+}
+
+.role-pathway-card,
+.mockup-work-card,
+.work-skill-group,
+.deep-dive-lens-card,
+.deep-dive-flow-card,
+.deep-dive-tradeoff-card,
+.case-study-highlight-card,
+.about-preview-principle,
+.contact-method-card {
+     border: 1px solid var(--color-border);
+     border-radius: 7px;
+     box-shadow: none;
+}
+
+.button,
+.mockup-filter-button,
+.mockup-sort-label select,
+.case-study-tab,
+.form-field input,
+.form-field select,
+.form-field textarea,
+.ui-badge,
+.mockup-card-badge,
+.mockup-lens-row span,
+.mockup-tool-row span,
+.work-skill-tags span {
+     border-radius: 5px;
+}
+
+
+/* ==========================================================
+   4. HEADER
+   ========================================================== */
+
+.site-header {
+     margin-top: 0.9rem;
+     padding: 0.55rem 0.85rem;
+     grid-template-columns: auto 1fr auto;
+     gap: 1.25rem;
+     border-radius: 10px;
+     background: var(--color-nav);
+     box-shadow: none;
+}
+
+.site-logo {
+     gap: 0.6rem;
+}
+
+.site-logo-mark {
+     width: 40px;
+     height: 40px;
+}
+
+.site-logo-name {
+     max-width: 7rem;
+     font-size: 0.86rem;
+     line-height: 0.92;
+}
+
+.site-nav {
+     gap: 1.2rem;
+}
+
+.site-nav a {
+     padding: 0.25rem 0.05rem;
+     font-size: 0.78rem;
+}
+
+.nav-cta {
+     min-height: 36px;
+     padding: 0.52rem 0.8rem;
+     font-size: 0.78rem;
+}
+
+
+/* ==========================================================
+   5. HOME — HERO
+   ========================================================== */
+
+.mockup-hero {
+     min-height: 440px;
+     grid-template-columns:
+          minmax(0, 1.17fr) minmax(300px, 0.83fr);
+     gap: 2rem;
+     align-items: center;
+     padding: 1.2rem 0 1.6rem;
+}
+
+.mockup-hero-copy {
+     gap: 0.8rem;
+}
+
+.mockup-pill {
+     padding: 0.3rem 0.58rem;
+     font-size: 0.68rem;
+     border-radius: 5px;
+}
+
+.mockup-hero h1 {
+     max-width: 750px;
+     margin: 0;
+     font-size: clamp(3.4rem, 4.65vw, 4.7rem);
+     line-height: 0.87;
+     letter-spacing: 0;
+     text-transform: uppercase;
+}
+
+.mockup-hero-description {
+     max-width: 52ch;
+     font-size: 0.9rem;
+     line-height: 1.5;
+}
+
+.mockup-hero .hero-actions {
+     gap: 0.65rem;
+     margin-top: 0.3rem;
+}
+
+.mockup-hero .button {
+     min-height: 38px;
+     padding: 0.58rem 0.85rem;
+     font-size: 0.7rem;
+}
+
+.mockup-hero-visual {
+     width: 100%;
+     min-height: 355px;
+     padding: 0.2rem;
+}
+
+.mockup-portrait-placeholder {
+     width: min(100%, 335px);
+     border-radius: 25px;
+}
+
+.mockup-hero-accent {
+     width: 128px;
+     height: 138px;
+     border-radius: 16px;
+}
+
+.mockup-dot-column {
+     gap: 0.42rem;
+}
+
+.mockup-dot-column span {
+     width: 0.34rem;
+     height: 0.34rem;
+}
+
+
+/* ==========================================================
+   6. HOME — EXPERTISE STRIP
+   ========================================================== */
+
+.expertise-strip {
+     border: 1px solid var(--color-border);
+     border-radius: 7px;
+     overflow: hidden;
+}
+
+.expertise-strip-item {
+     min-height: 80px;
+     grid-template-columns: 1.55rem 1fr;
+     gap: 0.55rem;
+     padding: 0.68rem 0.8rem;
+}
+
+.expertise-strip-item span {
+     font-size: 1rem;
+}
+
+.expertise-strip-item h2 {
+     font-size: 0.68rem;
+}
+
+.expertise-strip-item p {
+     font-size: 0.64rem;
+     line-height: 1.4;
+}
+
+
+/* ==========================================================
+   7. HOME — ROLE PATHWAYS
+   ========================================================== */
+
+.role-pathways-section {
+     padding-top: 2rem;
+     padding-bottom: 2rem;
+}
+
+.role-pathways-section .section-heading {
+     margin-bottom: 1rem;
+}
+
+.role-pathways-section .section-heading h2 {
+     font-size: 1.8rem;
+}
+
+.role-pathways-grid {
+     gap: 0.85rem;
+}
+
+.role-pathway-card {
+     min-height: 190px;
+     gap: 0.62rem;
+     padding: 0.9rem;
+}
+
+.role-pathway-symbol {
+     font-size: 1.85rem;
+}
+
+.role-pathway-card h3 {
+     font-size: 0.9rem;
+}
+
+.role-pathway-card p {
+     max-width: 25ch;
+     font-size: 0.7rem;
+     line-height: 1.45;
+}
+
+.role-pathway-card a {
+     font-size: 0.64rem;
+}
+
+
+/* ==========================================================
+   8. HOME — SELECTED WORK
+   ========================================================== */
+
+.selected-work-section {
+     padding-top: 2rem;
+     padding-bottom: 2rem;
+}
+
+.selected-work-section .section-heading {
+     margin-bottom: 0.9rem;
+}
+
+.selected-work-section .section-heading h2 {
+     font-size: 1.8rem;
+}
+
+.selected-work-section .section-heading p {
+     font-size: 0.76rem;
+}
+
+.selected-work-section .project-grid,
+.selected-work-section .mockup-work-grid {
+     grid-template-columns:
+          repeat(auto-fit, minmax(360px, 1fr));
+     gap: 0.9rem;
+     width: 100%;
+     margin-top: 0.9rem;
+}
+
+.selected-work-section .mockup-work-card {
+     grid-template-rows: 140px 1fr auto;
+}
+
+.selected-work-section .mockup-work-card-media {
+     min-height: 140px;
+}
+
+.selected-work-section .mockup-work-card-body {
+     padding: 0.8rem;
+}
+
+
+/* ==========================================================
+   9. HOME — ABOUT PREVIEW
+   ========================================================== */
+
+.home-about-preview-grid {
+     grid-template-columns:
+          minmax(0, 1.05fr) minmax(280px, 0.95fr);
+     gap: 1.25rem;
+     padding: 1.1rem;
+}
+
+.home-about-preview-copy {
+     gap: 0.7rem;
+}
+
+.home-about-preview-copy h2 {
+     font-size: 1.8rem;
+     line-height: 0.95;
+}
+
+.home-about-preview-copy p {
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+.home-about-preview-copy .button {
+     min-height: 36px;
+     margin-top: 0.3rem;
+     padding: 0.55rem 0.8rem;
+     font-size: 0.68rem;
+}
+
+.about-preview-principles {
+     gap: 0.5rem;
+}
+
+.about-preview-principle {
+     grid-template-columns: 1.8rem 1fr;
+     gap: 0.65rem;
+     padding: 0.68rem;
+}
+
+.about-preview-principle span {
+     font-size: 0.88rem;
+}
+
+.about-preview-principle h3 {
+     font-size: 0.84rem;
+}
+
+.about-preview-principle p {
+     font-size: 0.68rem;
+     line-height: 1.4;
+}
+
+
+/* ==========================================================
+   10. WORK — PAGE HEADER
+   ========================================================== */
+
+.work-mockup-page {
+     padding-top: 0;
+     padding-bottom: 1.6rem;
+}
+
+.work-hero-section {
+     padding-top: 1.5rem;
+     padding-bottom: 1.3rem;
+}
+
+.work-page-header {
+     grid-template-columns:
+          minmax(0, 1fr) 280px;
+     gap: 1.5rem;
+     margin-bottom: 1rem;
+}
+
+.work-page-header h1 {
+     max-width: 650px;
+     font-size: clamp(2.8rem, 4vw, 4.25rem);
+     line-height: 0.87;
+}
+
+.work-page-header>div>p {
+     max-width: 50ch;
+     margin-top: 0.55rem;
+     font-size: 0.82rem;
+     line-height: 1.5;
+}
+
+.work-page-note {
+     padding: 0.75rem 0.85rem;
+}
+
+.work-page-note p {
+     font-size: 0.68rem;
+}
+
+
+/* ==========================================================
+   11. WORK — CONTROLS
+   ========================================================== */
+
+.work-control-board {
+     gap: 0.7rem;
+     margin-bottom: 1rem;
+     padding: 0.75rem;
+}
+
+.work-control-row {
+     grid-template-columns: minmax(0, 1fr) 155px;
+     gap: 0.8rem;
+}
+
+.mockup-filter-row {
+     gap: 0.32rem;
+}
+
+.mockup-filter-button {
+     min-height: 31px;
+     padding: 0.38rem 0.58rem;
+     font-size: 0.67rem;
+}
+
+.mockup-sort-label {
+     font-size: 0.64rem;
+}
+
+.mockup-sort-label select {
+     min-height: 32px;
+     padding: 0.38rem 0.55rem;
+     font-size: 0.67rem;
+}
+
+.work-control-footer {
+     gap: 0.6rem;
+     padding-top: 0.55rem;
+}
+
+.work-control-footer p {
+     font-size: 0.64rem;
+}
+
+
+/* ==========================================================
+   12. WORK — SKILLS
+   ========================================================== */
+
+.work-skills-section {
+     margin-bottom: 1.25rem;
+     padding: 0.85rem;
+}
+
+.work-skills-heading {
+     grid-template-columns:
+          minmax(0, 1fr) minmax(200px, 300px);
+     gap: 0.8rem;
+     margin-bottom: 0.75rem;
+}
+
+.work-skills-heading h2 {
+     font-size: 1.4rem;
+}
+
+.work-skills-heading>p {
+     font-size: 0.68rem;
+     line-height: 1.4;
+}
+
+.work-skills-grid {
+     gap: 0.5rem;
+}
+
+.work-skill-group {
+     min-height: 88px;
+     padding: 0.62rem;
+}
+
+.work-skill-group h3 {
+     font-size: 0.76rem;
+}
+
+.work-skill-tags span {
+     min-height: 21px;
+     font-size: 0.6rem;
+}
+
+
+/* ==========================================================
+   13. WORK — PROJECT GRID
+   ========================================================== */
+
+.mockup-work-grid {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 0.85rem;
+}
+
+.mockup-work-card {
+     grid-template-rows: 135px 1fr auto;
+}
+
+.mockup-work-card-media {
+     min-height: 135px;
+     padding: 0.62rem;
+}
+
+.mockup-card-browser-dots span {
+     width: 0.38rem;
+     height: 0.38rem;
+}
+
+.mockup-card-screen {
+     gap: 0.42rem;
+     padding: 0.62rem;
+}
+
+.mockup-card-screen-large {
+     min-height: 48px;
+}
+
+.mockup-work-card-body {
+     gap: 0.52rem;
+     padding: 0.78rem;
+}
+
+.mockup-card-badge {
+     min-height: 20px;
+     font-size: 0.57rem;
+}
+
+.mockup-work-card-body h3 {
+     font-size: 0.92rem;
+}
+
+.mockup-work-card-subtitle {
+     font-size: 0.64rem;
+}
+
+.mockup-work-card-summary {
+     font-size: 0.7rem;
+     line-height: 1.42;
+}
+
+.mockup-work-card-tags span {
+     min-height: 20px;
+     font-size: 0.58rem;
+}
+
+.mockup-work-card-footer {
+     padding: 0.58rem 0.78rem;
+}
+
+.mockup-work-card-footer a {
+     font-size: 0.63rem;
+}
+
+
+/* ==========================================================
+   14. WORK — BOTTOM CTA
+   ========================================================== */
+
+.work-bottom-cta {
+     gap: 1rem;
+     margin-top: 1.2rem;
+     padding: 1rem;
+}
+
+.work-bottom-cta h2 {
+     font-size: 1.4rem;
+}
+
+.work-bottom-cta p {
+     font-size: 0.72rem;
+}
+
+.work-bottom-cta .button {
+     min-height: 36px;
+     font-size: 0.68rem;
+}
+
+
+/* ==========================================================
+   15. PROJECT DETAIL — HERO
+   ========================================================== */
+
+.case-study-page {
+     padding-top: 0;
+     padding-bottom: 1.6rem;
+}
+
+.case-study-hero-section {
+     padding-top: 1.3rem;
+     padding-bottom: 1.3rem;
+}
+
+.case-study-back-row {
+     margin-bottom: 0.8rem;
+}
+
+.case-study-back-row a {
+     font-size: 0.68rem;
+}
+
+.case-study-hero {
+     grid-template-columns:
+          minmax(0, 1fr) 330px;
+     gap: 1.5rem;
+     margin-bottom: 1.2rem;
+}
+
+.case-study-label-row {
+     gap: 0.42rem;
+     margin-bottom: 0.65rem;
+}
+
+.case-study-label-row span {
+     font-size: 0.58rem;
+}
+
+.case-study-hero h1 {
+     max-width: 700px;
+     font-size: clamp(2.8rem, 4.1vw, 4.35rem);
+     line-height: 0.87;
+}
+
+.case-study-subtitle {
+     margin-top: 0.58rem;
+     font-size: 0.82rem;
+}
+
+.case-study-summary {
+     max-width: 56ch;
+     margin-top: 0.65rem;
+     font-size: 0.76rem;
+     line-height: 1.5;
+}
+
+.case-study-visual-placeholder {
+     min-height: 255px;
+     padding: 0.68rem;
+}
+
+.case-study-visual-screen {
+     height: 235px;
+     gap: 0.6rem;
+     padding: 0.85rem;
+}
+
+
+/* ==========================================================
+   16. PROJECT DETAIL — META + TABS
+   ========================================================== */
+
+.case-study-meta-row {
+     margin-bottom: 0.85rem;
+}
+
+.case-study-meta-row>div {
+     gap: 0.25rem;
+     padding: 0.68rem 0.85rem;
+}
+
+.case-study-meta-row span {
+     font-size: 0.58rem;
+}
+
+.case-study-meta-row strong {
+     font-size: 0.72rem;
+}
+
+.case-study-tabs {
+     gap: 0.32rem;
+     padding-bottom: 0.72rem;
+}
+
+.case-study-tab {
+     min-height: 31px;
+     padding: 0.38rem 0.62rem;
+     font-size: 0.65rem;
+}
+
+
+/* ==========================================================
+   17. PROJECT DETAIL — CONTENT
+   ========================================================== */
+
+.case-study-content-grid {
+     grid-template-columns:
+          minmax(0, 1fr) 270px;
+     gap: 0.85rem;
+}
+
+.case-study-main-card,
+.case-study-sidebar {
+     padding: 1rem;
+}
+
+.case-study-main-card h2,
+.case-study-sidebar h2 {
+     font-size: 1.4rem;
+}
+
+.case-study-section-block {
+     margin-top: 1.25rem;
+}
+
+.case-study-section-block p {
+     font-size: 0.76rem;
+     line-height: 1.5;
+}
+
+.case-study-sidebar {
+     gap: 0.62rem;
+}
+
+.case-study-highlight-card {
+     padding: 0.68rem;
+}
+
+.case-study-highlight-card p {
+     font-size: 0.68rem;
+}
+
+.case-study-link-stack {
+     gap: 0.42rem;
+     margin-top: 0.55rem;
+}
+
+.case-study-link-stack a {
+     min-height: 34px;
+     padding: 0.48rem 0.65rem;
+     font-size: 0.63rem;
+}
+
+.case-study-support-grid {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 0.85rem;
+}
+
+.case-study-support-card {
+     padding: 0.9rem;
+}
+
+.case-study-support-card h2 {
+     margin-bottom: 0.65rem;
+     font-size: 1.05rem;
+}
+
+.case-study-support-card li {
+     margin-bottom: 0.4rem;
+     font-size: 0.68rem;
+     line-height: 1.45;
+}
+
+
+/* ==========================================================
+   18. SYSTEMS
+   Keep visually coherent for now; content decision later.
+   ========================================================== */
+
+.systems-deep-dive-page {
+     padding-top: 0;
+     padding-bottom: 1.6rem;
+}
+
+.systems-deep-dive-page .home-section {
+     padding-top: 2rem;
+     padding-bottom: 2rem;
+}
+
+.deep-dive-hero {
+     grid-template-columns:
+          minmax(0, 1fr) 280px;
+     gap: 1.5rem;
+}
+
+.deep-dive-hero-copy h1 {
+     max-width: 720px;
+     font-size: clamp(2.8rem, 4.1vw, 4.3rem);
+     line-height: 0.87;
+}
+
+.deep-dive-hero-copy p {
+     max-width: 56ch;
+     margin-top: 0.65rem;
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+.deep-dive-summary-card {
+     padding: 0.78rem 0.85rem;
+}
+
+.deep-dive-summary-card p {
+     font-size: 0.66rem;
+}
+
+.deep-dive-lens-grid {
+     gap: 0.62rem;
+}
+
+.deep-dive-lens-card {
+     min-height: 190px;
+     gap: 0.52rem;
+     padding: 0.85rem;
+}
+
+.deep-dive-lens-card h3 {
+     font-size: 0.88rem;
+}
+
+.deep-dive-lens-card p {
+     font-size: 0.68rem;
+}
+
+.deep-dive-lens-card li {
+     font-size: 0.62rem;
+}
+
+.deep-dive-flow-grid {
+     gap: 0.85rem;
+}
+
+.deep-dive-flow-card {
+     padding: 0.85rem;
+}
+
+.deep-dive-flow-card h3 {
+     font-size: 0.88rem;
+}
+
+.deep-dive-flow-card li {
+     font-size: 0.68rem;
+}
+
+.deep-dive-tradeoff-grid {
+     gap: 0.62rem;
+}
+
+.deep-dive-tradeoff-card {
+     min-height: 135px;
+     padding: 0.85rem;
+}
+
+.deep-dive-tradeoff-card h3 {
+     font-size: 0.84rem;
+}
+
+.deep-dive-tradeoff-card p {
+     font-size: 0.68rem;
+}
+
+.deep-dive-cta-card {
+     gap: 1rem;
+     padding: 1rem;
+}
+
+.deep-dive-cta-card h2 {
+     font-size: 1.4rem;
+}
+
+.deep-dive-cta-card p {
+     font-size: 0.7rem;
+}
+
+
+/* ==========================================================
+   19. ABOUT
+   ========================================================== */
+
+.about-page {
+     padding-top: 0;
+     padding-bottom: 1.6rem;
+}
+
+.about-page-hero {
+     grid-template-columns:
+          minmax(0, 1.2fr) minmax(260px, 0.8fr);
+     gap: 1.5rem;
+     align-items: center;
+     padding-top: 1.8rem;
+     padding-bottom: 1.8rem;
+}
+
+.about-page-intro h1 {
+     max-width: 720px;
+     font-size: clamp(2.8rem, 4.15vw, 4.35rem);
+     line-height: 0.87;
+}
+
+.about-page-intro>p:not(.eyebrow) {
+     max-width: 54ch;
+     margin-top: 0.65rem;
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+.about-page-card {
+     padding: 1rem;
+}
+
+.about-page-card h2 {
+     margin-bottom: 0.52rem;
+     font-size: 1.4rem;
+}
+
+.about-page-card p {
+     max-width: 44ch;
+     font-size: 0.72rem;
+     line-height: 1.5;
+}
+
+
+/* ==========================================================
+   20. CONTACT — HERO
+   ========================================================== */
+
+.contact-page {
+     padding-top: 0;
+     padding-bottom: 1.6rem;
+}
+
+.contact-hero-section {
+     grid-template-columns:
+          minmax(0, 1fr) 280px;
+     gap: 1.5rem;
+     padding-top: 1.8rem;
+     padding-bottom: 1.8rem;
+}
+
+.contact-hero-section h1 {
+     max-width: 700px;
+     font-size: clamp(2.8rem, 4.15vw, 4.35rem);
+     line-height: 0.87;
+}
+
+.contact-hero-section .section-heading>p:not(.eyebrow) {
+     max-width: 52ch;
+     margin-top: 0.65rem;
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+.contact-privacy-card {
+     padding: 0.85rem;
+}
+
+.contact-privacy-card .project-section-label {
+     margin-bottom: 0.45rem !important;
+     font-size: 0.61rem;
+}
+
+.contact-privacy-card p {
+     font-size: 0.68rem;
+}
+
+
+/* ==========================================================
+   21. CONTACT — MAIN CONTENT
+   ========================================================== */
+
+.contact-layout {
+     grid-template-columns:
+          265px minmax(0, 1fr);
+     gap: 1rem;
+}
+
+.contact-info-panel {
+     gap: 0.85rem;
+}
+
+.contact-panel-heading h2 {
+     font-size: 1.4rem;
+}
+
+.contact-panel-heading>p:not(.eyebrow) {
+     margin-top: 0.42rem;
+     font-size: 0.68rem;
+}
+
+.contact-method-grid {
+     gap: 0.5rem;
+}
+
+.contact-method-card {
+     padding: 0.65rem;
+}
+
+.contact-method-card h3 {
+     margin-bottom: 0.28rem;
+     font-size: 0.82rem;
+}
+
+.contact-method-card p {
+     font-size: 0.65rem;
+}
+
+
+/* ==========================================================
+   22. CONTACT — FORM
+   ========================================================== */
+
+.contact-card {
+     padding: 1rem;
+}
+
+.chat-contact-widget {
+     gap: 1rem;
+}
+
+.chat-thread {
+     gap: 0.5rem;
+}
+
+.chat-bubble {
+     max-width: 70%;
+     padding: 0.62rem 0.72rem;
+     border-radius: 7px;
+     font-size: 0.68rem;
+     line-height: 1.45;
+}
+
+.chat-contact-form {
+     gap: 0.85rem;
+     padding-top: 0.85rem;
+}
+
+.chat-form-header h2 {
+     font-size: 1.4rem;
+}
+
+.chat-form-header>p:not(.eyebrow) {
+     font-size: 0.68rem;
+}
+
+.form-grid,
+.form-grid-two,
+.chat-form-grid {
+     gap: 0.62rem;
+}
+
+.form-field {
+     gap: 0.3rem;
+}
+
+.form-field label {
+     font-size: 0.67rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+     padding: 0.58rem 0.68rem;
+     border: 1px solid var(--color-border);
+     border-radius: 5px;
+     font-size: 0.74rem;
+}
+
+.form-field input,
+.form-field select {
+     min-height: 38px;
+}
+
+.form-field textarea {
+     min-height: 125px;
+}
+
+.contact-form .button {
+     min-height: 36px;
+     padding: 0.55rem 0.82rem;
+     font-size: 0.68rem;
+}
+
+.form-status {
+     padding: 0.55rem 0.7rem;
+     border-width: 1px;
+     border-radius: 5px;
+     font-size: 0.66rem;
+}
+
+
+/* ==========================================================
+   23. SHARED BUTTON DENSITY
+   ========================================================== */
+
+.button {
+     min-height: 36px;
+     padding: 0.55rem 0.82rem;
+     font-size: 0.7rem;
+}
+
+
+/* ==========================================================
+   24. EYEBROWS / LABELS / TAGS
+   ========================================================== */
+
+.eyebrow,
+.project-section-label {
+     font-size: 0.64rem;
+     line-height: 1.1;
+     letter-spacing: 0.08em;
+}
+
+.ui-badge,
+.mockup-card-badge,
+.work-skill-tags span,
+.mockup-lens-row span,
+.mockup-tool-row span {
+     font-size: 0.59rem;
+}
+
+
+/* ==========================================================
+   25. FOOTER
+   ========================================================== */
+
+.site-footer {
+     margin-bottom: 0.9rem;
+     padding: 1rem;
+     grid-template-columns:
+          minmax(0, 1fr) auto;
+     gap: 1rem;
+     border-radius: 10px;
+}
+
+.site-footer-brand {
+     gap: 0.62rem;
+     max-width: 450px;
+}
+
+.site-footer-brand p {
+     max-width: 50ch;
+     font-size: 0.7rem;
+     line-height: 1.45;
+}
+
+.site-footer-nav {
+     gap: 0.8rem;
+}
+
+.site-footer-nav a {
+     font-size: 0.68rem;
+}
+
+.site-footer-meta {
+     gap: 0.8rem;
+     padding-top: 0.7rem;
+}
+
+.site-footer-meta p {
+     font-size: 0.61rem;
+}
+
+
+/* ==========================================================
+   26. CONTROLLED INTERACTION POLISH
+   ========================================================== */
+
+.role-pathway-card,
+.mockup-work-card,
+.work-skill-group,
+.deep-dive-lens-card,
+.deep-dive-flow-card,
+.deep-dive-tradeoff-card,
+.contact-method-card,
+.about-preview-principle {
+     transition:
+          transform 160ms ease,
+          border-color 160ms ease;
+}
+
+.role-pathway-card:hover,
+.mockup-work-card:hover,
+.contact-method-card:hover {
+     transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   27. SHARED KEYBOARD FOCUS
+   ========================================================== */
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+     outline: 2px solid var(--color-button);
+     outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   28. HOME CLOSING RHYTHM
+   ========================================================== */
+
+.home-page .home-section:has(.home-about-preview-grid) {
+     padding-bottom: 1.1rem;
+}
+
+.home-page:has(.home-about-preview-grid) {
+     padding-bottom: 0.9rem;
 }
