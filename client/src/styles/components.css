@@ -1776,7 +1776,7 @@
 }
 
 /* ================================
-   v2.4.2 Home Mockup Alignment
+   Home Alignment
 ================================ */
 
 body {
@@ -1867,19 +1867,20 @@ body {
      position: relative;
      width: min(100%, 410px);
      aspect-ratio: 0.84;
-     display: grid;
-     place-items: center;
+     overflow: hidden;
      border: 1px solid var(--color-border);
      border-radius: var(--radius-lg);
-     background:
-          linear-gradient(135deg,
-               var(--color-surface),
-               var(--color-nav));
+     background-color: var(--color-nav);
      box-shadow: var(--shadow-soft);
-     color: var(--color-accent-dark);
-     font-family: var(--font-display);
-     font-size: 1.2rem;
      z-index: 2;
+}
+
+.mockup-portrait-image {
+     width: 100%;
+     height: 100%;
+     display: block;
+     object-fit: cover;
+     object-position: center;
 }
 
 .mockup-hero-accent {
@@ -3290,4 +3291,1685 @@ body {
      font-size: 0.75rem;
      line-height: 1;
      font-weight: 800;
+}
+
+
+/* Page gutters */
+
+.home-page,
+.work-mockup-page,
+.systems-deep-dive-page,
+.case-study-page {
+     width: min(calc(100% - 3rem), var(--wide-content-width));
+}
+
+
+/* Shared section rhythm */
+
+.home-section {
+     padding: 3rem 0;
+}
+
+.home-section+.home-section {
+     border-top: 1px solid var(--color-border);
+}
+
+.section-heading {
+     margin-bottom: 1.5rem;
+}
+
+
+/* Large contained surfaces */
+
+.content-card,
+.home-about-preview-grid,
+.work-control-board,
+.work-skills-section,
+.work-bottom-cta,
+.deep-dive-summary-card,
+.deep-dive-cta-card,
+.case-study-visual-placeholder,
+.case-study-meta-row,
+.case-study-main-card,
+.case-study-sidebar,
+.case-study-support-card,
+.about-page-card,
+.contact-privacy-card,
+.contact-card {
+     border-width: 1px;
+     border-radius: 12px;
+     box-shadow: none;
+}
+
+
+/* Standard cards */
+
+.role-pathway-card,
+.mockup-work-card,
+.work-skill-group,
+.deep-dive-lens-card,
+.deep-dive-flow-card,
+.deep-dive-tradeoff-card,
+.case-study-highlight-card,
+.about-preview-principle,
+.contact-method-card {
+     border-width: 1px;
+     border-radius: 8px;
+     box-shadow: none;
+}
+
+
+/* Compact controls */
+
+.button,
+.mockup-filter-button,
+.mockup-sort-label select,
+.case-study-tab,
+.form-field input,
+.form-field select,
+.form-field textarea,
+.ui-badge,
+.mockup-card-badge,
+.mockup-lens-row span,
+.mockup-tool-row span,
+.work-skill-tags span {
+     border-radius: 6px;
+}
+
+/* Header outer proportions */
+
+.site-header {
+     width: min(calc(100% - 3rem), var(--wide-content-width));
+     margin: 1rem auto 0;
+     padding: 0.65rem 1rem;
+     gap: 1.5rem;
+     border: 1px solid var(--color-border);
+     border-radius: 12px;
+     background-color: var(--color-nav);
+     box-shadow: none;
+}
+
+
+/* Header brand */
+
+.site-logo {
+     gap: 0.65rem;
+     border-radius: 6px;
+}
+
+.site-logo-mark {
+     width: 44px;
+     height: 44px;
+}
+
+.site-logo-name {
+     max-width: 7.5rem;
+     font-size: 0.9rem;
+     line-height: 0.92;
+     letter-spacing: 0.025em;
+}
+
+
+/* Main navigation */
+
+.site-nav {
+     gap: 1.5rem;
+}
+
+.site-nav a {
+     padding: 0.3rem 0.1rem;
+     border-radius: 4px;
+     font-size: 0.82rem;
+     font-weight: 700;
+}
+
+.site-nav a::after {
+     left: 0;
+     right: 0;
+     bottom: -0.15rem;
+     height: 2px;
+}
+
+
+/* Header CTA */
+
+.nav-cta {
+     min-height: 38px;
+     padding: 0.6rem 0.9rem;
+     border-radius: 6px;
+     font-size: 0.82rem;
+     font-weight: 800;
+}
+
+
+/* Footer outer proportions */
+
+.site-footer {
+     width: min(calc(100% - 3rem), var(--wide-content-width));
+     margin: 0 auto 1rem;
+     padding: 1.25rem;
+     grid-template-columns: minmax(0, 1fr) auto;
+     gap: 1.25rem;
+     border: 1px solid var(--color-border);
+     border-radius: 12px;
+     background-color: var(--color-nav);
+}
+
+
+/* Footer brand */
+
+.site-footer-brand {
+     gap: 0.75rem;
+     max-width: 480px;
+}
+
+.site-footer-logo {
+     gap: 0.65rem;
+     border-radius: 6px;
+}
+
+.site-footer-brand p {
+     max-width: 52ch;
+     font-size: var(--text-small);
+     line-height: 1.5;
+}
+
+
+/* Footer navigation */
+
+.site-footer-nav {
+     gap: 1rem;
+}
+
+.site-footer-nav a {
+     border-radius: 4px;
+     font-size: var(--text-small);
+     font-weight: 800;
+}
+
+
+/* Footer lower row */
+
+.site-footer-meta {
+     gap: 1rem;
+     padding-top: 0.85rem;
+     border-top: 1px solid var(--color-border);
+}
+
+.site-footer-meta p {
+     font-size: var(--text-xs);
+     line-height: 1.4;
+}
+
+
+/* --------------------------------
+   Home Hero
+-------------------------------- */
+
+.mockup-hero {
+     min-height: 510px;
+     grid-template-columns:
+          minmax(0, 1.12fr) minmax(320px, 0.88fr);
+     gap: 2.5rem;
+     align-items: center;
+     padding: 2rem 0 2.25rem;
+}
+
+.mockup-hero-copy {
+     gap: 0.9rem;
+     align-content: center;
+}
+
+.mockup-pill {
+     padding: 0.32rem 0.65rem;
+     border: 1px solid var(--color-button);
+     border-radius: 6px;
+     color: var(--color-accent-dark);
+     font-size: 0.72rem;
+     line-height: 1;
+     font-weight: 800;
+     letter-spacing: 0.05em;
+}
+
+.mockup-hero h1 {
+     max-width: 700px;
+     margin: 0;
+     font-size: clamp(3.75rem, 5.4vw, 5.5rem);
+     line-height: 0.86;
+     letter-spacing: 0;
+     text-transform: uppercase;
+}
+
+.mockup-hero-description {
+     max-width: 54ch;
+     font-size: 1rem;
+     line-height: 1.55;
+     font-weight: 600;
+}
+
+.mockup-hero .hero-actions {
+     gap: 0.75rem;
+     margin-top: 0.4rem;
+}
+
+.mockup-hero .button {
+     min-height: 40px;
+     padding: 0.65rem 1rem;
+     border-radius: 6px;
+     font-size: 0.76rem;
+     text-transform: uppercase;
+}
+
+
+/* --------------------------------
+   Home Portrait Composition
+-------------------------------- */
+
+.mockup-hero-visual {
+     width: 100%;
+     min-height: 390px;
+     justify-self: end;
+     padding: 0.25rem;
+}
+
+.mockup-portrait-placeholder {
+     width: min(100%, 360px);
+     aspect-ratio: 0.82;
+     overflow: hidden;
+     border: 1px solid var(--color-button);
+     border-radius: 28px;
+     background-color: var(--color-nav);
+     box-shadow: none;
+}
+
+.mockup-portrait-image {
+     width: 100%;
+     height: 100%;
+     display: block;
+     object-fit: cover;
+     object-position: center 18%;
+}
+
+.mockup-hero-accent {
+     right: 0;
+     bottom: 0;
+     width: 140px;
+     height: 150px;
+     border-radius: 18px;
+}
+
+.mockup-dot-column {
+     right: 0.25rem;
+     top: 10%;
+     gap: 0.5rem;
+}
+
+.mockup-dot-column span {
+     width: 0.38rem;
+     height: 0.38rem;
+}
+
+
+/* --------------------------------
+   Expertise Strip
+-------------------------------- */
+
+.expertise-strip {
+     grid-template-columns: repeat(4, minmax(0, 1fr));
+     border: 1px solid var(--color-border);
+     border-radius: 8px;
+     background-color: var(--color-nav);
+     overflow: hidden;
+}
+
+.expertise-strip-item {
+     min-height: 92px;
+     grid-template-columns: 1.7rem minmax(0, 1fr);
+     gap: 0.65rem;
+     align-content: center;
+     padding: 0.85rem 1rem;
+}
+
+.expertise-strip-item span {
+     font-size: 1.1rem;
+}
+
+.expertise-strip-item h2 {
+     font-size: 0.72rem;
+     line-height: 1.2;
+     letter-spacing: 0.02em;
+}
+
+.expertise-strip-item p {
+     margin-top: 0.25rem;
+     font-size: 0.68rem;
+     line-height: 1.4;
+}
+
+
+/* --------------------------------
+   Explore by Role
+-------------------------------- */
+
+.role-pathways-section {
+     padding-top: 2.25rem;
+     padding-bottom: 2.25rem;
+     border-top: 0;
+}
+
+.role-pathways-section .section-heading {
+     margin-bottom: 1.25rem;
+}
+
+.role-pathways-section .section-heading h2 {
+     font-size: 2rem;
+     line-height: 0.95;
+}
+
+.role-pathways-grid {
+     gap: 1rem;
+}
+
+.role-pathway-card {
+     min-height: 220px;
+     grid-template-rows: auto auto 1fr auto;
+     gap: 0.75rem;
+     justify-items: center;
+     padding: 1.15rem;
+     border: 1px solid var(--color-border);
+     border-radius: 8px;
+     background-color: var(--color-surface);
+     text-align: center;
+}
+
+.role-pathway-symbol {
+     font-size: 2.25rem;
+     line-height: 1;
+}
+
+.role-pathway-card h3 {
+     font-size: 1rem;
+     line-height: 1.05;
+}
+
+.role-pathway-card p {
+     max-width: 25ch;
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+.role-pathway-card a {
+     margin-top: auto;
+     font-size: 0.68rem;
+     line-height: 1.2;
+     text-transform: uppercase;
+     letter-spacing: 0.02em;
+}
+
+
+/* --------------------------------
+   Selected Work
+-------------------------------- */
+
+.selected-work-section {
+     padding-top: 2.25rem;
+     padding-bottom: 2.25rem;
+}
+
+.selected-work-section .section-heading {
+     margin-bottom: 1rem;
+}
+
+.selected-work-section .section-heading h2 {
+     font-size: 2rem;
+     line-height: 0.95;
+}
+
+.selected-work-section .section-heading p {
+     max-width: 62ch;
+     margin-top: 0.4rem;
+     font-size: 0.82rem;
+     line-height: 1.5;
+}
+
+.selected-work-section .section-heading-with-action {
+     gap: 1rem;
+}
+
+.selected-work-section .section-heading-with-action .button {
+     min-height: 38px;
+     padding: 0.6rem 0.9rem;
+     font-size: 0.72rem;
+     text-transform: uppercase;
+}
+
+.selected-work-section .project-grid {
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 1rem;
+     margin-top: 1rem;
+}
+
+.selected-work-section .mockup-work-card {
+     grid-template-rows: 145px 1fr auto;
+     border-radius: 8px;
+     box-shadow: none;
+}
+
+.selected-work-section .mockup-work-card-media {
+     min-height: 145px;
+     padding: 0.75rem;
+}
+
+.selected-work-section .mockup-work-card-body {
+     gap: 0.6rem;
+     padding: 0.9rem;
+}
+
+.selected-work-section .mockup-work-card h3 {
+     font-size: 1.05rem;
+     line-height: 1.05;
+}
+
+.selected-work-section .mockup-work-card-subtitle {
+     margin-top: 0.2rem;
+     font-size: 0.72rem;
+}
+
+.selected-work-section .mockup-work-card-summary {
+     font-size: 0.78rem;
+     line-height: 1.5;
+     -webkit-line-clamp: 3;
+}
+
+.selected-work-section .mockup-card-badge {
+     min-height: 22px;
+     padding: 0.25rem 0.4rem;
+     font-size: 0.62rem;
+}
+
+.selected-work-section .mockup-lens-row span,
+.selected-work-section .mockup-tool-row span {
+     min-height: 23px;
+     padding: 0.25rem 0.45rem;
+     font-size: 0.66rem;
+}
+
+.selected-work-section .mockup-work-card-footer {
+     padding: 0.7rem 0.9rem;
+}
+
+.selected-work-section .mockup-work-card-footer a {
+     font-size: 0.7rem;
+}
+
+
+/* --------------------------------
+   About Preview — preserved
+-------------------------------- */
+
+.home-about-preview-grid {
+     grid-template-columns:
+          minmax(0, 1.05fr) minmax(280px, 0.95fr);
+     gap: 1.5rem;
+     padding: 1.25rem;
+     border: 1px solid var(--color-border);
+     border-radius: 12px;
+     background-color: var(--color-nav);
+}
+
+.home-about-preview-copy {
+     gap: 0.8rem;
+}
+
+.home-about-preview-copy h2 {
+     font-size: 2rem;
+     line-height: 0.95;
+}
+
+.home-about-preview-copy p {
+     max-width: 55ch;
+     font-size: 0.85rem;
+     line-height: 1.55;
+}
+
+.home-about-preview-copy .button {
+     min-height: 38px;
+     margin-top: 0.25rem;
+     padding: 0.6rem 0.9rem;
+     font-size: 0.72rem;
+}
+
+.about-preview-principles {
+     gap: 0.6rem;
+}
+
+.about-preview-principle {
+     grid-template-columns: 2rem minmax(0, 1fr);
+     gap: 0.75rem;
+     padding: 0.75rem;
+     border-radius: 8px;
+}
+
+.about-preview-principle>span {
+     font-size: 0.95rem;
+}
+
+.about-preview-principle h3 {
+     margin-bottom: 0.2rem;
+     font-size: 0.9rem;
+}
+
+.about-preview-principle p {
+     font-size: 0.72rem;
+     line-height: 1.4;
+}
+
+
+/* --------------------------------
+   Work Page Overall Rhythm
+-------------------------------- */
+
+.work-mockup-page {
+     padding-top: 0;
+     padding-bottom: 2rem;
+}
+
+.work-hero-section {
+     padding-top: 1.75rem;
+     padding-bottom: 1.5rem;
+}
+
+
+/* --------------------------------
+   Work Page Header
+-------------------------------- */
+
+.work-page-header {
+     grid-template-columns: minmax(0, 1fr) 300px;
+     gap: 2rem;
+     align-items: end;
+     margin-bottom: 1.25rem;
+}
+
+.work-page-header h1 {
+     max-width: 680px;
+     font-size: clamp(3rem, 4.3vw, 4.6rem);
+     line-height: 0.88;
+     letter-spacing: 0;
+}
+
+.work-page-header p {
+     max-width: 50ch;
+     margin-top: 0.65rem;
+     font-size: 0.88rem;
+     line-height: 1.5;
+}
+
+.work-page-note {
+     padding: 0.85rem 1rem;
+     border-radius: 8px;
+}
+
+.work-page-note p {
+     font-size: 0.72rem;
+     line-height: 1.45;
+}
+
+
+/* --------------------------------
+   Filter + Sort Board
+-------------------------------- */
+
+.work-control-board {
+     gap: 0.8rem;
+     margin-bottom: 1.25rem;
+     padding: 0.9rem;
+     border-radius: 10px;
+}
+
+.work-control-row {
+     grid-template-columns: minmax(0, 1fr) 170px;
+     gap: 1rem;
+}
+
+.mockup-filter-row {
+     gap: 0.4rem;
+}
+
+.mockup-filter-button {
+     min-height: 34px;
+     padding: 0.45rem 0.68rem;
+     border-radius: 5px;
+     font-size: 0.72rem;
+}
+
+.mockup-sort-label {
+     gap: 0.35rem;
+     font-size: 0.68rem;
+}
+
+.mockup-sort-label select {
+     min-height: 36px;
+     padding: 0.45rem 0.65rem;
+     border-radius: 5px;
+     font-size: 0.72rem;
+}
+
+.work-control-footer {
+     gap: 0.75rem;
+     padding-top: 0.65rem;
+}
+
+.work-control-footer p {
+     font-size: 0.68rem;
+}
+
+
+/* --------------------------------
+   Skills & Technology
+-------------------------------- */
+
+.work-skills-section {
+     margin-bottom: 1.5rem;
+     padding: 1rem;
+     border-radius: 10px;
+}
+
+.work-skills-heading {
+     grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+     gap: 1rem;
+     margin-bottom: 0.9rem;
+}
+
+.work-skills-heading h2 {
+     font-size: 1.55rem;
+     line-height: 0.95;
+}
+
+.work-skills-heading>p {
+     font-size: 0.72rem;
+     line-height: 1.45;
+}
+
+.work-skills-grid {
+     gap: 0.6rem;
+}
+
+.work-skill-group {
+     min-height: 102px;
+     padding: 0.75rem;
+     border-radius: 7px;
+}
+
+.work-skill-group h3 {
+     margin-bottom: 0.55rem;
+     font-size: 0.82rem;
+     line-height: 1.05;
+}
+
+.work-skill-tags {
+     gap: 0.35rem;
+}
+
+.work-skill-tags span {
+     min-height: 23px;
+     padding: 0.24rem 0.42rem;
+     border-radius: 5px;
+     font-size: 0.64rem;
+}
+
+
+/* --------------------------------
+   Main Project Grid
+-------------------------------- */
+
+.mockup-work-grid {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 1rem;
+     align-items: stretch;
+}
+
+.mockup-work-card {
+     grid-template-rows: 150px 1fr auto;
+     border-radius: 8px;
+     box-shadow: none;
+}
+
+
+/* --------------------------------
+   Project Card Media
+-------------------------------- */
+
+.mockup-work-card-media {
+     min-height: 150px;
+     padding: 0.7rem;
+}
+
+.mockup-card-browser-bar {
+     gap: 0.28rem;
+     margin-bottom: 0.5rem;
+}
+
+.mockup-card-browser-bar span {
+     width: 0.42rem;
+     height: 0.42rem;
+}
+
+.mockup-card-screen {
+     gap: 0.5rem;
+     padding: 0.7rem;
+     border-radius: 6px;
+}
+
+.mockup-card-screen-block-large {
+     min-height: 52px;
+}
+
+.mockup-card-screen-row {
+     gap: 0.3rem;
+}
+
+.mockup-card-screen-row span,
+.mockup-card-screen-line {
+     height: 0.58rem;
+     border-radius: 4px;
+}
+
+
+/* --------------------------------
+   Project Card Content
+-------------------------------- */
+
+.mockup-work-card-body {
+     gap: 0.6rem;
+     padding: 0.9rem;
+}
+
+.mockup-work-card-header {
+     gap: 0.5rem;
+}
+
+.mockup-card-badge {
+     min-height: 22px;
+     padding: 0.24rem 0.4rem;
+     border-radius: 5px;
+     font-size: 0.6rem;
+}
+
+.mockup-work-card h3 {
+     font-size: 1rem;
+     line-height: 1.05;
+}
+
+.mockup-work-card-subtitle {
+     margin-top: 0.2rem;
+     font-size: 0.68rem;
+     line-height: 1.35;
+}
+
+.mockup-work-card-summary {
+     -webkit-line-clamp: 3;
+     font-size: 0.75rem;
+     line-height: 1.45;
+}
+
+.mockup-lens-row,
+.mockup-tool-row {
+     gap: 0.35rem;
+}
+
+.mockup-lens-row span,
+.mockup-tool-row span {
+     min-height: 22px;
+     padding: 0.23rem 0.4rem;
+     border-radius: 5px;
+     font-size: 0.62rem;
+}
+
+
+/* --------------------------------
+   Project Card Footer
+-------------------------------- */
+
+.mockup-work-card-footer {
+     gap: 0.5rem;
+     padding: 0.65rem 0.9rem;
+}
+
+.mockup-work-card-footer a {
+     font-size: 0.67rem;
+}
+
+.mockup-work-card-footer div {
+     gap: 0.5rem;
+}
+
+
+/* --------------------------------
+   Work Bottom CTA
+-------------------------------- */
+
+.work-bottom-cta {
+     gap: 1.5rem;
+     margin-top: 1.5rem;
+     padding: 1.25rem;
+     border-radius: 10px;
+}
+
+.work-bottom-cta>div {
+     max-width: 620px;
+}
+
+.work-bottom-cta h2 {
+     font-size: 1.55rem;
+     line-height: 0.95;
+}
+
+.work-bottom-cta p {
+     margin-top: 0.4rem;
+     font-size: 0.78rem;
+     line-height: 1.5;
+}
+
+.work-bottom-cta .button {
+     min-height: 38px;
+     padding: 0.6rem 0.9rem;
+     font-size: 0.72rem;
+}
+
+
+/* --------------------------------
+   Project Detail Overall Rhythm
+-------------------------------- */
+
+.case-study-page {
+     padding-top: 0;
+     padding-bottom: 2rem;
+}
+
+.case-study-hero-section {
+     padding-top: 1.5rem;
+     padding-bottom: 1.5rem;
+}
+
+.case-study-back-row {
+     margin-bottom: 1rem;
+}
+
+.case-study-back-row a {
+     font-size: 0.72rem;
+     font-weight: 800;
+}
+
+
+/* --------------------------------
+   Project Hero
+-------------------------------- */
+
+.case-study-hero {
+     grid-template-columns: minmax(0, 1fr) 360px;
+     gap: 2rem;
+     align-items: center;
+     margin-bottom: 1.5rem;
+}
+
+.case-study-label-row {
+     gap: 0.5rem;
+     margin-bottom: 0.8rem;
+}
+
+.case-study-label-row .eyebrow,
+.case-study-label-row .ui-badge,
+.case-study-label-row .mockup-card-badge {
+     font-size: 0.62rem;
+}
+
+.case-study-hero-copy h1 {
+     max-width: 720px;
+     font-size: clamp(3rem, 4.5vw, 4.75rem);
+     line-height: 0.88;
+     letter-spacing: 0;
+}
+
+.case-study-subtitle {
+     margin-top: 0.7rem;
+     font-size: 0.9rem;
+     line-height: 1.35;
+}
+
+.case-study-summary {
+     max-width: 58ch;
+     margin-top: 0.75rem;
+     font-size: 0.82rem;
+     line-height: 1.55;
+}
+
+
+/* --------------------------------
+   Project Visual
+-------------------------------- */
+
+.case-study-visual-placeholder {
+     min-height: 285px;
+     padding: 0.75rem;
+     border-radius: 10px;
+     box-shadow: none;
+}
+
+.case-study-visual-screen {
+     height: 260px;
+     gap: 0.75rem;
+     padding: 1rem;
+     border-radius: 7px;
+}
+
+.case-study-visual-screen div {
+     height: 88px;
+     border-radius: 6px;
+}
+
+.case-study-visual-screen span {
+     height: 0.7rem;
+     border-radius: 4px;
+}
+
+
+/* --------------------------------
+   Role / Team / Status
+-------------------------------- */
+
+.case-study-meta-row {
+     margin-bottom: 1rem;
+     border-radius: 8px;
+}
+
+.case-study-meta-row div {
+     gap: 0.3rem;
+     padding: 0.8rem 1rem;
+}
+
+.case-study-meta-row span {
+     font-size: 0.62rem;
+     letter-spacing: 0.04em;
+}
+
+.case-study-meta-row strong {
+     font-size: 0.78rem;
+     line-height: 1.3;
+}
+
+
+/* --------------------------------
+   Case Study Tabs
+-------------------------------- */
+
+.case-study-tabs {
+     gap: 0.4rem;
+     padding-bottom: 0.85rem;
+}
+
+.case-study-tab {
+     min-height: 34px;
+     padding: 0.45rem 0.7rem;
+     border-radius: 5px;
+     font-size: 0.7rem;
+}
+
+
+/* --------------------------------
+   Main Story + Sidebar
+-------------------------------- */
+
+.case-study-content-grid {
+     grid-template-columns: minmax(0, 1fr) 285px;
+     gap: 1rem;
+}
+
+.case-study-main-card,
+.case-study-sidebar,
+.case-study-support-card {
+     padding: 1.25rem;
+     border-radius: 10px;
+}
+
+.case-study-main-card h2,
+.case-study-support-card h2 {
+     font-size: 1.55rem;
+     line-height: 0.95;
+}
+
+.case-study-section-block {
+     margin-top: 1.5rem;
+}
+
+.case-study-section-block:first-of-type {
+     margin-top: 1rem;
+}
+
+.case-study-section-block p {
+     max-width: 62ch;
+     margin-bottom: 0;
+     font-size: 0.82rem;
+     line-height: 1.55;
+}
+
+
+/* --------------------------------
+   Key Highlights Sidebar
+-------------------------------- */
+
+.case-study-sidebar {
+     gap: 0.75rem;
+}
+
+.case-study-highlight-card {
+     padding: 0.8rem;
+     border-radius: 7px;
+}
+
+.case-study-highlight-card p {
+     font-size: 0.74rem;
+     line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Live Demo + GitHub Links
+-------------------------------- */
+
+.case-study-link-stack {
+     gap: 0.5rem;
+     margin-top: 0.65rem;
+}
+
+.case-study-link-stack a {
+     min-height: 36px;
+     padding: 0.55rem 0.75rem;
+     border-radius: 5px;
+     font-size: 0.68rem;
+     text-transform: uppercase;
+     letter-spacing: 0.02em;
+}
+
+
+/* --------------------------------
+   Tech Stack / Takeaways / Future Work
+-------------------------------- */
+
+.case-study-support-grid {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 1rem;
+}
+
+.case-study-support-card {
+     padding: 1rem;
+     border-radius: 8px;
+}
+
+.case-study-support-card h2 {
+     margin-bottom: 0.8rem;
+     font-size: 1.2rem;
+}
+
+.case-study-list {
+     padding-left: 1rem;
+}
+
+.case-study-list li {
+     margin-bottom: 0.5rem;
+     font-size: 0.74rem;
+     line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Systems Page Overall Rhythm
+-------------------------------- */
+
+.systems-deep-dive-page {
+     padding-top: 0;
+     padding-bottom: 2rem;
+}
+
+.systems-deep-dive-page .home-section {
+     padding-top: 2.25rem;
+     padding-bottom: 2.25rem;
+}
+
+.systems-deep-dive-page .section-heading {
+     margin-bottom: 1rem;
+}
+
+.systems-deep-dive-page .section-heading h2 {
+     font-size: 2rem;
+     line-height: 0.95;
+}
+
+.systems-deep-dive-page .section-heading p {
+     max-width: 62ch;
+     margin-top: 0.45rem;
+     font-size: 0.8rem;
+     line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Systems Hero
+-------------------------------- */
+
+.deep-dive-hero {
+     grid-template-columns: minmax(0, 1fr) 300px;
+     gap: 2rem;
+     align-items: end;
+}
+
+.deep-dive-hero-copy h1 {
+     max-width: 760px;
+     font-size: clamp(3rem, 4.4vw, 4.7rem);
+     line-height: 0.88;
+     letter-spacing: 0;
+}
+
+.deep-dive-hero-copy p {
+     max-width: 58ch;
+     margin-top: 0.8rem;
+     font-size: 0.84rem;
+     line-height: 1.55;
+}
+
+
+/* --------------------------------
+   Systems Hero Summary
+-------------------------------- */
+
+.deep-dive-summary-card {
+     padding: 0.9rem 1rem;
+     border-radius: 8px;
+}
+
+.deep-dive-summary-card p {
+     font-size: 0.7rem;
+     line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Thinking Lenses
+-------------------------------- */
+
+.deep-dive-lens-grid {
+     grid-template-columns: repeat(4, minmax(0, 1fr));
+     gap: 0.75rem;
+}
+
+.deep-dive-lens-card {
+     min-height: 210px;
+     grid-template-rows: auto auto auto 1fr;
+     gap: 0.6rem;
+     padding: 1rem;
+     border-radius: 8px;
+}
+
+.deep-dive-lens-card span {
+     font-size: 0.9rem;
+}
+
+.deep-dive-lens-card h3 {
+     font-size: 0.95rem;
+     line-height: 1.05;
+}
+
+.deep-dive-lens-card p {
+     font-size: 0.72rem;
+     line-height: 1.45;
+}
+
+.deep-dive-lens-card ul {
+     padding-left: 1rem;
+}
+
+.deep-dive-lens-card li {
+     margin-bottom: 0.35rem;
+     font-size: 0.66rem;
+     line-height: 1.4;
+}
+
+
+/* --------------------------------
+   System Flows
+-------------------------------- */
+
+.deep-dive-flow-grid {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 1rem;
+}
+
+.deep-dive-flow-card {
+     padding: 1rem;
+     border-radius: 8px;
+}
+
+.deep-dive-flow-card h3 {
+     margin-bottom: 0.65rem;
+     font-size: 0.95rem;
+     line-height: 1.05;
+}
+
+.deep-dive-flow-card ol {
+     padding-left: 1.1rem;
+}
+
+.deep-dive-flow-card li {
+     margin-bottom: 0.45rem;
+     font-size: 0.72rem;
+     line-height: 1.45;
+}
+
+
+/* --------------------------------
+   Tradeoffs
+-------------------------------- */
+
+.deep-dive-tradeoff-grid {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 0.75rem;
+}
+
+.deep-dive-tradeoff-card {
+     min-height: 150px;
+     padding: 1rem;
+     border-radius: 8px;
+}
+
+.deep-dive-tradeoff-card h3 {
+     margin-bottom: 0.6rem;
+     font-size: 0.9rem;
+     line-height: 1.05;
+}
+
+.deep-dive-tradeoff-card p {
+     margin: 0;
+     font-size: 0.72rem;
+     line-height: 1.45;
+}
+
+
+/* --------------------------------
+   Related Work CTA
+-------------------------------- */
+
+.deep-dive-cta-card {
+     gap: 1.5rem;
+     padding: 1.25rem;
+     border-radius: 10px;
+}
+
+.deep-dive-cta-card>div {
+     max-width: 620px;
+}
+
+.deep-dive-cta-card h2 {
+     font-size: 1.55rem;
+     line-height: 0.95;
+}
+
+.deep-dive-cta-card p {
+     margin-top: 0.4rem;
+     font-size: 0.76rem;
+     line-height: 1.5;
+}
+
+.deep-dive-cta-card .button {
+     min-height: 38px;
+     padding: 0.6rem 0.9rem;
+     border-radius: 6px;
+     font-size: 0.7rem;
+}
+
+/* --------------------------------
+   About Page Overall Rhythm
+-------------------------------- */
+
+.about-page {
+     padding-top: 0;
+     padding-bottom: 2rem;
+}
+
+.about-page .home-section {
+     padding-top: 2.25rem;
+     padding-bottom: 2.25rem;
+}
+
+
+/* --------------------------------
+   About Hero Composition
+-------------------------------- */
+
+.about-page-hero {
+     grid-template-columns:
+          minmax(0, 1.2fr) minmax(280px, 0.8fr);
+     gap: 2rem;
+     align-items: center;
+     padding-top: 2rem;
+}
+
+.about-page-intro {
+     max-width: none;
+     margin-bottom: 0;
+}
+
+
+/* --------------------------------
+   About Page Title
+-------------------------------- */
+
+.about-page-intro h1 {
+     max-width: 760px;
+     font-size: clamp(3rem, 4.5vw, 4.8rem);
+     line-height: 0.88;
+     letter-spacing: 0;
+}
+
+.about-page-intro>p:not(.eyebrow) {
+     max-width: 55ch;
+     margin-top: 0.8rem;
+     font-size: 0.84rem;
+     line-height: 1.55;
+}
+
+
+/* --------------------------------
+   What I Do Card
+-------------------------------- */
+
+.about-page-card {
+     width: 100%;
+     padding: 1.25rem;
+     border: 1px solid var(--color-border);
+     border-radius: 10px;
+     background-color: var(--color-nav);
+     box-shadow: none;
+}
+
+.about-page-card h2 {
+     margin-bottom: 0.65rem;
+     font-size: 1.55rem;
+     line-height: 0.95;
+}
+
+.about-page-card p {
+     max-width: 46ch;
+     font-size: 0.78rem;
+     line-height: 1.55;
+}
+
+
+/* --------------------------------
+   Contact Page Overall Rhythm
+-------------------------------- */
+
+.contact-page {
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+.contact-page .home-section {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+}
+
+
+/* --------------------------------
+   Contact Hero
+-------------------------------- */
+
+.contact-hero-section {
+    grid-template-columns:
+        minmax(0, 1fr)
+        300px;
+    gap: 2rem;
+    align-items: end;
+    padding-top: 2rem;
+}
+
+.contact-hero-section .section-heading {
+    max-width: none;
+    margin-bottom: 0;
+}
+
+.contact-hero-section h1 {
+    max-width: 720px;
+    font-size: clamp(3rem, 4.5vw, 4.8rem);
+    line-height: 0.88;
+    letter-spacing: 0;
+}
+
+.contact-hero-section .section-heading > p:not(.eyebrow) {
+    max-width: 54ch;
+    margin-top: 0.8rem;
+    font-size: 0.84rem;
+    line-height: 1.55;
+}
+
+
+/* --------------------------------
+   Privacy Note
+-------------------------------- */
+
+.contact-privacy-card {
+    padding: 1rem;
+    border: 1px solid var(--color-accent-dark);
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.contact-privacy-card .project-section-label {
+    margin-bottom: 0.55rem !important;
+    font-size: 0.66rem;
+    line-height: 1;
+}
+
+.contact-privacy-card p {
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Contact Main Layout
+-------------------------------- */
+
+.contact-layout {
+    grid-template-columns:
+        285px
+        minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.contact-info-panel {
+    gap: 1rem;
+}
+
+.contact-panel-heading {
+    margin-bottom: 0;
+}
+
+.contact-panel-heading h2 {
+    font-size: 1.55rem;
+    line-height: 0.95;
+}
+
+.contact-panel-heading > p:not(.eyebrow) {
+    margin-top: 0.5rem;
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Contact Method Cards
+-------------------------------- */
+
+.contact-method-grid {
+    gap: 0.6rem;
+}
+
+.contact-method-card {
+    padding: 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    box-shadow: none;
+}
+
+.contact-method-card h3 {
+    margin-bottom: 0.35rem;
+    font-size: 0.88rem;
+    line-height: 1.05;
+}
+
+.contact-method-card p {
+    font-size: 0.7rem;
+    line-height: 1.45;
+}
+
+
+/* --------------------------------
+   Main Form Surface
+-------------------------------- */
+
+.contact-card {
+    width: 100%;
+    max-width: none;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.chat-contact-widget {
+    gap: 1.25rem;
+}
+
+
+/* --------------------------------
+   Conversation Preview
+-------------------------------- */
+
+.chat-thread {
+    gap: 0.6rem;
+}
+
+.chat-bubble {
+    max-width: 72%;
+    padding: 0.75rem 0.85rem;
+    border-radius: 9px;
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+.chat-bubble-incoming {
+    border: 1px solid var(--color-border);
+}
+
+.chat-bubble-outgoing {
+    border: 1px solid var(--color-button);
+}
+
+
+/* --------------------------------
+   Form Header
+-------------------------------- */
+
+.chat-contact-form {
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.chat-form-header {
+    gap: 0.4rem;
+}
+
+.chat-form-header h2 {
+    font-size: 1.55rem;
+    line-height: 0.95;
+}
+
+.chat-form-header > p:not(.eyebrow) {
+    max-width: 58ch;
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+
+/* --------------------------------
+   Form Layout
+-------------------------------- */
+
+.form-grid {
+    gap: 0.75rem;
+}
+
+.form-grid-two,
+.chat-form-grid {
+    gap: 0.75rem;
+}
+
+.form-field {
+    gap: 0.35rem;
+}
+
+.form-field label {
+    font-size: 0.72rem;
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+
+/* --------------------------------
+   Inputs / Select / Textarea
+-------------------------------- */
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+.form-field input,
+.form-field select {
+    min-height: 40px;
+}
+
+.form-field textarea {
+    min-height: 140px;
+}
+
+
+/* --------------------------------
+   Contact Submit Action
+-------------------------------- */
+
+.contact-form .button {
+    min-height: 38px;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+}
+
+
+/* --------------------------------
+   Form Status
+-------------------------------- */
+
+.form-status {
+    padding: 0.65rem 0.8rem;
+    border-width: 1px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    line-height: 1.45;
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import portfolioHeadshot from "../../assets/images/portfolioheadshot.png";
 
 const rolePathways = [
     {

@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-
 const principles = [
     {
-        number: "01",
+        number: "1",
         title: "Readable",
         description: "I create clear hierarchy so people can scan before going deeper.",
     },
     {
-        number: "02",
+        number: "2",
         title: "Useful",
         description: "I explain what I built, why it matters, and how the system works.",
     },
     {
-        number: "03",
+        number: "3",
         title: "Secure",
         description: "I protect secrets, visitor data, and private admin workflows.",
     },
