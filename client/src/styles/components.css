@@ -144,7 +144,7 @@
 }
 
 .home-section+.home-section {
-     border-top: 2px solid rgba(91, 53, 31, 0.18);
+     border-top: 1px solid var(--color-border);
 }
 
 .section-heading {
@@ -1662,17 +1662,17 @@ body {
 }
 
 .mockup-hero {
-     min-height: calc(100vh - 140px);
+     min-height: 600px;
      display: grid;
-     grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+     grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
      gap: var(--space-2xl);
      align-items: center;
-     padding: var(--space-2xl) 0;
+     padding: var(--space-xl) 0 var(--space-2xl);
 }
 
 .mockup-hero-copy {
      display: grid;
-     gap: var(--space-lg);
+     gap: var(--space-md);
      align-content: center;
 }
 
@@ -1690,8 +1690,8 @@ body {
 }
 
 .mockup-hero h1 {
-     margin: 0;
      max-width: 760px;
+     margin: 0;
      font-family: var(--font-display);
      font-size: var(--text-display);
      line-height: var(--leading-display);
@@ -1700,7 +1700,7 @@ body {
 }
 
 .mockup-hero-description {
-     max-width: 680px;
+     max-width: 58ch;
      margin: 0;
      color: var(--color-text);
      font-size: var(--text-body-lg);
@@ -1708,35 +1708,44 @@ body {
      font-weight: 600;
 }
 
+.mockup-hero .hero-actions {
+     margin-top: var(--space-sm);
+}
+
 .mockup-hero-visual {
      position: relative;
-     min-height: 420px;
+     min-height: 430px;
      display: grid;
      place-items: center;
+     padding: var(--space-md);
 }
 
 .mockup-portrait-placeholder {
-     width: min(100%, 390px);
-     aspect-ratio: 0.82;
+     position: relative;
+     width: min(100%, 410px);
+     aspect-ratio: 0.84;
      display: grid;
      place-items: center;
-     border: 3px solid var(--color-accent-dark);
-     border-radius: 48px;
+     border: 1px solid var(--color-border);
+     border-radius: var(--radius-lg);
      background:
-          linear-gradient(135deg, rgba(244, 241, 235, 0.95), rgba(225, 221, 216, 0.8));
+          linear-gradient(135deg,
+               var(--color-surface),
+               var(--color-nav));
+     box-shadow: var(--shadow-soft);
      color: var(--color-accent-dark);
      font-family: var(--font-display);
-     font-size: 1.4rem;
+     font-size: 1.2rem;
      z-index: 2;
 }
 
 .mockup-hero-accent {
      position: absolute;
-     right: 0.5rem;
-     bottom: 1rem;
-     width: 170px;
-     height: 160px;
-     border-radius: 28px;
+     right: 0;
+     bottom: 0;
+     width: 150px;
+     height: 145px;
+     border-radius: var(--radius-lg);
      background-color: var(--color-button);
      z-index: 1;
 }
@@ -1744,21 +1753,21 @@ body {
 .mockup-dot-column {
      position: absolute;
      right: 0;
-     top: 28%;
+     top: 24%;
      display: grid;
      gap: 0.55rem;
 }
 
 .mockup-dot-column span {
-     width: 0.45rem;
-     height: 0.45rem;
+     width: 0.4rem;
+     height: 0.4rem;
      border-radius: 50%;
      background-color: var(--color-button);
 }
 
 .expertise-strip {
      display: grid;
-     grid-template-columns: repeat(4, 1fr);
+     grid-template-columns: repeat(4, minmax(0, 1fr));
      border: 1px solid var(--color-border);
      border-radius: var(--radius-lg);
      background-color: var(--color-nav);
@@ -1766,11 +1775,13 @@ body {
 }
 
 .expertise-strip-item {
+     min-height: 118px;
      display: grid;
-     grid-template-columns: auto 1fr;
-     gap: var(--space-md);
-     align-items: center;
-     padding: var(--space-lg);
+     grid-template-columns: 2rem minmax(0, 1fr);
+     gap: var(--space-sm);
+     align-content: center;
+     align-items: start;
+     padding: var(--space-md) var(--space-lg);
      border-right: 1px solid var(--color-border);
 }
 
@@ -1780,21 +1791,24 @@ body {
 
 .expertise-strip-item span {
      font-family: var(--font-display);
-     font-size: 1.2rem;
+     font-size: 1rem;
+     line-height: 1;
      color: var(--color-button);
 }
 
 .expertise-strip-item h2 {
      margin: 0;
-     font-size: 0.9rem;
+     color: var(--color-accent-dark);
+     font-size: 0.82rem;
+     line-height: 1.2;
      text-transform: uppercase;
 }
 
 .expertise-strip-item p {
-     margin: 0.2rem 0 0;
+     margin: 0.3rem 0 0;
      color: var(--color-text-muted);
-     font-size: 0.85rem;
-     line-height: 1.4;
+     font-size: var(--text-xs);
+     line-height: 1.45;
      font-weight: 600;
 }
 
@@ -1804,14 +1818,14 @@ body {
 
 .role-pathways-grid {
      display: grid;
-     grid-template-columns: repeat(4, 1fr);
+     grid-template-columns: repeat(4, minmax(0, 1fr));
      gap: var(--space-md);
 }
 
 .role-pathway-card {
-     min-height: 260px;
+     min-height: 250px;
      display: grid;
-     align-content: start;
+     grid-template-rows: auto auto 1fr auto;
      gap: var(--space-md);
      padding: var(--space-lg);
      border: 1px solid var(--color-border);
@@ -1821,26 +1835,29 @@ body {
 
 .role-pathway-symbol {
      font-family: var(--font-display);
-     font-size: 2rem;
-     color: var(--color-button);
+     font-size: 1.75rem;
      line-height: 1;
+     color: var(--color-button);
 }
 
 .role-pathway-card h3 {
      margin: 0;
      font-family: var(--font-display);
+     font-size: var(--text-card-title);
+     line-height: var(--leading-heading);
      color: var(--color-accent-dark);
-     line-height: 1;
 }
 
 .role-pathway-card p {
      margin: 0;
-     line-height: 1.6;
+     color: var(--color-text);
+     line-height: var(--leading-body);
      font-weight: 600;
 }
 
 .role-pathway-card a {
      margin-top: auto;
+     width: fit-content;
      border-radius: var(--radius-sm);
      color: var(--color-accent-dark);
      font-weight: 800;
@@ -1864,16 +1881,24 @@ body {
 }
 
 .selected-work-section .section-heading p {
-     max-width: 62ch;
-     line-height: 1.7;
+     max-width: var(--measure-body);
+     line-height: var(--leading-body);
 }
 
 .selected-work-section .project-grid {
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     align-items: stretch;
+     gap: var(--space-lg);
      margin-top: var(--space-lg);
 }
 
+.selected-work-section .project-card,
+.selected-work-section .mockup-work-card {
+     min-height: 100%;
+}
+
 /* ================================
-   v2.4.3 Work Page Mockup Alignment
+ Work Page Mockup Alignment
 ================================ */
 
 .work-mockup-page {
@@ -2817,12 +2842,19 @@ body {
 
 .home-about-preview-grid {
      display: grid;
-     grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+     grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
      gap: var(--space-xl);
+     align-items: start;
      padding: var(--space-xl);
      border: 1px solid var(--color-border);
      border-radius: var(--radius-lg);
      background-color: var(--color-nav);
+}
+
+.home-about-preview-copy {
+     display: grid;
+     gap: var(--space-md);
+     align-content: start;
 }
 
 .home-about-preview-copy h2 {
@@ -2833,18 +2865,10 @@ body {
      color: var(--color-accent-dark);
 }
 
-.home-about-preview-copy h2 {
-     margin: 0;
-     font-family: var(--font-display);
-     font-size: clamp(2rem, 4vw, 3.5rem);
-     line-height: 0.98;
-     color: var(--color-accent-dark);
-}
-
 .home-about-preview-copy p {
-     max-width: 62ch;
+     max-width: 60ch;
      margin: 0;
-     line-height: 1.7;
+     line-height: var(--leading-body);
      font-weight: 600;
 }
 
@@ -2860,33 +2884,34 @@ body {
 
 .about-preview-principle {
      display: grid;
-     grid-template-columns: 2.5rem 1fr;
+     grid-template-columns: 2.5rem minmax(0, 1fr);
      gap: var(--space-md);
      align-items: start;
      padding: var(--space-md);
      border: 1px solid var(--color-border);
      border-radius: var(--radius-md);
-     background-color: var(--color-bg);
+     background-color: var(--color-surface);
 }
 
 .about-preview-principle>span {
      font-family: var(--font-display);
      color: var(--color-button);
-     font-size: 1.1rem;
+     font-size: 1.05rem;
      line-height: 1;
 }
 
 .about-preview-principle h3 {
      margin: 0 0 var(--space-xs);
      font-family: var(--font-display);
+     font-size: var(--text-card-title);
+     line-height: var(--leading-heading);
      color: var(--color-accent-dark);
-     line-height: 1;
 }
 
 .about-preview-principle p {
      margin: 0;
      color: var(--color-text-muted);
-     font-size: 0.9rem;
+     font-size: var(--text-small);
      line-height: 1.5;
      font-weight: 600;
 }
