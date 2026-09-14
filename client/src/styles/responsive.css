@@ -1,54 +1,84 @@
+/* ==========================================================
+
+   Breakpoints
+   1000px = tablet / smaller desktop
+   900px  = compact navigation + major stacking
+   640px  = phone
+   ========================================================== */
+
+
+/* ==========================================================
+   RESPONSIVE NAVIGATION BASE
+   Desktop remains controlled by components.css
+   ========================================================== */
+
+.nav-menu-button {
+    display: none;
+}
+
+.nav-cta-mobile {
+    display: none;
+}
+
+
+/* ==========================================================
+   <= 1000px
+   TABLET / SMALL DESKTOP
+   ========================================================== */
+
 @media (max-width: 1000px) {
+
+    /* ------------------------------------------------------
+       General grids
+       ------------------------------------------------------ */
+
     .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .systems-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-lens-guide {
-        grid-template-columns: 1fr;
-    }
-
+    .systems-grid,
+    .project-lens-guide,
     .project-stat-grid,
-    .project-detail-snapshot {
-        grid-template-columns: 1fr;
-    }
-
+    .project-detail-snapshot,
     .hero-system-section,
-    .project-page-hero {
+    .project-page-hero,
+    .hero-system-panel,
+    .about-principle-grid,
+    .project-detail-hero,
+    .project-detail-story-grid,
+    .project-detail-tool-grid,
+    .projects-board-header {
         grid-template-columns: 1fr;
     }
 
-    .hero-system-panel,
-    .about-principle-grid {
-        grid-template-columns: 1fr;
-    }
+
+    /* ------------------------------------------------------
+       Shared heading/action rows
+       ------------------------------------------------------ */
 
     .section-heading-with-action {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .project-detail-hero,
-    .project-detail-story-grid,
-    .project-detail-tool-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .projects-board-header {
-        grid-template-columns: 1fr;
-    }
+    /* ------------------------------------------------------
+       Legacy project controls
+       ------------------------------------------------------ */
 
     .project-sort-label {
-        margin-left: 0;
         width: 100%;
+        margin-left: 0;
     }
 
     .project-lens-guide-footer {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+
+    /* ------------------------------------------------------
+       Work skills
+       ------------------------------------------------------ */
 
     .work-skills-heading {
         grid-template-columns: 1fr;
@@ -56,56 +86,158 @@
     }
 
     .work-skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+
+/* ==========================================================
+   <= 900px
+   TABLET + COMPACT NAVIGATION
+   ========================================================== */
+
 @media (max-width: 900px) {
+
+    /* ======================================================
+       SHARED PAGE WIDTH
+       ====================================================== */
+
+    .home-page,
+    .work-mockup-page,
+    .systems-deep-dive-page,
+    .case-study-page {
+        width: min(calc(100% - 2rem), 1240px);
+    }
+
+    .home-section {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+    }
+
+
+    /* ======================================================
+       RESPONSIVE HEADER
+       ====================================================== */
+
     .site-header {
-        grid-template-columns: 1fr;
-        justify-items: start;
-    }
-
-    .site-nav {
-        justify-content: flex-start;
-        gap: var(--space-md);
-    }
-
-    .nav-cta {
-        width: 100%;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .site-header {
-        grid-template-columns: 1fr auto;
-        gap: var(--space-sm);
-        padding: var(--space-sm);
+        position: relative;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        justify-items: stretch;
+        gap: 0.75rem;
+        padding: 0.6rem 0.75rem;
     }
 
     .site-logo {
         grid-column: 1;
+        min-width: 0;
     }
 
-    .nav-cta {
+    .nav-menu-button {
         grid-column: 2;
-        width: auto;
-        min-height: 42px;
-        padding: 0.65rem 0.85rem;
+        width: 40px;
+        height: 40px;
+        display: inline-grid;
+        place-content: center;
+        gap: 4px;
+        justify-self: end;
+        padding: 0;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        background-color: var(--color-bg);
+        color: var(--color-accent-dark);
+        cursor: pointer;
     }
+
+    .nav-menu-button span {
+        width: 18px;
+        height: 2px;
+        display: block;
+        border-radius: 999px;
+        background-color: currentColor;
+        transform-origin: center;
+        transition:
+            transform 160ms ease,
+            opacity 160ms ease;
+    }
+
+    .nav-menu-button.is-open span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-menu-button.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-menu-button.is-open span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-menu-button:hover {
+        border-color: var(--color-button);
+        color: var(--color-button);
+    }
+
+    .nav-menu-button:focus-visible {
+        outline: 2px solid var(--color-button);
+        outline-offset: 3px;
+    }
+
+
+    /* ------------------------------------------------------
+       Desktop CTA disappears
+       ------------------------------------------------------ */
+
+    .nav-cta-desktop {
+        display: none;
+    }
+
+
+    /* ------------------------------------------------------
+       Mobile/tablet menu
+       ------------------------------------------------------ */
 
     .site-nav {
         grid-column: 1 / -1;
         width: 100%;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-top: var(--space-sm);
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 0;
+        align-items: stretch;
+        justify-content: stretch;
+        overflow: visible;
+        padding-top: 0.55rem;
         border-top: 1px solid var(--color-border);
-        scrollbar-width: thin;
     }
+
+    .site-nav.is-open {
+        display: grid;
+    }
+
+    .site-nav > a:not(.nav-cta-mobile) {
+        width: 100%;
+        padding: 0.7rem 0.25rem;
+        font-size: 0.78rem;
+    }
+
+    .site-nav > a:not(.nav-cta-mobile)::after {
+        bottom: 0.35rem;
+        transform-origin: left;
+    }
+
+    .nav-cta-mobile {
+        width: 100%;
+        min-height: 40px;
+        display: inline-flex;
+        margin-top: 0.4rem;
+        padding: 0.6rem 0.75rem;
+        font-size: 0.76rem;
+    }
+
+
+    /* ======================================================
+       HOME
+       ====================================================== */
 
     .mockup-hero {
         min-height: auto;
@@ -123,24 +255,248 @@
     }
 
     .role-pathways-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .mockup-work-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-about-preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ======================================================
+       WORK
+       ====================================================== */
+
+    .work-page-header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .work-page-note {
+        max-width: 520px;
+    }
+
+    .work-control-row {
+        grid-template-columns: 1fr;
+    }
+
+    .work-skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mockup-work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* ======================================================
+       PROJECT DETAIL
+       ====================================================== */
+
+    .case-study-hero {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .case-study-visual-placeholder {
+        width: 100%;
+        max-width: 620px;
+    }
+
+    .case-study-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-study-sidebar {
+        width: 100%;
+    }
+
+    .case-study-support-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* ======================================================
+       SYSTEMS
+       ====================================================== */
+
+    .deep-dive-hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .deep-dive-summary-card {
+        max-width: 620px;
+    }
+
+    .deep-dive-lens-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .deep-dive-flow-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .deep-dive-tradeoff-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* ======================================================
+       ABOUT
+       ====================================================== */
+
+    .about-page-hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .about-page-card {
+        max-width: 620px;
+    }
+
+
+    /* ======================================================
+       CONTACT
+       ====================================================== */
+
+    .contact-hero-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact-privacy-card {
+        max-width: 620px;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info-panel {
+        max-width: 620px;
+    }
+
+
+    /* ======================================================
+       GENERAL LEGACY SKILLS
+       ====================================================== */
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+
+/* ==========================================================
+   <= 640px
+   PHONE
+   ========================================================== */
+
 @media (max-width: 640px) {
-    .project-card-topline {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+
+    /* ======================================================
+       1. SHARED PAGE WIDTH + RHYTHM
+       ====================================================== */
 
     .home-page,
-    .site-header {
-        width: min(100% - 1rem, var(--content-width));
+    .work-mockup-page,
+    .systems-deep-dive-page,
+    .case-study-page,
+    .site-header,
+    .site-footer {
+        width: min(calc(100% - 1rem), 1240px);
     }
+
+    .projects-page {
+        width: min(calc(100% - 1rem), 1240px);
+    }
+
+    .home-section {
+        max-width: 100%;
+        padding-top: 1.55rem;
+        padding-bottom: 1.55rem;
+    }
+
+    .section-heading {
+        margin-bottom: 0.9rem;
+    }
+
+    .eyebrow,
+    .project-section-label {
+        font-size: 0.61rem;
+    }
+
+
+    /* ======================================================
+       2. MOBILE HEADER
+       ====================================================== */
+
+    .site-header {
+        margin-top: 0.5rem;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding: 0.55rem 0.65rem;
+        border-radius: 9px;
+    }
+
+    .site-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-width: 0;
+    }
+
+    .site-logo-mark,
+    .site-logo .site-logo-mark {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+    }
+
+    .site-logo-name {
+        max-width: 5.75rem;
+        font-size: 0.7rem;
+        line-height: 0.9;
+    }
+
+    .nav-menu-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .site-nav {
+        padding-top: 0.5rem;
+    }
+
+    .site-nav > a:not(.nav-cta-mobile) {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 0.65rem 0.2rem;
+        font-size: 0.78rem;
+    }
+
+    .nav-cta-mobile {
+        min-height: 42px;
+        font-size: 0.78rem;
+    }
+
+
+    /* ======================================================
+       3. SHARED CONTENT
+       ====================================================== */
 
     .hero-copy-block,
     .content-card {
@@ -152,320 +508,17 @@
         grid-template-columns: 1fr;
     }
 
-    .admin-dashboard-header,
-    .admin-message-card-header {
-        flex-direction: column;
-    }
 
-    .admin-message-meta {
-        grid-template-columns: 1fr;
-    }
-
-    .form-grid-two {
-        grid-template-columns: 1fr;
-    }
-
-    .chat-bubble {
-        max-width: 100%;
-    }
-
-    .hero-meta-row {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .hero-system-panel div {
-        padding: var(--space-md);
-    }
-
-    .project-card-system-bar {
-        align-items: flex-start;
-        grid-template-columns: 1fr;
-    }
-
-    .project-card-number {
-        width: 2.75rem;
-        height: 2.75rem;
-    }
-
-    .project-detail-tabs {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .project-detail-tab {
-        width: 100%;
-    }
-
-    .project-detail-side-panel {
-        padding: var(--space-md);
-    }
-
-    .hero-system-card::after {
-        display: none;
-    }
-
-    .hero-system-panel div {
-        min-height: auto;
-    }
-
-    .projects-page {
-        width: min(100% - 1rem, 1240px);
-    }
-
-    .projects-board {
-        padding: var(--space-md);
-    }
-
-    .project-filter-bar {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .project-filter {
-        width: 100%;
-    }
-
-    .site-logo {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.65rem;
-        min-width: 0;
-        text-decoration: none;
-
-    }
-
-    .site-logo-mark {
-        width: 52px;
-        height: 52px;
-        object-fit: contain;
-    }
-
-    .site-logo-name {
-        max-width: 6.75rem;
-        font-family: var(--font-display);
-        font-size: 0.8rem;
-        line-height: 0.9;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-    }
-
-    .site-logo .site-logo-mark {
-        width: 52px;
-        height: 52px;
-        object-fit: contain;
-        border: 0;
-        outline: 0;
-        box-shadow: none;
-        background: transparent;
-        padding: 0;
-    }
-
-    .site-nav {
-        width: 100%;
-        gap: var(--space-sm);
-    }
-
-    .site-nav a {
-        font-size: 0.82rem;
-    }
-
-    .work-filter-footer {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .project-sort-label {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .project-sort-label select {
-        width: 100%;
-    }
-
-    .project-lens-guide-footer {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-privacy-card,
-    .contact-method-card {
-        padding: var(--space-md);
-    }
-
-    .home-page {
-        width: min(100% - 1rem, var(--wide-content-width));
-    }
+    /* ======================================================
+       4. HOME HERO
+       ====================================================== */
 
     .mockup-hero {
         min-height: auto;
-        padding: var(--space-xl) 0;
-        gap: var(--space-xl);
-    }
-
-    .mockup-hero h1 {
-        font-size: clamp(3rem, 18vw, 5rem);
-    }
-
-    .mockup-hero-visual {
-        min-height: 280px;
-    }
-
-    .mockup-portrait-placeholder {
-        width: min(100%, 280px);
-        border-radius: 32px;
-    }
-
-    .mockup-hero-accent {
-        width: 120px;
-        height: 110px;
-    }
-
-    .role-pathway-card {
-        min-height: auto;
-    }
-
-    .work-mockup-page {
-        width: min(100% - 1rem, var(--wide-content-width));
-    }
-
-    .work-control-footer,
-    .work-bottom-cta,
-    .mockup-work-card-footer {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .mockup-filter-button {
-        width: 100%;
-    }
-
-    .mockup-work-card-media {
-        min-height: 160px;
-    }
-
-    .systems-deep-dive-page {
-        width: min(100% - 1rem, var(--wide-content-width));
-    }
-
-    .deep-dive-hero-copy h1 {
-        font-size: clamp(2.6rem, 16vw, 4.5rem);
-    }
-
-    .deep-dive-cta-card {
-        align-items: stretch;
-        flex-direction: column;
-        padding: var(--space-lg);
-    }
-
-    .case-study-page {
-        width: min(100% - 1rem, var(--wide-content-width));
-    }
-
-    .case-study-hero-copy h1 {
-        font-size: clamp(2.8rem, 16vw, 4.8rem);
-    }
-
-    .case-study-meta-row {
         grid-template-columns: 1fr;
-    }
-
-    .case-study-meta-row div {
-        border-right: 0;
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .case-study-meta-row div:last-child {
-        border-bottom: 0;
-    }
-
-    .case-study-tabs {
-        flex-direction: column;
-    }
-
-    .case-study-tab {
-        width: 100%;
-    }
-
-    .case-study-main-card,
-    .case-study-sidebar,
-    .case-study-support-card {
-        padding: var(--space-lg);
-    }
-
-    .case-study-visual-placeholder {
-        min-height: 260px;
-        padding: var(--space-md);
-    }
-
-    .case-study-visual-screen {
-        height: 210px;
-    }
-
-    .site-footer {
-        width: min(100% - 1rem, var(--wide-content-width));
-        padding: var(--space-lg);
-    }
-
-    .site-footer-meta {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .placeholder-box-large {
-        min-height: 260px;
-    }
-
-    .placeholder-screen {
-        min-height: 180px;
-        padding: var(--space-md);
-    }
-
-    .site-header {
-        width: min(100% - 1rem, var(--wide-content-width));
-        margin-top: var(--space-xs);
-        grid-template-columns: 1fr;
-        padding: 0.75rem;
-        border-radius: var(--radius-md);
-    }
-
-    .site-logo,
-    .nav-cta,
-    .site-nav {
-        grid-column: 1;
-    }
-
-    .site-logo-mark,
-    .site-logo .site-logo-mark {
-        width: 42px;
-        height: 42px;
-    }
-
-    .site-logo-name {
-        max-width: 6rem;
-        font-size: 0.72rem;
-    }
-
-    .site-nav {
-        gap: 0.8rem;
-        padding-top: 0.75rem;
-    }
-
-    .site-nav a {
-        flex: 0 0 auto;
-        font-size: 0.76rem;
-    }
-
-    .nav-cta {
-        width: 100%;
-        min-height: 42px;
-        padding: 0.65rem 0.85rem;
-        font-size: 0.9rem;
-    }
-
-    .mockup-hero {
-        gap: var(--space-lg);
-        padding: var(--space-xl) 0 var(--space-lg);
+        gap: 1.35rem;
+        padding-top: 1.35rem;
+        padding-bottom: 1.5rem;
     }
 
     .mockup-hero-copy {
@@ -480,19 +533,21 @@
     }
 
     .mockup-hero h1 {
-        font-size: clamp(2.9rem, 13.5vw, 4rem);
-        line-height: 0.9;
+        max-width: 100%;
+        font-size: clamp(2.7rem, 13vw, 3.65rem);
+        line-height: 0.88;
     }
 
     .mockup-hero-description {
-        font-size: 1rem;
-        line-height: 1.55;
+        max-width: 100%;
+        font-size: 0.88rem;
+        line-height: 1.5;
     }
 
     .mockup-hero .hero-actions {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.65rem;
+        gap: 0.5rem;
         margin-top: var(--space-sm);
     }
 
@@ -500,23 +555,30 @@
         width: 100%;
         min-width: 0;
         min-height: 42px;
-        padding: 0.65rem 0.5rem;
-        font-size: 0.82rem;
+        padding: 0.55rem 0.4rem;
+        font-size: 0.66rem;
         text-align: center;
     }
 
+
+    /* ======================================================
+       5. HOME PORTRAIT
+       ====================================================== */
+
     .mockup-hero-visual {
-        min-height: 285px;
+        width: 100%;
+        min-height: 330px;
+        padding-inline: 0.5rem;
     }
 
     .mockup-portrait-placeholder {
-        width: min(100%, 270px);
+        width: min(100%, 255px);
         border-width: 2px;
         border-radius: 30px;
     }
 
     .mockup-hero-accent {
-        right: 0.5rem;
+        right: 0.75rem;
         bottom: 0.5rem;
         width: 95px;
         height: 90px;
@@ -524,7 +586,7 @@
     }
 
     .mockup-dot-column {
-        right: 0.25rem;
+        right: 0.5rem;
         gap: 0.4rem;
     }
 
@@ -533,57 +595,107 @@
         height: 0.35rem;
     }
 
+
+    /* ======================================================
+       6. HOME EXPERTISE
+       ====================================================== */
+
+    .expertise-strip {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+
     .expertise-strip-item {
-        grid-template-columns: 2.5rem 1fr;
-        gap: var(--space-sm);
-        padding: var(--space-md);
+        min-height: 66px;
+        grid-template-columns: 1.75rem minmax(0, 1fr);
+        gap: 0.6rem;
+        padding: 0.7rem 0.75rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .expertise-strip-item:last-child {
+        border-bottom: 0;
     }
 
     .expertise-strip-item span {
-        font-size: 1rem;
-    }
-
-    .expertise-strip-item h2 {
         font-size: 0.82rem;
     }
 
+    .expertise-strip-item h2 {
+        font-size: 0.68rem;
+    }
+
     .expertise-strip-item p {
-        font-size: 0.8rem;
+        font-size: 0.64rem;
     }
 
-    .role-pathways-section .section-heading h2,
-    .selected-work-section .section-heading h2 {
-        font-size: clamp(2rem, 10vw, 3rem);
-        line-height: 1;
-    }
 
-    .role-pathways-grid,
-    .mockup-work-grid {
+    /* ======================================================
+       7. HOME ROLE PATHWAYS
+       ====================================================== */
+
+    .role-pathways-grid {
+        width: 100%;
+        max-width: 100%;
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+        gap: 0.65rem;
+    }
+
+    .role-pathways-section .section-heading h2 {
+        max-width: 100%;
+        font-size: clamp(1.9rem, 9vw, 2.45rem);
+        line-height: 0.92;
     }
 
     .role-pathway-card {
-        min-height: auto;
+        width: 100%;
+        max-width: 100%;
+        min-height: 0;
         gap: var(--space-sm);
-        padding: var(--space-md);
+        padding: 0.85rem;
     }
 
     .role-pathway-symbol {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
     .role-pathway-card h3 {
-        font-size: 1.1rem;
+        font-size: 0.92rem;
     }
 
     .role-pathway-card p {
-        font-size: 0.92rem;
-        line-height: 1.5;
+        max-width: 30ch;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.72rem;
+        line-height: 1.45;
     }
+
+    .role-pathway-card a {
+        font-size: 0.61rem;
+    }
+
+
+    /* ======================================================
+       8. HOME SELECTED WORK
+       ====================================================== */
 
     .selected-work-section .section-heading {
         margin-bottom: var(--space-md);
+    }
+
+    .selected-work-section .section-heading h2 {
+        max-width: 100%;
+        font-size: clamp(1.9rem, 9vw, 2.45rem);
+        line-height: 0.92;
+    }
+
+    .selected-work-section .section-heading p {
+        max-width: 100%;
+        font-size: 0.7rem;
+        line-height: 1.45;
     }
 
     .selected-work-section .section-heading-with-action {
@@ -594,8 +706,23 @@
         width: fit-content;
     }
 
-    .mockup-work-card-media {
-        min-height: 135px;
+    .selected-work-section .project-grid,
+    .selected-work-section .mockup-work-grid,
+    .mockup-work-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.8rem;
+    }
+
+    .mockup-work-card,
+    .selected-work-section .mockup-work-card {
+        width: 100%;
+        max-width: 100%;
+        grid-template-rows: 132px 1fr auto;
+    }
+
+    .mockup-work-card-media,
+    .selected-work-section .mockup-work-card-media {
+        min-height: 132px;
         padding: var(--space-sm);
     }
 
@@ -607,60 +734,185 @@
         min-height: 50px;
     }
 
-    .mockup-work-card-body {
+    .mockup-work-card-body,
+    .selected-work-section .mockup-work-card-body {
         gap: var(--space-sm);
-        padding: var(--space-md);
+        padding: 0.75rem;
     }
 
     .mockup-work-card-footer {
+        align-items: stretch;
+        flex-direction: column;
         padding: var(--space-sm) var(--space-md);
     }
 
-    .mockup-hero-visual {
-        width: 100%;
-        padding-inline: 0.5rem;
-    }
 
-    .mockup-hero-accent {
-        right: 0.75rem;
-    }
+    /* ======================================================
+       9. HOME ABOUT PREVIEW
+       ====================================================== */
 
-    .mockup-dot-column {
-        right: 0.5rem;
-    }
-
-    .home-section {
-        max-width: 100%;
-    }
-
-    .mockup-work-card,
-    .role-pathway-card,
-    .home-about-preview-grid,
-    .expertise-strip {
+    .home-about-preview-grid {
         width: 100%;
         max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        padding: 0.9rem;
+    }
+
+    .home-about-preview-copy {
+        min-width: 0;
+        gap: 0.65rem;
+    }
+
+    .home-about-preview-copy h2 {
+        max-width: 100%;
+        font-size: clamp(1.85rem, 9vw, 2.4rem);
+        line-height: 0.92;
+    }
+
+    .home-about-preview-copy p {
+        max-width: 100%;
+        font-size: 0.74rem;
+        line-height: 1.5;
+    }
+
+    .home-about-preview-copy .button {
+        width: fit-content;
+    }
+
+    .about-preview-principles {
+        width: 100%;
+        gap: 0.45rem;
+    }
+
+    .about-preview-principle {
+        width: 100%;
+        grid-template-columns: 1.55rem minmax(0, 1fr);
+        gap: 0.55rem;
+        padding: 0.65rem;
+    }
+
+    .about-preview-principle > span {
+        font-size: 0.8rem;
+    }
+
+    .about-preview-principle h3 {
+        font-size: 0.76rem;
+    }
+
+    .about-preview-principle p {
+        font-size: 0.65rem;
+        line-height: 1.4;
+    }
+
+
+    /* ======================================================
+       10. WORK PAGE
+       ====================================================== */
+
+    .work-mockup-page {
+        padding-bottom: 1rem;
     }
 
     .work-hero-section {
-        padding-top: var(--space-sm);
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
     }
+
+    .work-page-header {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .work-page-header h1 {
+        max-width: 100%;
+        font-size: clamp(2.5rem, 13vw, 3.5rem);
+        line-height: 0.88;
+    }
+
+    .work-page-header > div > p {
+        max-width: 100%;
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
+
+    .work-page-note {
+        width: 100%;
+        padding: 0.7rem;
+    }
+
+    .work-page-note p {
+        font-size: 0.66rem;
+    }
+
+
+    /* ======================================================
+       11. WORK CONTROLS
+       ====================================================== */
+
+    .work-control-board {
+        gap: 0.65rem;
+        padding: 0.7rem;
+    }
+
+    .work-control-row {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+    }
+
+    .mockup-filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+
+    .mockup-filter-button {
+        width: auto;
+        min-height: 42px;
+        flex: 0 1 auto;
+        padding: 0.55rem 0.7rem;
+        font-size: 0.68rem;
+    }
+
+    .mockup-sort-label {
+        width: 100%;
+    }
+
+    .mockup-sort-label select {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .work-control-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.45rem;
+    }
+
+
+    /* ======================================================
+       12. WORK SKILLS
+       ====================================================== */
 
     .work-skills-section {
         margin-bottom: var(--space-lg);
-        padding: var(--space-md);
+        padding: 0.75rem;
     }
 
     .work-skills-heading {
-        gap: var(--space-md);
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
         margin-bottom: var(--space-md);
     }
 
     .work-skills-heading h2 {
-        font-size: clamp(1.8rem, 9vw, 2.5rem);
+        font-size: 1.45rem;
     }
 
-    .work-skills-heading>p {
-        font-size: 0.9rem;
+    .work-skills-heading > p {
+        max-width: 100%;
+        font-size: 0.72rem;
     }
 
     .work-skills-grid {
@@ -669,50 +921,264 @@
     }
 
     .work-skill-group {
-        padding: var(--space-sm);
+        min-height: 0;
+        padding: 0.7rem;
     }
 
-    .mockup-work-card-media {
-        min-height: 135px;
+
+    /* ======================================================
+       13. WORK CARDS + CTA
+       ====================================================== */
+
+    .mockup-work-card-body h3 {
+        font-size: 0.92rem;
+    }
+
+    .mockup-work-card-summary {
+        font-size: 0.69rem;
+        line-height: 1.45;
+    }
+
+    .work-bottom-cta {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.85rem;
+    }
+
+    .work-bottom-cta .button {
+        width: fit-content;
+        min-height: 42px;
+    }
+
+
+    /* ======================================================
+       14. LEGACY PROJECT FILTERS
+       ====================================================== */
+
+    .projects-board {
+        padding: var(--space-md);
+    }
+
+    .project-filter-bar,
+    .work-filter-footer,
+    .project-sort-label {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .project-filter,
+    .project-sort-label select {
+        width: 100%;
+    }
+
+    .project-lens-guide-footer {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ======================================================
+       15. LEGACY PROJECT CARDS
+       ====================================================== */
+
+    .project-card-topline {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .project-card-system-bar {
+        align-items: flex-start;
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-number {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+
+    /* ======================================================
+       16. PROJECT DETAIL
+       ====================================================== */
+
+    .case-study-page {
+        padding-bottom: 1rem;
+    }
+
+    .case-study-hero-section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .case-study-back-row {
+        margin-bottom: 0.65rem;
+    }
+
+    .case-study-hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .case-study-hero h1,
+    .case-study-hero-copy h1 {
+        max-width: 100%;
+        font-size: clamp(2.45rem, 12vw, 3.4rem);
+        line-height: 0.88;
+    }
+
+    .case-study-subtitle {
+        font-size: 0.76rem;
+    }
+
+    .case-study-summary {
+        max-width: 100%;
+        font-size: 0.72rem;
+        line-height: 1.5;
+    }
+
+
+    /* ------------------------------------------------------
+       Project visual
+       ------------------------------------------------------ */
+
+    .case-study-visual-placeholder {
+        width: 100%;
+        min-height: 220px;
+        padding: 0.6rem;
+    }
+
+    .case-study-visual-screen {
+        width: 100%;
+        height: 195px;
+        padding: 0.7rem;
+    }
+
+
+    /* ------------------------------------------------------
+       Metadata
+       ------------------------------------------------------ */
+
+    .case-study-meta-row {
+        grid-template-columns: 1fr;
+        margin-bottom: 0.75rem;
+    }
+
+    .case-study-meta-row > div {
+        padding: 0.65rem 0.75rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .case-study-meta-row > div:last-child {
+        border-bottom: 0;
+    }
+
+
+    /* ------------------------------------------------------
+       Project tabs
+       ------------------------------------------------------ */
+
+    .case-study-tabs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+
+    .case-study-tab {
+        width: auto;
+        min-height: 42px;
+        flex: 1 1 auto;
+        padding: 0.5rem 0.6rem;
+        font-size: 0.64rem;
+    }
+
+
+    /* ------------------------------------------------------
+       Main content
+       ------------------------------------------------------ */
+
+    .case-study-content-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .case-study-main-card,
+    .case-study-sidebar {
+        width: 100%;
+        padding: 0.85rem;
+    }
+
+    .case-study-main-card h2,
+    .case-study-sidebar h2 {
+        font-size: 1.25rem;
+    }
+
+    .case-study-section-block {
+        margin-top: 1rem;
+    }
+
+    .case-study-section-block p {
+        font-size: 0.72rem;
+    }
+
+    .case-study-support-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+
+    .case-study-support-card {
+        padding: 0.8rem;
+    }
+
+    .case-study-link-stack a {
+        min-height: 42px;
+    }
+
+
+    /* ======================================================
+       17. LEGACY PROJECT DETAIL
+       ====================================================== */
+
+    .project-detail-hero,
+    .project-detail-story-grid,
+    .project-detail-tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail-tabs {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .project-detail-tab {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .project-detail-side-panel {
+        padding: var(--space-md);
+    }
+
+
+    /* ======================================================
+       18. SYSTEMS
+       ====================================================== */
+
+    .systems-deep-dive-page {
+        padding-bottom: 1rem;
+    }
+
+    .systems-deep-dive-page .home-section {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 
     .systems-hero,
     .systems-pillar-grid,
     .systems-example-grid,
-    .systems-tradeoff-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-hero-section,
-    .contact-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .mockup-hero,
-    .expertise-strip,
-    .role-pathways-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .expertise-strip-item {
-        border-right: 0;
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .expertise-strip-item:last-child {
-        border-bottom: 0;
-    }
-
-    .mockup-hero-visual {
-        min-height: 360px;
-    }
-
-    .work-page-header,
-    .work-control-row,
-    .mockup-work-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .systems-tradeoff-grid,
     .deep-dive-hero,
     .deep-dive-lens-grid,
     .deep-dive-flow-grid,
@@ -720,18 +1186,320 @@
         grid-template-columns: 1fr;
     }
 
-    .case-study-hero,
-    .case-study-content-grid,
-    .case-study-support-grid {
-        grid-template-columns: 1fr;
+    .deep-dive-hero {
+        gap: 0.8rem;
     }
+
+    .deep-dive-hero-copy h1 {
+        max-width: 100%;
+        font-size: clamp(2.45rem, 12vw, 3.4rem);
+        line-height: 0.88;
+    }
+
+    .deep-dive-hero-copy p {
+        max-width: 100%;
+        font-size: 0.72rem;
+        line-height: 1.5;
+    }
+
+    .deep-dive-summary-card {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .deep-dive-lens-grid,
+    .deep-dive-flow-grid,
+    .deep-dive-tradeoff-grid {
+        gap: 0.65rem;
+    }
+
+    .deep-dive-lens-card {
+        min-height: 0;
+        padding: 0.8rem;
+    }
+
+    .deep-dive-flow-card,
+    .deep-dive-tradeoff-card {
+        padding: 0.8rem;
+    }
+
+    .deep-dive-cta-card {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.85rem;
+    }
+
+    .deep-dive-cta-card .button {
+        min-height: 42px;
+    }
+
+
+    /* ======================================================
+       19. ABOUT
+       ====================================================== */
+
+    .about-page {
+        padding-bottom: 1rem;
+    }
+
+    .about-page-hero {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        align-items: start;
+        padding-top: 1.3rem;
+        padding-bottom: 1.3rem;
+    }
+
+    .about-page-intro h1 {
+        max-width: 100%;
+        font-size: clamp(2.4rem, 11.5vw, 3.35rem);
+        line-height: 0.88;
+    }
+
+    .about-page-intro > p:not(.eyebrow) {
+        max-width: 100%;
+        font-size: 0.74rem;
+        line-height: 1.5;
+    }
+
+    .about-page-card {
+        width: 100%;
+        padding: 0.85rem;
+    }
+
+    .about-page-card h2 {
+        font-size: 1.25rem;
+    }
+
+    .about-page-card p {
+        max-width: 100%;
+        font-size: 0.7rem;
+    }
+
+
+    /* ======================================================
+       20. CONTACT
+       ====================================================== */
+
+    .contact-page {
+        padding-bottom: 1rem;
+    }
+
+    .contact-hero-section {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        padding-top: 1.3rem;
+        padding-bottom: 1.3rem;
+    }
+
+    .contact-hero-section h1 {
+        max-width: 100%;
+        font-size: clamp(2.4rem, 11.5vw, 3.35rem);
+        line-height: 0.88;
+    }
+
+    .contact-hero-section .section-heading > p:not(.eyebrow) {
+        max-width: 100%;
+        font-size: 0.74rem;
+        line-height: 1.5;
+    }
+
+    .contact-privacy-card {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .contact-info-panel {
+        width: 100%;
+    }
+
+    .contact-panel-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .contact-method-grid {
+        gap: 0.45rem;
+    }
+
+    .contact-method-card {
+        padding: 0.7rem;
+    }
+
+    .contact-card {
+        width: 100%;
+        padding: 0.85rem;
+    }
+
+
+    /* ======================================================
+       21. CONTACT FORM
+       ====================================================== */
+
+    .form-grid,
+    .form-grid-two,
+    .chat-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .form-field input,
+    .form-field select {
+        min-height: 44px;
+    }
+
+    .form-field textarea {
+        min-height: 130px;
+    }
+
+    .contact-form .button {
+        min-height: 44px;
+    }
+
+    .chat-bubble {
+        max-width: 88%;
+    }
+
+
+    /* ======================================================
+       22. GENERAL BUTTON TAP TARGETS
+       ====================================================== */
+
+    .button {
+        min-height: 42px;
+    }
+
+    button,
+    a,
+    select,
+    input,
+    textarea {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* ======================================================
+       23. FOOTER
+       ====================================================== */
 
     .site-footer {
         grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 0.85rem;
+    }
+
+    .site-footer-brand {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .site-footer-brand p {
+        max-width: 100%;
+        font-size: 0.67rem;
     }
 
     .site-footer-nav {
         justify-content: flex-start;
+        gap: 0.65rem;
+        flex-wrap: wrap;
     }
 
+    .site-footer-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding-top: 0.65rem;
+    }
+
+
+    /* ======================================================
+       24. PLACEHOLDERS
+       ====================================================== */
+
+    .placeholder-box-large {
+        min-height: 260px;
+    }
+
+    .placeholder-screen {
+        min-height: 180px;
+        padding: var(--space-md);
+    }
+
+
+    /* ======================================================
+       25. LEGACY HERO SYSTEM
+       ====================================================== */
+
+    .hero-meta-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero-system-card::after {
+        display: none;
+    }
+
+    .hero-system-panel div {
+        min-height: auto;
+        padding: var(--space-md);
+    }
+
+
+    /* ======================================================
+       26. ADMIN
+       Preserve existing responsive behavior.
+       ====================================================== */
+
+    .admin-dashboard-header,
+    .admin-message-card-header {
+        flex-direction: column;
+    }
+
+    .admin-message-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==========================================================
+   TOUCH DEVICES
+   Do not depend on hover movement.
+   ========================================================== */
+
+@media (hover: none) {
+
+    .role-pathway-card:hover,
+    .mockup-work-card:hover,
+    .contact-method-card:hover {
+        transform: none;
+    }
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
