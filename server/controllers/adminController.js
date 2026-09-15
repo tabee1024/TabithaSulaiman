@@ -1,9 +1,10 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+
 import ContactMessage from "../models/ContactMessage.js";
 
 const COOKIE_NAME = "adminToken";
-
 // Helper function to get cookie options based on environment (prod vs. dev).
 function getCookieOptions() {
     const isProduction = process.env.NODE_ENV === "production";
@@ -89,7 +90,15 @@ export async function updateAdminMessage(request, response) {
     const { messageId } = request.params;
     const { isRead, isArchived, adminNote } = request.body;
 
-    
+
+    if (!mongoose.isValidObjectId(messageId)) {
+        return response.status(400).json({
+            status: "error",
+            message: "Invalid message ID.",
+        });
+    }
+
+
     const updates = {};
 
     // Only include fields that are provided in the request body for updating. This allows for partial updates to the message document, where the admin can choose to update one or more of the fields without affecting the others.

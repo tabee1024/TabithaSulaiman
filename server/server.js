@@ -12,8 +12,11 @@ connectDB();
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 5000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+
 
 // Allows cookies to be included in CORs requests from frontend, which means server will accept requests from the specified origin and allow credentials (like cookies) to be sent with those requests.
 app.use(
@@ -23,7 +26,11 @@ app.use(
     })
 );
 
-app.use(express.json());
+app.use(
+    express.json({
+        limit: "10kb",
+    })
+);
 
 // Lets backend read cookies from incoming requests, which is necessary for admin authentication to work since the admin token is stored in a cookie.
 app.use(cookieParser());

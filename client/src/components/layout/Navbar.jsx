@@ -81,10 +81,6 @@ function Navbar() {
                     Work
                 </NavLink>
 
-                <NavLink to="/systems-thinking" onClick={closeMenu}>
-                    Systems
-                </NavLink>
-
                 <NavLink to="/about" onClick={closeMenu}>
                     About
                 </NavLink>

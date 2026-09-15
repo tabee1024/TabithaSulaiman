@@ -14,11 +14,6 @@ const expertiseItems = [
         description: "Full-stack development",
         symbol: "03",
     },
-    {
-        title: "Systems Thinking",
-        description: "Data flow & dependencies",
-        symbol: "04",
-    },
 ];
 
 function SkillsPanel() {

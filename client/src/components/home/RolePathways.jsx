@@ -1,34 +1,36 @@
 import { Link } from "react-router-dom";
 import portfolioHeadshot from "../../assets/images/portfolioheadshot.png";
+import {
+    Lightbulb,
+    PanelsTopLeft,
+    Code2,
+    Puzzle,
+} from "lucide-react";
 
 const rolePathways = [
     {
         title: "Product",
-        description: "See problem framing, tradeoffs, metrics, and user value.",
-        href: "/projects?lens=product",
-        cta: "View Product Work",
-        symbol: "01",
+        description:
+            "See problem framing, tradeoffs, metrics, and user value.",
+        action: "View Product Work",
+        lens: "product",
+        icon: Puzzle,
     },
     {
         title: "UX / UI Design",
-        description: "See research-informed flows, responsive interfaces, and prototypes.",
-        href: "/projects?lens=ux-ui",
-        cta: "View Design Work",
-        symbol: "02",
+        description:
+            "See research-informed flows, responsive interfaces, and prototypes.",
+        action: "View Design Work",
+        lens: "design",
+        icon: PanelsTopLeft,
     },
     {
         title: "Engineering",
-        description: "See full-stack builds, APIs, databases, and technical decisions.",
-        href: "/projects?lens=engineering",
-        cta: "View Engineering Work",
-        symbol: "03",
-    },
-    {
-        title: "Systems",
-        description: "See data flow, system constraints, documentation, and iteration loops.",
-        href: "/projects?lens=systems",
-        cta: "View Systems Work",
-        symbol: "04",
+        description:
+            "See full-stack builds, APIs, databases, and technical decisions.",
+        action: "View Engineering Work",
+        lens: "engineering",
+        icon: Code2,
     },
 ];
 
@@ -41,16 +43,25 @@ function RolePathways() {
             </div>
 
             <div className="role-pathways-grid">
-                {rolePathways.map((role) => (
-                    <article className="role-pathway-card" key={role.title}>
-                        <span className="role-pathway-symbol">{role.symbol}</span>
-                        <h3>{role.title}</h3>
-                        <p>{role.description}</p>
-                        <Link to={role.href}>
-                            {role.cta} →
-                        </Link>
-                    </article>
-                ))}
+                {rolePathways.map((role) => {
+                    const Icon = role.icon;
+
+                    return (
+                        <article className="role-pathway-card" key={role.title}>
+                            <div className="role-pathway-symbol" aria-hidden="true">
+                                <Icon />
+                            </div>
+
+                            <h3>{role.title}</h3>
+
+                            <p>{role.description}</p>
+
+                            <Link to={`/projects?role=${role.lens}`}>
+                                {role.action} →
+                            </Link>
+                        </article>
+                    );
+                })}
             </div>
         </section>
     );
