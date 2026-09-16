@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const MAX_ARRAY_ITEMS = 30;
 
@@ -845,4 +845,4 @@ projectSchema.index({
 
 const Project = mongoose.model("Project", projectSchema);
 
-module.exports = Project;
+export default Project;
