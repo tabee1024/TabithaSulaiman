@@ -511,6 +511,65 @@ function AdminDashboard() {
         return result.data;
     }
 
+    async function handleRestoreProject(projectId) {
+        const confirmed =
+            window.confirm(
+                "Restore this archived project to draft status?"
+            );
+
+        if (!confirmed) {
+            return;
+        }
+
+        try {
+            setEditingProjectId(projectId);
+            setStatusMessage(
+                "Restoring project..."
+            );
+
+            const response =
+                await fetch(
+                    `/api/admin/projects/${projectId}/restore`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "X-Portfolio-Admin-Request":
+                                "1",
+                        },
+                        credentials:
+                            "include",
+                    }
+                );
+
+            const result =
+                await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    result.message ||
+                    "Unable to restore project."
+                );
+            }
+
+            await fetchProjects(
+                includeArchivedProjects
+            );
+
+            setStatusMessage(
+                result.message ||
+                "Project restored."
+            );
+        } catch (error) {
+            setStatusMessage(
+                error.message ||
+                "Unable to restore project."
+            );
+        } finally {
+            setEditingProjectId("");
+        }
+    }
+
+
 
     async function handleEditProject(projectId) {
         try {
@@ -1003,308 +1062,328 @@ function AdminDashboard() {
                                         ) : (
                                             <>
                                                 <div className="admin-view-header">
-                                            <div>
-                                                <h2 id="admin-projects-title">
-                                                    Projects
-                                                </h2>
+                                                    <div>
+                                                        <h2 id="admin-projects-title">
+                                                            Projects
+                                                        </h2>
 
-                                                <p>
-                                                    View the
-                                                    portfolio
-                                                    projects
-                                                    currently
-                                                    stored in
-                                                    MongoDB.
-                                                    Editing
-                                                    arrives in
-                                                    the next
-                                                    CMS step.
-                                                </p>
-                                            </div>
+                                                        <p>
+                                                            View the
+                                                            portfolio
+                                                            projects
+                                                            currently
+                                                            stored in
+                                                            MongoDB.
+                                                            Editing
+                                                            arrives in
+                                                            the next
+                                                            CMS step.
+                                                        </p>
+                                                    </div>
 
-                                            <label className="admin-filter-control">
-                                                <input
-                                                    type="checkbox"
-                                                    checked={
-                                                        includeArchivedProjects
-                                                    }
-                                                    onChange={
-                                                        handleArchivedProjectFilterChange
-                                                    }
-                                                />
+                                                    <label className="admin-filter-control">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                includeArchivedProjects
+                                                            }
+                                                            onChange={
+                                                                handleArchivedProjectFilterChange
+                                                            }
+                                                        />
 
-                                                Show
-                                                archived
-                                                projects
-                                            </label>
-                                        </div>
+                                                        Show
+                                                        archived
+                                                        projects
+                                                    </label>
+                                                </div>
 
-                                        <div className="admin-project-summary">
-                                            <div>
-                                                <strong>
-                                                    {
-                                                        projects.length
-                                                    }
-                                                </strong>
-                                                <span>
-                                                    Showing
-                                                </span>
-                                            </div>
+                                                <div className="admin-project-summary">
+                                                    <div>
+                                                        <strong>
+                                                            {
+                                                                projects.length
+                                                            }
+                                                        </strong>
+                                                        <span>
+                                                            Showing
+                                                        </span>
+                                                    </div>
 
-                                            <div>
-                                                <strong>
-                                                    {
-                                                        projects.filter(
+                                                    <div>
+                                                        <strong>
+                                                            {
+                                                                projects.filter(
+                                                                    (
+                                                                        project
+                                                                    ) =>
+                                                                        project.publicationStatus ===
+                                                                        "published"
+                                                                )
+                                                                    .length
+                                                            }
+                                                        </strong>
+                                                        <span>
+                                                            Published
+                                                        </span>
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>
+                                                            {
+                                                                projects.filter(
+                                                                    (
+                                                                        project
+                                                                    ) =>
+                                                                        project.publicationStatus ===
+                                                                        "draft"
+                                                                )
+                                                                    .length
+                                                            }
+                                                        </strong>
+                                                        <span>
+                                                            Draft
+                                                        </span>
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>
+                                                            {
+                                                                projects.filter(
+                                                                    (
+                                                                        project
+                                                                    ) =>
+                                                                        project.isArchived
+                                                                )
+                                                                    .length
+                                                            }
+                                                        </strong>
+                                                        <span>
+                                                            Archived
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                {projects.length ===
+                                                    0 ? (
+                                                    <p>
+                                                        No projects
+                                                        to show.
+                                                    </p>
+                                                ) : (
+                                                    <div className="admin-project-list">
+                                                        {projects.map(
                                                             (
                                                                 project
-                                                            ) =>
-                                                                project.publicationStatus ===
-                                                                "published"
-                                                        )
-                                                            .length
-                                                    }
-                                                </strong>
-                                                <span>
-                                                    Published
-                                                </span>
-                                            </div>
+                                                            ) => {
+                                                                const roleLenses =
+                                                                    getProjectRoleLenses(
+                                                                        project
+                                                                    );
 
-                                            <div>
-                                                <strong>
-                                                    {
-                                                        projects.filter(
-                                                            (
-                                                                project
-                                                            ) =>
-                                                                project.publicationStatus ===
-                                                                "draft"
-                                                        )
-                                                            .length
-                                                    }
-                                                </strong>
-                                                <span>
-                                                    Draft
-                                                </span>
-                                            </div>
+                                                                const featured =
+                                                                    getProjectFeatured(
+                                                                        project
+                                                                    );
 
-                                            <div>
-                                                <strong>
-                                                    {
-                                                        projects.filter(
-                                                            (
-                                                                project
-                                                            ) =>
-                                                                project.isArchived
-                                                        )
-                                                            .length
-                                                    }
-                                                </strong>
-                                                <span>
-                                                    Archived
-                                                </span>
-                                            </div>
-                                        </div>
+                                                                return (
+                                                                    <article
+                                                                        className="admin-project-card"
+                                                                        key={
+                                                                            project._id
+                                                                        }
+                                                                    >
+                                                                        <div className="admin-project-card-header">
+                                                                            <div>
+                                                                                <div className="admin-project-status-group">
+                                                                                    <span
+                                                                                        className={`admin-project-status ${project.publicationStatus ===
+                                                                                            "published"
+                                                                                            ? "admin-project-status-published"
+                                                                                            : "admin-project-status-draft"
+                                                                                            }`}
+                                                                                    >
+                                                                                        {project.publicationStatus ===
+                                                                                            "published"
+                                                                                            ? "Published"
+                                                                                            : "Draft"}
+                                                                                    </span>
 
-                                        {projects.length ===
-                                            0 ? (
-                                            <p>
-                                                No projects
-                                                to show.
-                                            </p>
-                                        ) : (
-                                            <div className="admin-project-list">
-                                                {projects.map(
-                                                    (
-                                                        project
-                                                    ) => {
-                                                        const roleLenses =
-                                                            getProjectRoleLenses(
-                                                                project
-                                                            );
+                                                                                    {project.isArchived && (
+                                                                                        <span className="admin-project-status">
+                                                                                            Archived
+                                                                                        </span>
+                                                                                    )}
 
-                                                        const featured =
-                                                            getProjectFeatured(
-                                                                project
-                                                            );
+                                                                                    {featured && (
+                                                                                        <span className="admin-project-status">
+                                                                                            Featured
+                                                                                        </span>
+                                                                                    )}
+                                                                                </div>
 
-                                                        return (
-                                                            <article
-                                                                className="admin-project-card"
-                                                                key={
-                                                                    project._id
-                                                                }
-                                                            >
-                                                                <div className="admin-project-card-header">
-                                                                    <div>
-                                                                        <div className="admin-project-status-group">
-                                                                            <span
-                                                                                className={`admin-project-status ${project.publicationStatus ===
-                                                                                    "published"
-                                                                                    ? "admin-project-status-published"
-                                                                                    : "admin-project-status-draft"
-                                                                                    }`}
-                                                                            >
-                                                                                {project.publicationStatus ===
-                                                                                    "published"
-                                                                                    ? "Published"
-                                                                                    : "Draft"}
-                                                                            </span>
+                                                                                <h3>
+                                                                                    {getProjectTitle(
+                                                                                        project
+                                                                                    )}
+                                                                                </h3>
 
-                                                                            {project.isArchived && (
-                                                                                <span className="admin-project-status">
-                                                                                    Archived
+                                                                                <p className="admin-project-slug">
+                                                                                    /
+                                                                                    {
+                                                                                        project.slug
+                                                                                    }
+                                                                                </p>
+                                                                            </div>
+
+                                                                            <p className="admin-project-updated">
+                                                                                Updated{" "}
+                                                                                {formatPacificTime(
+                                                                                    project.updatedAt
+                                                                                )}
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <div className="admin-project-meta">
+                                                                            <p>
+                                                                                <strong>
+                                                                                    Revision
+                                                                                </strong>
+                                                                                <span>
+                                                                                    {project.revision ??
+                                                                                        0}
                                                                                 </span>
-                                                                            )}
+                                                                            </p>
 
-                                                                            {featured && (
-                                                                                <span className="admin-project-status">
-                                                                                    Featured
+                                                                            <p>
+                                                                                <strong>
+                                                                                    Content
+                                                                                    status
+                                                                                </strong>
+                                                                                <span>
+                                                                                    {project.draft?.status ||
+                                                                                        project.published?.status ||
+                                                                                        "Not set"}
+                                                                                </span>
+                                                                            </p>
+
+                                                                            <p>
+                                                                                <strong>
+                                                                                    Order
+                                                                                </strong>
+                                                                                <span>
+                                                                                    {project.draft?.order ??
+                                                                                        project.published?.order ??
+                                                                                        "Not set"}
+                                                                                </span>
+                                                                            </p>
+
+                                                                            <p>
+                                                                                <strong>
+                                                                                    Last
+                                                                                    published
+                                                                                </strong>
+                                                                                <span>
+                                                                                    {project.publishedAt
+                                                                                        ? formatPacificTime(
+                                                                                            project.publishedAt
+                                                                                        )
+                                                                                        : "Never"}
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <div className="admin-project-lenses">
+                                                                            {roleLenses.length >
+                                                                                0 ? (
+                                                                                roleLenses.map(
+                                                                                    (
+                                                                                        lens
+                                                                                    ) => (
+                                                                                        <span
+                                                                                            className="admin-project-lens"
+                                                                                            key={
+                                                                                                lens
+                                                                                            }
+                                                                                        >
+                                                                                            {
+                                                                                                lens
+                                                                                            }
+                                                                                        </span>
+                                                                                    )
+                                                                                )
+                                                                            ) : (
+                                                                                <span className="admin-project-lens">
+                                                                                    No
+                                                                                    role
+                                                                                    lens
                                                                                 </span>
                                                                             )}
                                                                         </div>
 
-                                                                        <h3>
-                                                                            {getProjectTitle(
-                                                                                project
-                                                                            )}
-                                                                        </h3>
-
-                                                                        <p className="admin-project-slug">
-                                                                            /
-                                                                            {
-                                                                                project.slug
-                                                                            }
-                                                                        </p>
-                                                                    </div>
-
-                                                                    <p className="admin-project-updated">
-                                                                        Updated{" "}
-                                                                        {formatPacificTime(
-                                                                            project.updatedAt
-                                                                        )}
-                                                                    </p>
-                                                                </div>
-
-                                                                <div className="admin-project-meta">
-                                                                    <p>
-                                                                        <strong>
-                                                                            Revision
-                                                                        </strong>
-                                                                        <span>
-                                                                            {project.revision ??
-                                                                                0}
-                                                                        </span>
-                                                                    </p>
-
-                                                                    <p>
-                                                                        <strong>
-                                                                            Content
-                                                                            status
-                                                                        </strong>
-                                                                        <span>
-                                                                            {project.draft?.status ||
-                                                                                project.published?.status ||
-                                                                                "Not set"}
-                                                                        </span>
-                                                                    </p>
-
-                                                                    <p>
-                                                                        <strong>
-                                                                            Order
-                                                                        </strong>
-                                                                        <span>
-                                                                            {project.draft?.order ??
-                                                                                project.published?.order ??
-                                                                                "Not set"}
-                                                                        </span>
-                                                                    </p>
-
-                                                                    <p>
-                                                                        <strong>
-                                                                            Last
-                                                                            published
-                                                                        </strong>
-                                                                        <span>
-                                                                            {project.publishedAt
-                                                                                ? formatPacificTime(
-                                                                                    project.publishedAt
-                                                                                )
-                                                                                : "Never"}
-                                                                        </span>
-                                                                    </p>
-                                                                </div>
-
-                                                                <div className="admin-project-lenses">
-                                                                    {roleLenses.length >
-                                                                        0 ? (
-                                                                        roleLenses.map(
-                                                                            (
-                                                                                lens
-                                                                            ) => (
-                                                                                <span
-                                                                                    className="admin-project-lens"
-                                                                                    key={
-                                                                                        lens
+                                                                        <div className="admin-project-actions">
+                                                                            {project.isArchived && (
+                                                                                <button
+                                                                                    className="button button-secondary"
+                                                                                    type="button"
+                                                                                    onClick={() =>
+                                                                                        handleRestoreProject(
+                                                                                            project._id
+                                                                                        )
                                                                                     }
+                                                                                    disabled={Boolean(
+                                                                                        editingProjectId
+                                                                                    )}
                                                                                 >
-                                                                                    {
-                                                                                        lens
-                                                                                    }
-                                                                                </span>
-                                                                            )
-                                                                        )
-                                                                    ) : (
-                                                                        <span className="admin-project-lens">
-                                                                            No
-                                                                            role
-                                                                            lens
-                                                                        </span>
-                                                                    )}
-                                                                </div>
+                                                                                    {editingProjectId ===
+                                                                                        project._id
+                                                                                        ? "Working..."
+                                                                                        : "Restore"}
+                                                                                </button>
+                                                                            )}
 
-                                                                <div className="admin-project-actions">
-                                                                    <button
-                                                                        className="button button-secondary"
-                                                                        type="button"
-                                                                        onClick={() =>
-                                                                            handleEditProject(
-                                                                                project._id
-                                                                            )
-                                                                        }
-                                                                        disabled={Boolean(
-                                                                            editingProjectId
-                                                                        )}
-                                                                    >
-                                                                        {editingProjectId ===
-                                                                        project._id
-                                                                            ? "Loading..."
-                                                                            : "Edit Draft"}
-                                                                    </button>
-                                                                </div>
-                                                            </article>
-                                                        );
-                                                    }
+                                                                            <button
+                                                                                className="button button-secondary"
+                                                                                type="button"
+                                                                                onClick={() =>
+                                                                                    handleEditProject(
+                                                                                        project._id
+                                                                                    )
+                                                                                }
+                                                                                disabled={Boolean(
+                                                                                    editingProjectId
+                                                                                )}
+                                                                            >
+                                                                                {editingProjectId ===
+                                                                                    project._id
+                                                                                    ? "Loading..."
+                                                                                    : "Edit Draft"}
+                                                                            </button>
+                                                                        </div>
+                                                                    </article>
+                                                                );
+                                                            }
+                                                        )}
+                                                    </div>
                                                 )}
-                                            </div>
+                                            </>
                                         )}
-                                    </>
+                                    </section>
                                 )}
-                            </section>
+                            </div>
+                        )}
+
+                        {statusMessage && (
+                            <p
+                                className="form-status"
+                                aria-live="polite"
+                            >
+                                {statusMessage}
+                            </p>
                         )}
                     </div>
-                        )}
-
-                    {statusMessage && (
-                        <p
-                            className="form-status"
-                            aria-live="polite"
-                        >
-                            {statusMessage}
-                        </p>
-                    )}
-                </div>
-            </section>
-        </main >
+                </section>
+            </main >
         </>
     );
 }

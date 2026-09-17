@@ -534,6 +534,15 @@ function AdminProjectEditor({
         setIsSaving,
     ] = useState(false);
 
+    const [
+        isPublishing,
+        setIsPublishing,
+    ] = useState(false);
+
+    const [
+        isPreviewOpen,
+        setIsPreviewOpen,
+    ] = useState(false);
 
     useEffect(
         () => {
@@ -640,6 +649,88 @@ function AdminProjectEditor({
         onBack();
     }
 
+    async function handlePublicationAction(action) {
+        if (isDirty) {
+            setSaveMessage(
+                "Save your draft changes before publishing."
+            );
+
+            return;
+        }
+
+        const isPublishingAction =
+            action === "publish";
+
+        const confirmationMessage =
+            isPublishingAction
+                ? "Publish the current draft? This will replace the live published snapshot."
+                : "Unpublish this project? Its published snapshot will be preserved, but the project will no longer be marked as published.";
+
+        const confirmed =
+            window.confirm(
+                confirmationMessage
+            );
+
+        if (!confirmed) {
+            return;
+        }
+
+        try {
+            setIsPublishing(true);
+
+            setSaveMessage(
+                isPublishingAction
+                    ? "Publishing project..."
+                    : "Unpublishing project..."
+            );
+
+            const response =
+                await fetch(
+                    `/api/admin/projects/${project._id}/${action}`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "X-Portfolio-Admin-Request":
+                                "1",
+                        },
+
+                        credentials:
+                            "include",
+                    }
+                );
+
+            const result =
+                await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    result.message ||
+                    `Unable to ${action} project.`
+                );
+            }
+
+            setSaveMessage(
+                result.message ||
+                (isPublishingAction
+                    ? "Project published."
+                    : "Project unpublished.")
+            );
+
+            if (onSaved) {
+                await onSaved(
+                    project._id
+                );
+            }
+        } catch (error) {
+            setSaveMessage(
+                error.message ||
+                `Unable to ${action} project.`
+            );
+        } finally {
+            setIsPublishing(false);
+        }
+    }
 
     async function handleSaveDraft(
         event
@@ -785,6 +876,151 @@ function AdminProjectEditor({
                         0}
                 </span>
             </div>
+
+            <div className="admin-editor-publication-actions">
+                <button
+                    className="button button-secondary"
+                    type="button"
+                    onClick={() =>
+                        setIsPreviewOpen(
+                            (currentValue) =>
+                                !currentValue
+                        )
+                    }
+                >
+                    {isPreviewOpen
+                        ? "Close Preview"
+                        : "Preview Draft"}
+                </button>
+
+                {project.publicationStatus ===
+                    "published" ? (
+                    <button
+                        className="button button-secondary"
+                        type="button"
+                        onClick={() =>
+                            handlePublicationAction(
+                                "unpublish"
+                            )
+                        }
+                        disabled={
+                            isPublishing
+                        }
+                    >
+                        {isPublishing
+                            ? "Working..."
+                            : "Unpublish"}
+                    </button>
+                ) : null}
+
+                <button
+                    className="button button-primary"
+                    type="button"
+                    onClick={() =>
+                        handlePublicationAction(
+                            "publish"
+                        )
+                    }
+                    disabled={
+                        isPublishing ||
+                        isDirty
+                    }
+                >
+                    {isPublishing
+                        ? "Publishing..."
+                        : project.publicationStatus ===
+                            "published"
+                            ? "Publish New Revision"
+                            : "Publish Draft"}
+                </button>
+            </div>
+
+            {isPreviewOpen && (
+                <section className="admin-draft-preview">
+                    <div>
+                        <p className="eyebrow">
+                            Draft Preview
+                        </p>
+
+                        <h2>
+                            {formData.title ||
+                                "Untitled Project"}
+                        </h2>
+
+                        {formData.subtitle && (
+                            <p className="admin-draft-preview-subtitle">
+                                {
+                                    formData.subtitle
+                                }
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="admin-draft-preview-meta">
+                        <span>
+                            {
+                                formData.displayType
+                            }
+                        </span>
+
+                        <span>
+                            {formData.status ||
+                                "No status"}
+                        </span>
+
+                        {formData.featured && (
+                            <span>
+                                Featured
+                            </span>
+                        )}
+                    </div>
+
+                    {formData.summary && (
+                        <p>
+                            {
+                                formData.summary
+                            }
+                        </p>
+                    )}
+
+                    {formData.cardOutcome && (
+                        <div>
+                            <strong>
+                                Outcome
+                            </strong>
+
+                            <p>
+                                {
+                                    formData.cardOutcome
+                                }
+                            </p>
+                        </div>
+                    )}
+
+                    <div className="admin-project-lenses">
+                        {formData.roleLens.map(
+                            (lens) => (
+                                <span
+                                    className="admin-project-lens"
+                                    key={
+                                        lens
+                                    }
+                                >
+                                    {lens}
+                                </span>
+                            )
+                        )}
+                    </div>
+
+                    <p className="admin-draft-preview-note">
+                        Admin-only draft
+                        preview. Nothing here
+                        becomes published until
+                        you use the Publish
+                        action.
+                    </p>
+                </section>
+            )}
 
             <form
                 className="admin-project-editor-form"
