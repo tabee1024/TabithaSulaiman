@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-
+import AdminProjectEditor from "../components/admin/AdminProjectEditor";
 
 const initialLoginData = {
     email: "",
@@ -82,6 +82,12 @@ function AdminDashboard() {
 
     const [activeAdminView, setActiveAdminView] =
         useState("messages");
+
+    const [selectedProject, setSelectedProject] =
+        useState(null);
+
+    const [editingProjectId, setEditingProjectId] =
+        useState("");
 
 
     function handleLoginChange(event) {
@@ -262,6 +268,9 @@ function AdminDashboard() {
             setIsLoggedIn(false);
             setMessages([]);
             setProjects([]);
+            setSelectedProject(null);
+            setEditingProjectId("");
+
             setActiveAdminView(
                 "messages"
             );
@@ -479,11 +488,110 @@ function AdminDashboard() {
         }
     }
 
+    async function fetchProjectById(projectId) {
+        const response =
+            await fetch(
+                `/api/admin/projects/${projectId}`,
+                {
+                    method: "GET",
+                    credentials: "include",
+                }
+            );
+
+        const result =
+            await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                result.message ||
+                "Unable to load this project."
+            );
+        }
+
+        return result.data;
+    }
+
+
+    async function handleEditProject(projectId) {
+        try {
+            setEditingProjectId(
+                projectId
+            );
+
+            setStatusMessage(
+                "Loading project draft..."
+            );
+
+            const project =
+                await fetchProjectById(
+                    projectId
+                );
+
+            setSelectedProject(
+                project
+            );
+
+            setStatusMessage("");
+        } catch (error) {
+            setStatusMessage(
+                error.message ||
+                "Unable to open the project editor."
+            );
+        } finally {
+            setEditingProjectId("");
+        }
+    }
+
+
+    function handleCloseProjectEditor() {
+        setSelectedProject(
+            null
+        );
+
+        setStatusMessage("");
+    }
+
+
+    async function handleProjectSaved(projectId) {
+        await fetchProjects(
+            includeArchivedProjects
+        );
+
+        const refreshedProject =
+            await fetchProjectById(
+                projectId
+            );
+
+        setSelectedProject(
+            refreshedProject
+        );
+
+        setStatusMessage(
+            "Project draft saved."
+        );
+    }
+
 
     function showMessages() {
+        if (selectedProject) {
+            const shouldLeave =
+                window.confirm(
+                    "Leave the project editor? Any unsaved changes will be lost."
+                );
+
+            if (!shouldLeave) {
+                return;
+            }
+
+            setSelectedProject(
+                null
+            );
+        }
+
         setActiveAdminView(
             "messages"
         );
+
         setStatusMessage("");
     }
 
@@ -620,9 +728,9 @@ function AdminDashboard() {
                                 >
                                     <button
                                         className={`admin-tab ${activeAdminView ===
-                                                "messages"
-                                                ? "admin-tab-active"
-                                                : ""
+                                            "messages"
+                                            ? "admin-tab-active"
+                                            : ""
                                             }`}
                                         type="button"
                                         role="tab"
@@ -644,9 +752,9 @@ function AdminDashboard() {
 
                                     <button
                                         className={`admin-tab ${activeAdminView ===
-                                                "projects"
-                                                ? "admin-tab-active"
-                                                : ""
+                                            "projects"
+                                            ? "admin-tab-active"
+                                            : ""
                                             }`}
                                         type="button"
                                         role="tab"
@@ -726,8 +834,8 @@ function AdminDashboard() {
                                                     ) => (
                                                         <article
                                                             className={`admin-message-card ${message.isRead
-                                                                    ? "admin-message-read"
-                                                                    : ""
+                                                                ? "admin-message-read"
+                                                                : ""
                                                                 }`}
                                                             key={
                                                                 message._id
@@ -886,7 +994,15 @@ function AdminDashboard() {
                                         className="admin-view"
                                         aria-labelledby="admin-projects-title"
                                     >
-                                        <div className="admin-view-header">
+                                        {selectedProject ? (
+                                            <AdminProjectEditor
+                                                project={selectedProject}
+                                                onBack={handleCloseProjectEditor}
+                                                onSaved={handleProjectSaved}
+                                            />
+                                        ) : (
+                                            <>
+                                                <div className="admin-view-header">
                                             <div>
                                                 <h2 id="admin-projects-title">
                                                     Projects
@@ -1023,9 +1139,9 @@ function AdminDashboard() {
                                                                         <div className="admin-project-status-group">
                                                                             <span
                                                                                 className={`admin-project-status ${project.publicationStatus ===
-                                                                                        "published"
-                                                                                        ? "admin-project-status-published"
-                                                                                        : "admin-project-status-draft"
+                                                                                    "published"
+                                                                                    ? "admin-project-status-published"
+                                                                                    : "admin-project-status-draft"
                                                                                     }`}
                                                                             >
                                                                                 {project.publicationStatus ===
@@ -1150,12 +1266,19 @@ function AdminDashboard() {
                                                                     <button
                                                                         className="button button-secondary"
                                                                         type="button"
-                                                                        disabled
-                                                                        title="Project editing is added in Version 4.0E."
+                                                                        onClick={() =>
+                                                                            handleEditProject(
+                                                                                project._id
+                                                                            )
+                                                                        }
+                                                                        disabled={Boolean(
+                                                                            editingProjectId
+                                                                        )}
                                                                     >
-                                                                        Edit
-                                                                        in
-                                                                        4.0E
+                                                                        {editingProjectId ===
+                                                                        project._id
+                                                                            ? "Loading..."
+                                                                            : "Edit Draft"}
                                                                     </button>
                                                                 </div>
                                                             </article>
@@ -1164,22 +1287,24 @@ function AdminDashboard() {
                                                 )}
                                             </div>
                                         )}
-                                    </section>
+                                    </>
                                 )}
-                            </div>
-                        )}
-
-                        {statusMessage && (
-                            <p
-                                className="form-status"
-                                aria-live="polite"
-                            >
-                                {statusMessage}
-                            </p>
+                            </section>
                         )}
                     </div>
-                </section>
-            </main>
+                        )}
+
+                    {statusMessage && (
+                        <p
+                            className="form-status"
+                            aria-live="polite"
+                        >
+                            {statusMessage}
+                        </p>
+                    )}
+                </div>
+            </section>
+        </main >
         </>
     );
 }

@@ -1582,6 +1582,11 @@
      opacity: 0.55;
 }
 
+.admin-project-actions .button:disabled {
+     cursor: not-allowed;
+     opacity: 0.55;
+}
+
 body {
      background-color: var(--color-bg);
 }
