@@ -642,6 +642,21 @@ const projectContentSchema = new mongoose.Schema(
             default: "",
         },
 
+        thinkingLenses: {
+            type: [
+                {
+                    type: String,
+                    trim: true,
+                    maxlength: 100,
+                },
+            ],
+            default: [],
+            validate: {
+                validator: limitedArray,
+                message: `Thinking lenses cannot contain more than ${MAX_ARRAY_ITEMS} items.`,
+            },
+        },
+
         roleLens: {
             type: [
                 {

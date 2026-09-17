@@ -22,6 +22,7 @@ const EDITABLE_DRAFT_FIELDS = [
     "solution",
     "impact",
     "cardOutcome",
+    "thinkingLenses",
     "roleLens",
     "proofPoints",
     "impactStats",
