@@ -2,13 +2,11 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-
 import connectDB from "./config/db.js";
-
 import contactRoutes from "./routes/contactRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import adminProjectRoutes from "./routes/adminProjectRoutes.js";
-
+import projectRoutes from "./routes/projectRoutes.js";
 
 dotenv.config();
 
@@ -95,6 +93,12 @@ app.use(
 // Binary image/video data will NOT be uploaded
 // through this JSON body.
 // =====================================================
+
+// Public read-only portfolio project API.
+app.use(
+    "/api/projects",
+    projectRoutes
+);
 
 app.use(
     "/api/admin/projects",
