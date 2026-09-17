@@ -1464,12 +1464,20 @@
        ====================================================== */
 
     .admin-dashboard-header,
-    .admin-message-card-header {
+    .admin-view-header,
+    .admin-message-card-header,
+    .admin-project-card-header {
         flex-direction: column;
     }
 
-    .admin-message-meta {
+    .admin-message-meta,
+    .admin-project-meta,
+    .admin-project-summary {
         grid-template-columns: 1fr;
+    }
+
+    .admin-project-updated {
+        text-align: left;
     }
 }
 
