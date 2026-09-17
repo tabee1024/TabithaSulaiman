@@ -1,7 +1,9 @@
 import {
+    useEffect,
     useMemo,
     useState,
 } from "react";
+
 import {
     Link,
     useSearchParams,
@@ -116,7 +118,56 @@ const workSkillGroups = [
 ];
 
 
-function getValidLens(searchValue) {
+const lensConfigurations = {
+    all: {
+        heading:
+            "Browse across the full portfolio.",
+        description:
+            "Filter the full set by transferable skills and the technologies used to deliver the work.",
+        firstLabel:
+            "Skills",
+        secondLabel:
+            "Technology",
+    },
+
+    product: {
+        heading:
+            "Product perspective.",
+        description:
+            "Focus on problem framing, product decisions, user value, business context, and measurable outcomes.",
+        firstLabel:
+            "Product Practice",
+        secondLabel:
+            "User or Business Context",
+    },
+
+    "ux-ui": {
+        heading:
+            "UX / UI perspective.",
+        description:
+            "Focus on research, flows, information architecture, interaction decisions, and experience quality.",
+        firstLabel:
+            "UX Method",
+        secondLabel:
+            "Design or Interaction",
+    },
+
+    engineering: {
+        heading:
+            "Engineering perspective.",
+        description:
+            "Focus on implementation choices, languages, frameworks, APIs, data, infrastructure, and system constraints.",
+        firstLabel:
+            "Languages & Frameworks",
+        secondLabel:
+            "Systems & Infrastructure",
+    },
+};
+
+
+function getValidLens(
+    searchValue
+) {
     const validLensValues =
         roleLensFilters.map(
             (filter) =>
@@ -135,6 +186,300 @@ function getValidLens(searchValue) {
 }
 
 
+function normalizeArray(
+    value
+) {
+    if (!Array.isArray(value)) {
+        return [];
+    }
+
+    return value
+        .filter(
+            (item) =>
+                typeof item ===
+                "string" &&
+                item.trim()
+        )
+        .map(
+            (item) =>
+                item.trim()
+        );
+}
+
+
+function uniqueSorted(
+    values
+) {
+    return [
+        ...new Set(
+            values
+        ),
+    ].sort(
+        (firstValue, secondValue) =>
+            firstValue.localeCompare(
+                secondValue
+            )
+    );
+}
+
+
+function getFirstExistingArray(
+    source,
+    possibleKeys
+) {
+    if (
+        !source ||
+        typeof source !==
+        "object"
+    ) {
+        return [];
+    }
+
+    for (
+        const key
+        of possibleKeys
+    ) {
+        const values =
+            normalizeArray(
+                source[key]
+            );
+
+        if (
+            values.length > 0
+        ) {
+            return values;
+        }
+    }
+
+    return [];
+}
+
+
+function getContextualValues(
+    project,
+    lens,
+    position
+) {
+    const skills =
+        normalizeArray(
+            project.skills
+        );
+
+    const tools =
+        normalizeArray(
+            project.tools
+        );
+
+    const cardTags =
+        normalizeArray(
+            project.cardTags
+        );
+
+    const filterFacets =
+        project.filterFacets ||
+        {};
+
+
+    if (
+        lens === "all"
+    ) {
+        return position ===
+            "first"
+            ? skills
+            : tools;
+    }
+
+
+    if (
+        lens === "product"
+    ) {
+        const productFacets =
+            filterFacets.product ||
+            {};
+
+        if (
+            position ===
+            "first"
+        ) {
+            const configuredValues =
+                getFirstExistingArray(
+                    productFacets,
+                    [
+                        "practice",
+                        "practices",
+                        "productPractice",
+                        "productPractices",
+                    ]
+                );
+
+            return configuredValues
+                .length > 0
+                ? configuredValues
+                : skills;
+        }
+
+        const configuredValues =
+            getFirstExistingArray(
+                productFacets,
+                [
+                    "context",
+                    "contexts",
+                    "userBusinessContext",
+                    "userOrBusinessContext",
+                    "businessContext",
+                ]
+            );
+
+        return configuredValues
+            .length > 0
+            ? configuredValues
+            : cardTags;
+    }
+
+
+    if (
+        lens === "ux-ui"
+    ) {
+        const uxFacets =
+            filterFacets.ux ||
+            filterFacets["ux-ui"] ||
+            {};
+
+        if (
+            position ===
+            "first"
+        ) {
+            const configuredValues =
+                getFirstExistingArray(
+                    uxFacets,
+                    [
+                        "method",
+                        "methods",
+                        "uxMethod",
+                        "uxMethods",
+                    ]
+                );
+
+            return configuredValues
+                .length > 0
+                ? configuredValues
+                : skills;
+        }
+
+        const configuredValues =
+            getFirstExistingArray(
+                uxFacets,
+                [
+                    "interaction",
+                    "interactions",
+                    "designInteraction",
+                    "designOrInteraction",
+                ]
+            );
+
+        return configuredValues
+            .length > 0
+            ? configuredValues
+            : cardTags;
+    }
+
+
+    const engineeringFacets =
+        filterFacets.engineering ||
+        {};
+
+    if (
+        position === "first"
+    ) {
+        const configuredValues =
+            getFirstExistingArray(
+                engineeringFacets,
+                [
+                    "languagesFrameworks",
+                    "languagesAndFrameworks",
+                    "frameworks",
+                    "languageFrameworks",
+                ]
+            );
+
+        return configuredValues
+            .length > 0
+            ? configuredValues
+            : tools;
+    }
+
+    const configuredValues =
+        getFirstExistingArray(
+            engineeringFacets,
+            [
+                "systemsInfrastructure",
+                "systemsAndInfrastructure",
+                "infrastructure",
+                "systems",
+            ]
+        );
+
+    return configuredValues
+        .length > 0
+        ? configuredValues
+        : [
+            ...tools,
+            ...skills,
+        ];
+}
+
+
+function projectMatchesContextFilter(
+    project,
+    lens,
+    position,
+    selectedValue
+) {
+    if (
+        selectedValue ===
+        "all"
+    ) {
+        return true;
+    }
+
+    const values =
+        getContextualValues(
+            project,
+            lens,
+            position
+        );
+
+    return values.includes(
+        selectedValue
+    );
+}
+
+
+function getProjectTimestamp(
+    project
+) {
+    if (
+        !project.sortDate
+    ) {
+        return 0;
+    }
+
+    const date =
+        new Date(
+            `${project.sortDate}-01T00:00:00Z`
+        );
+
+    const timestamp =
+        date.getTime();
+
+    return Number.isNaN(
+        timestamp
+    )
+        ? 0
+        : timestamp;
+}
+
+
 function Projects() {
     const {
         projects,
@@ -148,13 +493,6 @@ function Projects() {
         setSearchParams,
     ] = useSearchParams();
 
-    const initialLens =
-        getValidLens(
-            searchParams.get(
-                "lens"
-            )
-        );
-
     const [
         primaryType,
         setPrimaryType,
@@ -163,42 +501,146 @@ function Projects() {
     const [
         roleLens,
         setRoleLens,
-    ] = useState(initialLens);
+    ] = useState(
+        getValidLens(
+            searchParams.get(
+                "lens"
+            )
+        )
+    );
 
     const [
         sortBy,
         setSortBy,
     ] = useState("newest");
 
+    const [
+        firstContextFilter,
+        setFirstContextFilter,
+    ] = useState("all");
+
+    const [
+        secondContextFilter,
+        setSecondContextFilter,
+    ] = useState("all");
+
+
+    useEffect(() => {
+        const nextLens =
+            getValidLens(
+                searchParams.get(
+                    "lens"
+                )
+            );
+
+        setRoleLens(
+            nextLens
+        );
+    }, [searchParams]);
+
+
+    const lensConfiguration =
+        lensConfigurations[
+        roleLens
+        ] ||
+        lensConfigurations.all;
+
+
+    const lensEligibleProjects =
+        useMemo(() => {
+            return projects.filter(
+                (project) => {
+                    const projectRoleLens =
+                        normalizeArray(
+                            project.roleLens
+                        );
+
+                    const matchesPrimaryType =
+                        primaryType ===
+                        "all" ||
+                        project.displayType ===
+                        primaryType;
+
+                    const matchesRoleLens =
+                        roleLens ===
+                        "all" ||
+                        projectRoleLens.includes(
+                            roleLens
+                        );
+
+                    return (
+                        matchesPrimaryType &&
+                        matchesRoleLens
+                    );
+                }
+            );
+        }, [
+            projects,
+            primaryType,
+            roleLens,
+        ]);
+
+
+    const firstContextOptions =
+        useMemo(() => {
+            return uniqueSorted(
+                lensEligibleProjects.flatMap(
+                    (project) =>
+                        getContextualValues(
+                            project,
+                            roleLens,
+                            "first"
+                        )
+                )
+            );
+        }, [
+            lensEligibleProjects,
+            roleLens,
+        ]);
+
+
+    const secondContextOptions =
+        useMemo(() => {
+            return uniqueSorted(
+                lensEligibleProjects.flatMap(
+                    (project) =>
+                        getContextualValues(
+                            project,
+                            roleLens,
+                            "second"
+                        )
+                )
+            );
+        }, [
+            lensEligibleProjects,
+            roleLens,
+        ]);
+
 
     const filteredProjects =
         useMemo(() => {
             const visibleProjects =
-                projects.filter(
+                lensEligibleProjects.filter(
                     (project) => {
-                        const matchesPrimaryType =
-                            primaryType ===
-                            "all" ||
-                            project.displayType ===
-                            primaryType;
+                        const matchesFirst =
+                            projectMatchesContextFilter(
+                                project,
+                                roleLens,
+                                "first",
+                                firstContextFilter
+                            );
 
-                        const projectRoleLens =
-                            Array.isArray(
-                                project.roleLens
-                            )
-                                ? project.roleLens
-                                : [];
-
-                        const matchesRoleLens =
-                            roleLens ===
-                            "all" ||
-                            projectRoleLens.includes(
-                                roleLens
+                        const matchesSecond =
+                            projectMatchesContextFilter(
+                                project,
+                                roleLens,
+                                "second",
+                                secondContextFilter
                             );
 
                         return (
-                            matchesPrimaryType &&
-                            matchesRoleLens
+                            matchesFirst &&
+                            matchesSecond
                         );
                     }
                 );
@@ -255,18 +697,14 @@ function Projects() {
                     }
 
                     const firstDate =
-                        firstProject.sortDate
-                            ? new Date(
-                                `${firstProject.sortDate}-01T00:00:00Z`
-                            ).getTime()
-                            : 0;
+                        getProjectTimestamp(
+                            firstProject
+                        );
 
                     const secondDate =
-                        secondProject.sortDate
-                            ? new Date(
-                                `${secondProject.sortDate}-01T00:00:00Z`
-                            ).getTime()
-                            : 0;
+                        getProjectTimestamp(
+                            secondProject
+                        );
 
                     if (
                         sortBy ===
@@ -285,9 +723,10 @@ function Projects() {
                 }
             );
         }, [
-            projects,
-            primaryType,
+            lensEligibleProjects,
             roleLens,
+            firstContextFilter,
+            secondContextFilter,
             sortBy,
         ]);
 
@@ -299,8 +738,17 @@ function Projects() {
             nextLens
         );
 
+        setFirstContextFilter(
+            "all"
+        );
+
+        setSecondContextFilter(
+            "all"
+        );
+
         if (
-            nextLens === "all"
+            nextLens ===
+            "all"
         ) {
             setSearchParams(
                 {}
@@ -312,6 +760,23 @@ function Projects() {
         setSearchParams({
             lens: nextLens,
         });
+    }
+
+
+    function handlePrimaryTypeChange(
+        nextType
+    ) {
+        setPrimaryType(
+            nextType
+        );
+
+        setFirstContextFilter(
+            "all"
+        );
+
+        setSecondContextFilter(
+            "all"
+        );
     }
 
 
@@ -328,10 +793,30 @@ function Projects() {
             "newest"
         );
 
+        setFirstContextFilter(
+            "all"
+        );
+
+        setSecondContextFilter(
+            "all"
+        );
+
         setSearchParams(
             {}
         );
     }
+
+
+    const hasActiveFilters =
+        primaryType !==
+        "all" ||
+        roleLens !== "all" ||
+        firstContextFilter !==
+        "all" ||
+        secondContextFilter !==
+        "all" ||
+        sortBy !==
+        "newest";
 
 
     return (
@@ -407,7 +892,7 @@ function Projects() {
                                                     filter.value
                                                 }
                                                 onClick={() =>
-                                                    setPrimaryType(
+                                                    handlePrimaryTypeChange(
                                                         filter.value
                                                     )
                                                 }
@@ -498,6 +983,179 @@ function Projects() {
                         </div>
 
 
+                        <div
+                            className="work-lens-context"
+                            key={
+                                roleLens
+                            }
+                        >
+                            <div className="work-lens-context-copy">
+                                <p className="project-section-label">
+                                    {
+                                        lensConfiguration.heading
+                                    }
+                                </p>
+
+                                <p>
+                                    {
+                                        lensConfiguration.description
+                                    }
+                                </p>
+                            </div>
+
+                            <div className="work-context-selects">
+                                <label className="work-context-select">
+                                    <span>
+                                        {
+                                            lensConfiguration.firstLabel
+                                        }
+                                    </span>
+
+                                    <select
+                                        value={
+                                            firstContextFilter
+                                        }
+                                        onChange={(
+                                            event
+                                        ) =>
+                                            setFirstContextFilter(
+                                                event
+                                                    .target
+                                                    .value
+                                            )
+                                        }
+                                    >
+                                        <option value="all">
+                                            All
+                                        </option>
+
+                                        {firstContextOptions.map(
+                                            (
+                                                option
+                                            ) => (
+                                                <option
+                                                    key={
+                                                        option
+                                                    }
+                                                    value={
+                                                        option
+                                                    }
+                                                >
+                                                    {
+                                                        option
+                                                    }
+                                                </option>
+                                            )
+                                        )}
+                                    </select>
+                                </label>
+
+
+                                <label className="work-context-select">
+                                    <span>
+                                        {
+                                            lensConfiguration.secondLabel
+                                        }
+                                    </span>
+
+                                    <select
+                                        value={
+                                            secondContextFilter
+                                        }
+                                        onChange={(
+                                            event
+                                        ) =>
+                                            setSecondContextFilter(
+                                                event
+                                                    .target
+                                                    .value
+                                            )
+                                        }
+                                    >
+                                        <option value="all">
+                                            All
+                                        </option>
+
+                                        {secondContextOptions.map(
+                                            (
+                                                option
+                                            ) => (
+                                                <option
+                                                    key={
+                                                        option
+                                                    }
+                                                    value={
+                                                        option
+                                                    }
+                                                >
+                                                    {
+                                                        option
+                                                    }
+                                                </option>
+                                            )
+                                        )}
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+
+                        {(roleLens !==
+                            "all" ||
+                            firstContextFilter !==
+                            "all" ||
+                            secondContextFilter !==
+                            "all") && (
+                                <div
+                                    className="work-selected-filters"
+                                    aria-label="Selected filters"
+                                >
+                                    {roleLens !==
+                                        "all" && (
+                                            <span>
+                                                Role:{" "}
+                                                {
+                                                    roleLensFilters.find(
+                                                        (
+                                                            filter
+                                                        ) =>
+                                                            filter.value ===
+                                                            roleLens
+                                                    )
+                                                        ?.label
+                                                }
+                                            </span>
+                                        )}
+
+                                    {firstContextFilter !==
+                                        "all" && (
+                                            <span>
+                                                {
+                                                    lensConfiguration.firstLabel
+                                                }
+                                                :{" "}
+                                                {
+                                                    firstContextFilter
+                                                }
+                                            </span>
+                                        )}
+
+                                    {secondContextFilter !==
+                                        "all" && (
+                                            <span>
+                                                {
+                                                    lensConfiguration.secondLabel
+                                                }
+                                                :{" "}
+                                                {
+                                                    secondContextFilter
+                                                }
+                                            </span>
+                                        )}
+                                </div>
+                            )}
+
+
                         <div className="work-control-footer">
                             <p
                                 aria-live="polite"
@@ -522,6 +1180,9 @@ function Projects() {
                                 type="button"
                                 onClick={
                                     clearFilters
+                                }
+                                disabled={
+                                    !hasActiveFilters
                                 }
                             >
                                 Clear Filters
@@ -560,7 +1221,6 @@ function Projects() {
                                 portfolio.
                             </p>
                         </div>
-
 
                         <div className="work-skills-grid">
                             {workSkillGroups.map(
@@ -677,8 +1337,7 @@ function Projects() {
                                     <span>
                                         Published
                                         work will
-                                        appear
-                                        here
+                                        appear here
                                         automatically.
                                     </span>
                                 </div>
@@ -704,9 +1363,8 @@ function Projects() {
                                     <span>
                                         Try a
                                         different
-                                        work type
-                                        or role
-                                        lens.
+                                        filter
+                                        combination.
                                     </span>
                                 </div>
 
@@ -727,11 +1385,16 @@ function Projects() {
                         !error &&
                         filteredProjects.length >
                         0 && (
-                            <ProjectGrid
-                                projects={
-                                    filteredProjects
-                                }
-                            />
+                            <div
+                                className="work-project-results"
+                                key={`${roleLens}-${firstContextFilter}-${secondContextFilter}`}
+                            >
+                                <ProjectGrid
+                                    projects={
+                                        filteredProjects
+                                    }
+                                />
+                            </div>
                         )}
 
 

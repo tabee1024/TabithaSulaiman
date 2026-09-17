@@ -4721,6 +4721,103 @@ textarea:focus-visible {
      font-size: 0.68rem;
 }
 
+.work-lens-context {
+     display: grid;
+     grid-template-columns:
+          minmax(0, 1fr) minmax(420px, 0.9fr);
+     gap: 1rem;
+     align-items: end;
+     padding-top: 0.75rem;
+     border-top: 1px solid var(--color-border);
+     animation: work-lens-refocus 180ms ease;
+}
+
+.work-lens-context-copy {
+     display: grid;
+     gap: 0.25rem;
+}
+
+.work-lens-context-copy p {
+     margin: 0;
+}
+
+.work-lens-context-copy p:last-child {
+     max-width: 56ch;
+     color: var(--color-text-muted);
+     font-size: 0.72rem;
+     line-height: 1.5;
+}
+
+.work-context-selects {
+     display: grid;
+     grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+     gap: 0.65rem;
+}
+
+.work-context-select {
+     display: grid;
+     gap: 0.3rem;
+     color: var(--color-text-muted);
+     font-size: 0.64rem;
+     font-weight: 700;
+}
+
+.work-context-select select {
+     width: 100%;
+     min-height: 34px;
+     padding: 0.4rem 0.6rem;
+     border: 1px solid var(--color-border);
+     border-radius: 5px;
+     background-color: var(--color-bg);
+     color: var(--color-text);
+     font: inherit;
+     font-size: 0.68rem;
+}
+
+.work-selected-filters {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.4rem;
+}
+
+.work-selected-filters span {
+     display: inline-flex;
+     align-items: center;
+     min-height: 24px;
+     padding: 0.28rem 0.5rem;
+     border: 1px solid var(--color-border);
+     border-radius: 999px;
+     background-color: var(--color-bg);
+     color: var(--color-text-muted);
+     font-size: 0.64rem;
+     font-weight: 700;
+}
+
+.work-project-results {
+     animation: work-lens-refocus 180ms ease;
+}
+
+@keyframes work-lens-refocus {
+     from {
+          opacity: 0.72;
+          transform: translateY(3px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+     .work-lens-context,
+     .work-project-results {
+          animation: none;
+     }
+}
+
 .work-control-footer {
      gap: 0.6rem;
      padding-top: 0.55rem;
