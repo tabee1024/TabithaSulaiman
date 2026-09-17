@@ -2067,6 +2067,57 @@ html {
      font-weight: 600;
 }
 
+.mockup-lens-evidence-label {
+     margin: 0;
+     color: var(--color-button);
+     font-size: 0.6rem;
+     line-height: 1.2;
+     font-weight: 800;
+     letter-spacing: 0.04em;
+     text-transform: uppercase;
+}
+
+.mockup-lens-evidence {
+     margin: 0;
+     padding-left: 0.65rem;
+     border-left: 2px solid var(--color-button);
+     color: var(--color-text-muted);
+     font-size: 0.68rem;
+     line-height: 1.45;
+     font-weight: 600;
+}
+
+.mockup-work-card-lens-active {
+     transition:
+          border-color 180ms ease,
+          transform 180ms ease;
+}
+
+.mockup-work-card-lens-active .mockup-work-card-body {
+     animation: work-card-refocus 180ms ease;
+}
+
+@keyframes work-card-refocus {
+     from {
+          opacity: 0.72;
+          transform: translateY(2px);
+     }
+
+     to {
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+     .mockup-work-card-lens-active,
+     .mockup-work-card-lens-active .mockup-work-card-body {
+          transition: none;
+          animation: none;
+     }
+}
+
 .mockup-lens-row,
 .mockup-tool-row {
      display: flex;

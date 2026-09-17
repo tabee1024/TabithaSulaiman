@@ -1393,6 +1393,9 @@ function Projects() {
                                     projects={
                                         filteredProjects
                                     }
+                                    activeLens={
+                                        roleLens
+                                    }
                                 />
                             </div>
                         )}
