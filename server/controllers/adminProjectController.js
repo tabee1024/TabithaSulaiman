@@ -132,35 +132,54 @@ export async function getAdminProjects(
             };
 
 
-        const projects = await Project.find(filter)
-            .sort({
-                "draft.order": 1,
-                updatedAt: -1,
-            })
-            .select(
-                [
-                    "slug",
-                    "draft.title",
-                    "draft.subtitle",
-                    "draft.status",
-                    "draft.featured",
-                    "draft.displayType",
-                    "draft.sortDate",
-                    "publicationStatus",
-                    "publishedAt",
-                    "revision",
-                    "isArchived",
-                    "createdAt",
-                    "updatedAt",
-                ].join(" ")
+        const projects =
+            await Project.find(
+                filter
             )
-            .lean();
+                .sort({
+                    "draft.order": 1,
+                    "published.order": 1,
+                    updatedAt: -1,
+                })
+                .select(
+                    [
+                        "slug",
+
+                        "draft.title",
+                        "draft.subtitle",
+                        "draft.status",
+                        "draft.featured",
+                        "draft.displayType",
+                        "draft.sortDate",
+                        "draft.order",
+                        "draft.roleLens",
+
+                        "published.title",
+                        "published.subtitle",
+                        "published.status",
+                        "published.featured",
+                        "published.displayType",
+                        "published.sortDate",
+                        "published.order",
+                        "published.roleLens",
+
+                        "publicationStatus",
+                        "publishedAt",
+                        "revision",
+                        "isArchived",
+                        "createdAt",
+                        "updatedAt",
+                    ].join(" ")
+                )
+                .lean();
 
 
-        return response.status(200).json({
-            status: "success",
-            data: projects,
-        });
+        return response
+            .status(200)
+            .json({
+                status: "success",
+                data: projects,
+            });
     } catch (error) {
         return sendProjectError(
             error,

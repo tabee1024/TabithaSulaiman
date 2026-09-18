@@ -40,16 +40,36 @@ function getProjectFeatured(project) {
 
 
 function getProjectRoleLenses(project) {
-    const roleLenses =
-        project.draft?.roleLens ||
-        project.published?.roleLens ||
-        [];
+    const draftRoleLenses =
+        Array.isArray(
+            project.draft?.roleLens
+        )
+            ? project.draft.roleLens
+            : [];
 
-    return Array.isArray(roleLenses)
-        ? roleLenses
-        : [];
+    const publishedRoleLenses =
+        Array.isArray(
+            project.published?.roleLens
+        )
+            ? project.published.roleLens
+            : [];
+
+    if (
+        project.publicationStatus ===
+        "published" &&
+        publishedRoleLenses.length > 0
+    ) {
+        return publishedRoleLenses;
+    }
+
+    if (
+        draftRoleLenses.length > 0
+    ) {
+        return draftRoleLenses;
+    }
+
+    return publishedRoleLenses;
 }
-
 
 function AdminDashboard() {
     const [loginData, setLoginData] =

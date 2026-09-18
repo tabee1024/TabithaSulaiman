@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import ProjectMedia from "./ProjectMedia";
 
 const lensLabels = {
     product:
@@ -531,35 +531,19 @@ function ProjectCard({
     return (
         <article
             className={`mockup-work-card ${activeLens !==
-                    "all"
-                    ? "mockup-work-card-lens-active"
-                    : ""
+                "all"
+                ? "mockup-work-card-lens-active"
+                : ""
                 }`}
         >
-            <div
-                className="mockup-work-card-media"
-                aria-hidden="true"
-            >
-                <div className="mockup-card-browser-bar">
-                    <span />
-                    <span />
-                    <span />
-                </div>
-
-                <div className="mockup-card-screen">
-                    <div className="mockup-card-screen-block mockup-card-screen-block-large" />
-
-                    <div className="mockup-card-screen-row">
-                        <span />
-                        <span />
-                        <span />
-                    </div>
-
-                    <span className="mockup-card-screen-line" />
-
-                    <span className="mockup-card-screen-line short" />
-                </div>
-            </div>
+            <ProjectMedia
+                media={
+                    project.media
+                }
+                projectTitle={
+                    project.title
+                }
+            />
 
 
             <div className="mockup-work-card-body">

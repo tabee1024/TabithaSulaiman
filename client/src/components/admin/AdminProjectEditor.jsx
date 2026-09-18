@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import AdminProjectMediaEditor from "./AdminProjectMediaEditor";
 
 const ROLE_LENS_OPTIONS = [
     {
@@ -228,6 +228,31 @@ function buildEditorState(project) {
         detailCta:
             draft.detailCta || "",
 
+        media:
+            Array.isArray(
+                draft.media
+            )
+                ? draft.media.map(
+                    (item) => ({
+                        type:
+                            item?.type ||
+                            "image",
+
+                        src:
+                            item?.src ||
+                            "",
+
+                        alt:
+                            item?.alt ||
+                            "",
+
+                        caption:
+                            item?.caption ||
+                            "",
+                    })
+                )
+                : [],
+
         roleLens:
             Array.isArray(
                 draft.roleLens
@@ -434,6 +459,31 @@ function buildDraftPayload(formData) {
                 parseImpactStats(
                     formData.impactStatsText
                 ),
+            media:
+                formData.media
+                    .filter(
+                        (item) =>
+                            item.src
+                                .trim()
+                    )
+                    .map(
+                        (item) => ({
+                            type:
+                                item.type,
+
+                            src:
+                                item.src
+                                    .trim(),
+
+                            alt:
+                                item.alt
+                                    .trim(),
+
+                            caption:
+                                item.caption
+                                    .trim(),
+                        })
+                    ),
 
             tools:
                 linesToArray(
@@ -595,6 +645,18 @@ function AdminProjectEditor({
         );
 
         setSaveMessage("");
+    }
+    function handleMediaChange(
+        nextMedia
+    ) {
+        setFormData(
+            (currentData) => ({
+                ...currentData,
+
+                media:
+                    nextMedia,
+            })
+        );
     }
 
 
@@ -1805,7 +1867,10 @@ function AdminProjectEditor({
                         </div>
                     </div>
                 </section>
-
+                <AdminProjectMediaEditor
+                    value={formData.media}
+                    onChange={handleMediaChange}
+                />
                 <div className="admin-editor-actions">
                     <div>
                         <strong>

@@ -1595,6 +1595,106 @@
      gap: var(--space-sm);
 }
 
+.admin-media-help {
+     display: grid;
+     gap: 0.25rem;
+     padding: 0.75rem;
+     border: 1px dashed var(--color-border);
+     border-radius: 7px;
+     background-color: var(--color-nav);
+     color: var(--color-text-muted);
+     font-size: 0.72rem;
+     line-height: 1.5;
+}
+
+.admin-media-help strong {
+     color: var(--color-accent-dark);
+}
+
+.admin-media-help code,
+.admin-media-path-preview code {
+     overflow-wrap: anywhere;
+     font-family: monospace;
+     color: var(--color-accent-dark);
+}
+
+.admin-media-empty {
+     padding: 1rem;
+     border: 1px solid var(--color-border);
+     border-radius: 7px;
+     background-color: var(--color-bg);
+}
+
+.admin-media-empty p {
+     margin: 0;
+     color: var(--color-text-muted);
+}
+
+.admin-media-empty p+p {
+     margin-top: 0.3rem;
+}
+
+.admin-media-list {
+     display: grid;
+     gap: 0.75rem;
+}
+
+.admin-media-item {
+     display: grid;
+     gap: 0.75rem;
+     padding: 0.85rem;
+     border: 1px solid var(--color-border);
+     border-radius: 7px;
+     background-color: var(--color-bg);
+}
+
+.admin-media-item-header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 1rem;
+}
+
+.admin-media-item-header>div:first-child {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 0.45rem;
+}
+
+.admin-media-primary-badge {
+     display: inline-flex;
+     align-items: center;
+     min-height: 22px;
+     padding: 0.22rem 0.4rem;
+     border: 1px solid var(--color-button);
+     border-radius: 5px;
+     color: var(--color-button);
+     font-size: 0.58rem;
+     font-weight: 800;
+     text-transform: uppercase;
+}
+
+.admin-media-order-actions {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.35rem;
+}
+
+.admin-media-order-actions .button {
+     min-height: 30px;
+     padding: 0.35rem 0.55rem;
+}
+
+.admin-media-path-preview {
+     display: grid;
+     gap: 0.2rem;
+     padding-top: 0.6rem;
+     border-top: 1px solid var(--color-border);
+     color: var(--color-text-muted);
+     font-size: 0.68rem;
+}
+
 .admin-draft-preview {
      display: grid;
      gap: var(--space-md);
@@ -2241,6 +2341,39 @@ html {
      background: linear-gradient(135deg,
                rgba(112, 60, 2, 0.12),
                rgba(244, 241, 235, 0.95));
+}
+
+.case-study-visual-media {
+     position: relative;
+     min-height: 360px;
+     padding: 0;
+     overflow: hidden;
+     background-color: var(--color-nav);
+}
+
+.case-study-visual-image,
+.case-study-visual-video {
+     display: block;
+     width: 100%;
+     height: 100%;
+     min-height: 360px;
+     object-fit: cover;
+     object-position: top center;
+}
+
+.case-study-visual-image {
+     object-fit: contain;
+     object-position: center;
+     background-color: var(--color-nav);
+}
+
+.case-study-visual-media-loading {
+     width: 100%;
+     min-height: 360px;
+     background:
+          linear-gradient(135deg,
+               var(--color-nav),
+               var(--color-bg));
 }
 
 .case-study-visual-screen {
@@ -2905,6 +3038,36 @@ html {
 .selected-work-section .mockup-work-card-media {
      padding: 0.75rem;
 }
+
+.mockup-work-card-media-real {
+     position: relative;
+     display: block;
+     overflow: hidden;
+     padding: 0;
+     background-color: var(--color-nav);
+}
+
+.mockup-work-card-media-image,
+.mockup-work-card-media-video {
+     display: block;
+     width: 100%;
+     height: 100%;
+     min-height: 100%;
+     object-fit: cover;
+     object-position: top center;
+}
+
+.mockup-work-card-media-loading {
+     width: 100%;
+     height: 100%;
+     min-height: 100%;
+     background:
+          linear-gradient(135deg,
+               var(--color-nav),
+               var(--color-bg));
+}
+
+
 
 .selected-work-section .mockup-work-card-body {
      gap: 0.6rem;
