@@ -19,7 +19,7 @@ import {
 
 import {
     requireTrustedAdminRequest,
-} from "../middleware/adminRequestMiddleWare.js";
+} from "../middleware/adminRequestMiddleware.js";
 
 const router = express.Router();
 
