@@ -119,7 +119,7 @@ export async function updateAdminMessage(request, response) {
         messageId,
         updates,
         {
-            new: true,
+            returnDocument: "after",
             runValidators: true,
         }
     ).select("name email title company reason message isRead isArchived adminNote createdAt updatedAt");

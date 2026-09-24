@@ -7,6 +7,7 @@ import {
     getAdminProject,
     getAdminProjects,
     publishAdminProject,
+    reorderAdminProject,
     restoreAdminProject,
     unpublishAdminProject,
     updateAdminProjectDraft,
@@ -18,7 +19,7 @@ import {
 
 import {
     requireTrustedAdminRequest,
-} from "../middleware/adminRequestMiddleware.js";
+} from "../middleware/adminRequestMiddleWare.js";
 
 const router = express.Router();
 
@@ -101,6 +102,15 @@ router.patch(
 );
 
 
+// ----------------------------------------
+// REORDER
+// ----------------------------------------
+
+router.patch(
+    "/:projectId/order",
+    requireAdmin,
+    reorderAdminProject
+);
 // ----------------------------------------
 // PUBLISH
 // ----------------------------------------

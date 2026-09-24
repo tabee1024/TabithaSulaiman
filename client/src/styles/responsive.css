@@ -1465,27 +1465,283 @@
 
     .admin-dashboard-header,
     .admin-view-header,
-    .admin-message-card-header,
     .admin-project-card-header {
         flex-direction: column;
     }
 
-    .admin-message-meta,
-    .admin-project-meta,
     .admin-project-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-project-summary>div:nth-child(2) {
+        border-right: 0;
+    }
+
+    .admin-project-summary>div:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .admin-project-meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-project-meta p:nth-child(2) {
+        border-right: 0;
+    }
+
+    .admin-project-meta p:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .admin-project-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-project-order-controls {
+        width: 100%;
+    }
+
+    .admin-project-actions>.button:last-child {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* ------------------------------------------------------
+   Admin project editor
+   ------------------------------------------------------ */
+
+    .admin-project-editor {
+        gap: 0.9rem;
+    }
+
+    .admin-project-editor-header {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .admin-project-editor-header>div {
+        max-width: 100%;
+    }
+
+    .admin-project-editor-header h2 {
+        font-size: clamp(1.8rem, 9vw, 2.35rem);
+    }
+
+    .admin-project-editor-header .button {
+        width: 100%;
+    }
+
+
+    /* Draft information */
+
+    .admin-project-editor-safety {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+
+    /* Preview / publish toolbar */
+
+    .admin-editor-publication-actions {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .admin-editor-publication-actions .button {
+        width: 100%;
+    }
+
+
+    /* Preview */
+
+    .admin-draft-preview {
+        padding: 0.85rem;
+    }
+
+    .admin-draft-preview-meta {
+        gap: 0.35rem;
+    }
+
+
+    /* Editor sections */
+
+    .admin-editor-section {
+        gap: 0.8rem;
+        padding: 0.85rem;
+    }
+
+    .admin-editor-section-heading {
+        padding-bottom: 0.6rem;
+    }
+
+    .admin-editor-section-heading h3 {
+        font-size: 1.2rem;
+    }
+
+
+    /* Two-column desktop fields become one column */
+
+    .admin-editor-grid-two {
         grid-template-columns: 1fr;
     }
 
-    .admin-project-updated {
+
+    /* Role lenses */
+
+    .admin-editor-role-lenses {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .admin-editor-check {
+        width: 100%;
+    }
+
+
+    /* Save controls */
+
+    .admin-editor-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-editor-button-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .admin-editor-button-row .button {
+        width: 100%;
+    }
+
+
+    /* Prevent long editor content from overflowing */
+
+    .admin-project-editor,
+    .admin-project-editor-form,
+    .admin-editor-section,
+    .admin-editor-grid,
+    .admin-editor-section .form-field {
+        min-width: 0;
+    }
+
+    .admin-editor-section input,
+    .admin-editor-section select,
+    .admin-editor-section textarea {
+        max-width: 100%;
+    }
+
+    /* ------------------------------------------------------
+   Admin messages
+   ------------------------------------------------------ */
+
+    .admin-message-card {
+        padding: 0.85rem;
+    }
+
+    .admin-message-card-header {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .admin-message-card-header>p {
         text-align: left;
     }
+
+    .admin-message-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-message-meta p {
+        padding: 0.55rem 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .admin-message-meta p:nth-child(odd) {
+        padding-left: 0;
+        border-right: 0;
+    }
+
+    .admin-message-meta p:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .admin-message-meta p:last-child {
+        border-bottom: 0;
+    }
+
+    .admin-message-meta+p {
+        padding: 0.7rem;
+    }
+
+    .admin-message-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .admin-message-actions .button {
+        width: 100%;
+    }
+
+    .admin-message-actions .button:nth-child(2) {
+        margin-left: 0;
+    }
+
+    /* ------------------------------------------------------
+   Admin project media
+   ------------------------------------------------------ */
+
+    .admin-media-item {
+        padding: 0.75rem;
+    }
+
+    .admin-media-item-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-media-order-actions {
+        width: 100%;
+    }
+
+    .admin-media-order-actions .button {
+        flex: 1;
+    }
+
+    .admin-media-remove {
+        margin-left: 0;
+    }
+
+    .admin-media-item-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-media-preview {
+        width: 100%;
+    }
+
+    .admin-media-fields .admin-editor-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-media-empty {
+        align-items: flex-start;
+    }
+
+    .admin-media-add {
+        width: 100%;
+    }
+
 }
 
 
-/* ==========================================================
-   TOUCH DEVICES
-   Do not depend on hover movement.
-   ========================================================== */
 
 @media (hover: none) {
 
