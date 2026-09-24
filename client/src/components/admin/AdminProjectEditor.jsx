@@ -1342,21 +1342,29 @@ function AdminProjectEditor({
                                    </small>
                               </div>
                          </div>
+                         <div>
+                              <label className="admin-editor-check">
+                                   <input
+                                        name="featured"
+                                        type="checkbox"
+                                        checked={
+                                             formData.featured
+                                        }
+                                        onChange={
+                                             handleFieldChange
+                                        }
+                                   />
 
-                         <label className="admin-editor-check">
-                              <input
-                                   name="featured"
-                                   type="checkbox"
-                                   checked={
-                                        formData.featured
-                                   }
-                                   onChange={
-                                        handleFieldChange
-                                   }
-                              />
+                                   Featured project
+                              </label>
 
-                              Featured project
-                         </label>
+                              <small>
+                                   Featured projects are eligible for
+                                   Selected Work on the Home page.
+                                   Portfolio position determines which
+                                   featured projects appear first.
+                              </small>
+                         </div>
                     </details>
                     <details className="admin-editor-section admin-editor-collapsible">
                          <summary className="admin-editor-section-heading">

@@ -722,6 +722,9 @@ function AdminDashboard() {
                               headers: {
                                    "Content-Type":
                                         "application/json",
+
+                                   "X-Portfolio-Admin-Request":
+                                        "1",
                               },
 
                               credentials:
@@ -851,7 +854,6 @@ function AdminDashboard() {
                     result.message ||
                     "Project order updated."
                );
-
 
                // Quietly verify against MongoDB after
                // updating the screen immediately.
@@ -1435,10 +1437,14 @@ function AdminDashboard() {
                                                                                           (currentProject) =>
                                                                                                !currentProject.isArchived
                                                                                      ).length;
-
                                                                                 const isReordering =
                                                                                      reorderingProjectId ===
                                                                                      project._id;
+
+                                                                                const isAnyProjectReordering =
+                                                                                     Boolean(
+                                                                                          reorderingProjectId
+                                                                                     );
 
                                                                                 return (
 
@@ -1595,7 +1601,7 @@ function AdminDashboard() {
                                                                                                                         )
                                                                                                                    }
                                                                                                                    disabled={
-                                                                                                                        isReordering ||
+                                                                                                                        isAnyProjectReordering ||
                                                                                                                         currentOrder <= 1
                                                                                                                    }
                                                                                                               >
@@ -1613,7 +1619,7 @@ function AdminDashboard() {
                                                                                                                              currentOrder
                                                                                                                         }
                                                                                                                         disabled={
-                                                                                                                             isReordering
+                                                                                                                             isAnyProjectReordering
                                                                                                                         }
                                                                                                                         onChange={(
                                                                                                                              event
@@ -1671,7 +1677,7 @@ function AdminDashboard() {
                                                                                                                         )
                                                                                                                    }
                                                                                                                    disabled={
-                                                                                                                        isReordering ||
+                                                                                                                        isAnyProjectReordering ||
                                                                                                                         currentOrder >=
                                                                                                                         activeProjectCount
                                                                                                                    }
