@@ -108,7 +108,8 @@ router.patch(
 
 router.patch(
     "/:projectId/order",
-    requireAdmin,
+    requireTrustedAdminRequest,
+    adminProjectWriteLimiter,
     reorderAdminProject
 );
 // ----------------------------------------

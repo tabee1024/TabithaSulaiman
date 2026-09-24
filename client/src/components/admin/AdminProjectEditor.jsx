@@ -729,20 +729,15 @@ function AdminProjectEditor({
 
                const response =
                     await fetch(
-                         `/api/admin/projects/${project._id}/${action}`,
+                         `/api/admin/projects/${project._id}/publish`,
                          {
                               method: "POST",
-
                               headers: {
-                                   "X-Portfolio-Admin-Request":
-                                        "1",
+                                   "x-portfolio-admin-request": "1",
                               },
-
-                              credentials:
-                                   "include",
+                              credentials: "include",
                          }
                     );
-
                const result =
                     await response.json();
 
@@ -800,11 +795,8 @@ function AdminProjectEditor({
                                    "PATCH",
 
                               headers: {
-                                   "Content-Type":
-                                        "application/json",
-
-                                   "X-Portfolio-Admin-Request":
-                                        "1",
+                                   "Content-Type": "application/json",
+                                   "x-portfolio-admin-request": "1",
                               },
 
                               credentials:

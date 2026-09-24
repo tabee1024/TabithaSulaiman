@@ -176,7 +176,7 @@ function AdminProjectMediaEditor({
                         ) => (
                             <article
                                 className="admin-media-item"
-                                key={`${index}-${item.src || "new"}`}
+                                key={`media-${index}`}
                             >
                                 <div className="admin-media-item-header">
                                     <div className="admin-media-item-title">
